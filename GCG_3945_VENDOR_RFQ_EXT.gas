@@ -1,0 +1,3958 @@
+Program.Sub.ScreenSU.Start
+gui.f_Main..create
+gui.f_Main..caption("Multi Line Request for Quote Extended")
+gui.f_Main..size(18225,10815)
+gui.f_Main..minx(0)
+gui.f_Main..miny(0)
+gui.f_Main..position(0,0)
+gui.f_Main..event(unload,f_Main_Unload)
+gui.f_Main..alwaysontop(False)
+gui.f_Main..fontname("Arial")
+gui.f_Main..fontsize(8)
+gui.f_Main..forecolor(0)
+gui.f_Main..fontstyle(,,,,)
+gui.f_Main..BackColor(-2147483633)
+gui.f_Main..controlbox(True)
+gui.f_Main..maxbutton(True)
+gui.f_Main..minbutton(True)
+gui.f_Main..mousepointer(0)
+gui.f_Main..moveable(True)
+gui.f_Main..sizeable(True)
+gui.f_Main..ShowInTaskBar(True)
+gui.f_Main..titlebar(True)
+gui.f_Main.tabRFQ.create(tab)
+gui.f_Main.tabRFQ.tabs(3)
+gui.f_Main.tabRFQ.tabsperrow(3)
+gui.f_Main.tabRFQ.settab(0)
+gui.f_Main.tabRFQ.caption("Reply To")
+gui.f_Main.tabRFQ.settab(1)
+gui.f_Main.tabRFQ.caption("Vendor")
+gui.f_Main.tabRFQ.settab(2)
+gui.f_Main.tabRFQ.caption("Job/Router/Req")
+gui.f_Main.tabRFQ.size(17700,5025)
+gui.f_Main.tabRFQ.position(200,200)
+gui.f_Main.tabRFQ.visible(True)
+gui.f_Main.tabRFQ.fontname("Arial")
+gui.f_Main.tabRFQ.fontsize(8)
+gui.f_Main.lvParts.create(listview)
+gui.f_Main.lvParts.view(3)
+gui.f_Main.lvParts.addlistviewcolumn("Line",1000,0)
+gui.f_Main.lvParts.addlistviewcolumn("Part",3500,0)
+gui.f_Main.lvParts.addlistviewcolumn("Description",5000,0)
+gui.f_Main.lvParts.addlistviewcolumn("Quantity",1500,1)
+gui.f_Main.lvParts.addlistviewcolumn("Req No.",1500,0)
+gui.f_Main.lvParts.addlistviewcolumn("Job",1500,0)
+gui.f_Main.lvParts.addlistviewcolumn("Suffix",1000,0)
+gui.f_Main.lvParts.addlistviewcolumn("Req. Date",1000,0)
+gui.f_Main.lvParts.visible(True)
+gui.f_Main.lvParts.size(17700,2880)
+gui.f_Main.lvParts.zorder(0)
+gui.f_Main.lvParts.position(100,6700)
+gui.f_Main.lvParts.enabled(True)
+gui.f_Main.lvParts.fontname("Arial")
+gui.f_Main.lvParts.fontsize(8)
+gui.f_Main.lvParts.event(dblclick,f_main_load_line)
+gui.f_Main.cmdSave.create(button)
+gui.f_Main.cmdSave.caption("Save")
+gui.f_Main.cmdSave.visible(True)
+gui.f_Main.cmdSave.size(1000,375)
+gui.f_Main.cmdSave.zorder(0)
+gui.f_Main.cmdSave.position(100,9725)
+gui.f_Main.cmdSave.enabled(True)
+gui.f_Main.cmdSave.fontname("Arial")
+gui.f_Main.cmdSave.fontsize(8)
+gui.f_Main.cmdSave.event(click,f_main_save_all)
+gui.f_Main.cmdSave.defaultvalue("")
+gui.f_Main.cmdSave.controlgroup(0)
+gui.f_Main.lblRName.create(label,"Reply To",True,1935,255,1,10945,5245,True,0,Arial,8,-2147483633,0)
+gui.f_Main.lblRName.defaultvalue("")
+gui.f_Main.lblRName.controlgroup(0)
+gui.f_Main.txtRName.create(textbox,"",True,3000,300,0,10945,5430,True,0,Arial,8,-2147483643,1)
+gui.f_Main.txtRName.defaultvalue("")
+gui.f_Main.txtRName.controlgroup(1)
+gui.f_Main.cmdBrwReply.create(button)
+gui.f_Main.cmdBrwReply.caption("^")
+gui.f_Main.cmdBrwReply.visible(True)
+gui.f_Main.cmdBrwReply.size(300,300)
+gui.f_Main.cmdBrwReply.zorder(0)
+gui.f_Main.cmdBrwReply.position(14055,5445)
+gui.f_Main.cmdBrwReply.enabled(True)
+gui.f_Main.cmdBrwReply.fontname("Arial")
+gui.f_Main.cmdBrwReply.fontsize(8)
+gui.f_Main.cmdBrwReply.event(click,cmdbrwreply_click)
+gui.f_Main.cmdBrwReply.defaultvalue("")
+gui.f_Main.cmdBrwReply.controlgroup(0)
+gui.f_Main.lblREmail.create(label,"Email",True,1000,255,1,10945,5890,True,0,Arial,8,-2147483633,0)
+gui.f_Main.lblREmail.defaultvalue("")
+gui.f_Main.lblREmail.controlgroup(0)
+gui.f_Main.txtREmail.create(textbox,"",True,3290,300,0,10945,6090,True,0,Arial,8,-2147483643,1)
+gui.f_Main.txtREmail.defaultvalue("")
+gui.f_Main.txtREmail.controlgroup(1)
+gui.f_Main.txtUser.create(textbox,"",True,1250,300,0,14610,5430,False,0,Arial,8,-2147483643,1)
+gui.f_Main.txtUser.defaultvalue("")
+gui.f_Main.txtUser.controlgroup(1)
+gui.f_Main.lblRFax.create(label,"Fax No.",True,1015,300,1,14610,5890,True,0,Arial,8,-2147483633,0)
+gui.f_Main.lblRFax.defaultvalue("")
+gui.f_Main.lblRFax.controlgroup(0)
+gui.f_Main.txtRFax.create(textbox,"",True,2265,300,0,14610,6090,True,0,Arial,8,-2147483643,1)
+gui.f_Main.txtRFax.defaultvalue("")
+gui.f_Main.txtRFax.controlgroup(1)
+gui.f_Main.dtpReplyBy.create(datepicker)
+gui.f_Main.dtpReplyBy.visible(True)
+gui.f_Main.dtpReplyBy.size(1500,285)
+gui.f_Main.dtpReplyBy.zorder(0)
+gui.f_Main.dtpReplyBy.position(16180,5430)
+gui.f_Main.dtpReplyBy.enabled(True)
+gui.f_Main.dtpReplyBy.checkbox(False)
+gui.f_Main.dtpReplyBy.defaultvalue("")
+gui.f_Main.dtpReplyBy.controlgroup(0)
+gui.f_Main.lblReplyDate.create(label,"Reply By:",True,1000,255,1,16195,5245,True,0,Arial,8,-2147483633,0)
+gui.f_Main.lblReplyDate.defaultvalue("")
+gui.f_Main.lblReplyDate.controlgroup(0)
+gui.f_Main.lvSelVendors.create(listview)
+gui.f_Main.lvSelVendors.view(3)
+gui.f_Main.lvSelVendors.addlistviewcolumn("Vendor",1000,0)
+gui.f_Main.lvSelVendors.addlistviewcolumn("Name",4200,0)
+gui.f_Main.lvSelVendors.visible(True)
+gui.f_Main.lvSelVendors.size(5430,3160)
+gui.f_Main.lvSelVendors.zorder(0)
+gui.f_Main.lvSelVendors.position(100,1360)
+gui.f_Main.lvSelVendors.enabled(True)
+gui.f_Main.lvSelVendors.parent("tabrfq",1)
+gui.f_Main.lvSelVendors.fontname("Arial")
+gui.f_Main.lvSelVendors.fontsize(8)
+gui.f_Main.lvSelVendors.event(itemclick,lvselvendors_itemclick)
+gui.f_Main.lvAvailContacts.create(listview)
+gui.f_Main.lvAvailContacts.view(3)
+gui.f_Main.lvAvailContacts.addlistviewcolumn("Available Contacts",2400,0)
+gui.f_Main.lvAvailContacts.addlistviewcolumn("Email Address",2750,0)
+gui.f_Main.lvAvailContacts.addlistviewcolumn("ID",0,0)
+gui.f_Main.lvAvailContacts.visible(True)
+gui.f_Main.lvAvailContacts.size(5450,4100)
+gui.f_Main.lvAvailContacts.zorder(0)
+gui.f_Main.lvAvailContacts.position(5955,440)
+gui.f_Main.lvAvailContacts.enabled(True)
+gui.f_Main.lvAvailContacts.parent("tabrfq",1)
+gui.f_Main.lvAvailContacts.fontname("Arial")
+gui.f_Main.lvAvailContacts.fontsize(8)
+gui.f_Main.lvAvailContacts.event(dblclick,lvavailcontacts_dblclick)
+gui.f_Main.lvlSelContacts.create(listview)
+gui.f_Main.lvlSelContacts.view(3)
+gui.f_Main.lvlSelContacts.addlistviewcolumn("Selected Contacts",2400,0)
+gui.f_Main.lvlSelContacts.addlistviewcolumn("Email Address",2750,0)
+gui.f_Main.lvlSelContacts.addlistviewcolumn("ID",0,0)
+gui.f_Main.lvlSelContacts.visible(True)
+gui.f_Main.lvlSelContacts.size(5450,4100)
+gui.f_Main.lvlSelContacts.zorder(0)
+gui.f_Main.lvlSelContacts.position(12065,440)
+gui.f_Main.lvlSelContacts.enabled(True)
+gui.f_Main.lvlSelContacts.parent("tabrfq",1)
+gui.f_Main.lvlSelContacts.fontname("Arial")
+gui.f_Main.lvlSelContacts.fontsize(8)
+gui.f_Main.lvlSelContacts.event(dblclick,lvlselcontacts_dblclick)
+gui.f_Main.lblVendor.create(label,"Vendor",True,1000,255,1,100,100,True,0,Arial,8,-2147483633,0)
+gui.f_Main.lblVendor.parent("tabrfq",1)
+gui.f_Main.lblVendor.defaultvalue("")
+gui.f_Main.lblVendor.controlgroup(0)
+gui.f_Main.txtVendor.create(textbox,"",True,1250,300,0,100,330,True,0,Arial,8,-2147483643,1)
+gui.f_Main.txtVendor.parent("tabrfq",1)
+gui.f_Main.txtVendor.maxLength(6)
+gui.f_Main.txtVendor.event(lostfocus,txtvendor_lostfocus)
+gui.f_Main.txtVendor.defaultvalue("")
+gui.f_Main.txtVendor.controlgroup(2)
+gui.f_Main.cmdBrwVendor.create(button)
+gui.f_Main.cmdBrwVendor.caption("^")
+gui.f_Main.cmdBrwVendor.visible(True)
+gui.f_Main.cmdBrwVendor.size(300,300)
+gui.f_Main.cmdBrwVendor.zorder(0)
+gui.f_Main.cmdBrwVendor.position(1400,330)
+gui.f_Main.cmdBrwVendor.enabled(True)
+gui.f_Main.cmdBrwVendor.parent("tabrfq",1)
+gui.f_Main.cmdBrwVendor.fontname("Arial")
+gui.f_Main.cmdBrwVendor.fontsize(8)
+gui.f_Main.cmdBrwVendor.event(click,cmdbrwvendor_click)
+gui.f_Main.cmdBrwVendor.defaultvalue("")
+gui.f_Main.cmdBrwVendor.controlgroup(0)
+gui.f_Main.lblVendorName.create(label,"Vendor Name",True,1935,255,1,100,730,True,0,Arial,8,-2147483633,0)
+gui.f_Main.lblVendorName.parent("tabrfq",1)
+gui.f_Main.lblVendorName.defaultvalue("")
+gui.f_Main.lblVendorName.controlgroup(0)
+gui.f_Main.txtVendorName.create(textbox,"",True,3000,300,0,100,960,False,0,Arial,8,-2147483643,1)
+gui.f_Main.txtVendorName.parent("tabrfq",1)
+gui.f_Main.txtVendorName.defaultvalue("")
+gui.f_Main.txtVendorName.controlgroup(2)
+gui.f_Main.cmdAddVendor.create(button)
+gui.f_Main.cmdAddVendor.caption("Add")
+gui.f_Main.cmdAddVendor.visible(True)
+gui.f_Main.cmdAddVendor.size(750,300)
+gui.f_Main.cmdAddVendor.zorder(0)
+gui.f_Main.cmdAddVendor.position(3150,960)
+gui.f_Main.cmdAddVendor.enabled(True)
+gui.f_Main.cmdAddVendor.parent("tabrfq",1)
+gui.f_Main.cmdAddVendor.fontname("Arial")
+gui.f_Main.cmdAddVendor.fontsize(8)
+gui.f_Main.cmdAddVendor.event(click,cmdaddvendor_click)
+gui.f_Main.cmdAddVendor.defaultvalue("")
+gui.f_Main.cmdAddVendor.controlgroup(0)
+gui.f_Main.cmdRemoveVendor.create(button)
+gui.f_Main.cmdRemoveVendor.caption("Remove")
+gui.f_Main.cmdRemoveVendor.visible(True)
+gui.f_Main.cmdRemoveVendor.size(750,300)
+gui.f_Main.cmdRemoveVendor.zorder(0)
+gui.f_Main.cmdRemoveVendor.position(3950,960)
+gui.f_Main.cmdRemoveVendor.enabled(True)
+gui.f_Main.cmdRemoveVendor.parent("tabrfq",1)
+gui.f_Main.cmdRemoveVendor.fontname("Arial")
+gui.f_Main.cmdRemoveVendor.fontsize(8)
+gui.f_Main.cmdRemoveVendor.event(click,cmdremovevendor_click)
+gui.f_Main.cmdRemoveVendor.defaultvalue("")
+gui.f_Main.cmdRemoveVendor.controlgroup(0)
+gui.f_Main.cmdAddContact.create(button)
+gui.f_Main.cmdAddContact.caption(">>")
+gui.f_Main.cmdAddContact.visible(True)
+gui.f_Main.cmdAddContact.size(400,375)
+gui.f_Main.cmdAddContact.zorder(0)
+gui.f_Main.cmdAddContact.position(11540,1500)
+gui.f_Main.cmdAddContact.enabled(True)
+gui.f_Main.cmdAddContact.parent("tabrfq",1)
+gui.f_Main.cmdAddContact.fontname("Arial")
+gui.f_Main.cmdAddContact.fontsize(8)
+gui.f_Main.cmdAddContact.event(click,cmdaddcontact_click)
+gui.f_Main.cmdAddContact.defaultvalue("")
+gui.f_Main.cmdAddContact.controlgroup(0)
+gui.f_Main.cmdRemoveContact.create(button)
+gui.f_Main.cmdRemoveContact.caption("<<")
+gui.f_Main.cmdRemoveContact.visible(True)
+gui.f_Main.cmdRemoveContact.size(400,375)
+gui.f_Main.cmdRemoveContact.zorder(0)
+gui.f_Main.cmdRemoveContact.position(11540,1970)
+gui.f_Main.cmdRemoveContact.enabled(True)
+gui.f_Main.cmdRemoveContact.parent("tabrfq",1)
+gui.f_Main.cmdRemoveContact.fontname("Arial")
+gui.f_Main.cmdRemoveContact.fontsize(8)
+gui.f_Main.cmdRemoveContact.event(click,cmdremovecontact_click)
+gui.f_Main.cmdRemoveContact.defaultvalue("")
+gui.f_Main.cmdRemoveContact.controlgroup(0)
+gui.f_Main.cmdDocuments.create(button)
+gui.f_Main.cmdDocuments.caption("Documents")
+gui.f_Main.cmdDocuments.visible(True)
+gui.f_Main.cmdDocuments.size(1100,390)
+gui.f_Main.cmdDocuments.zorder(0)
+gui.f_Main.cmdDocuments.position(2590,5845)
+gui.f_Main.cmdDocuments.enabled(True)
+gui.f_Main.cmdDocuments.fontname("Arial")
+gui.f_Main.cmdDocuments.fontsize(8)
+gui.f_Main.cmdDocuments.event(click,f_main_documents)
+gui.f_Main.cmdDocuments.defaultvalue("")
+gui.f_Main.cmdDocuments.controlgroup(0)
+gui.f_Main.lblPart.create(label,"Part",True,1000,255,1,100,5235,True,0,Arial,8,-2147483633,0)
+gui.f_Main.lblPart.defaultvalue("")
+gui.f_Main.lblPart.controlgroup(0)
+gui.f_Main.lblDesc.create(label,"Description",True,1700,255,1,2600,5235,True,0,Arial,8,-2147483633,0)
+gui.f_Main.lblDesc.defaultvalue("")
+gui.f_Main.lblDesc.controlgroup(0)
+gui.f_Main.txtPart.create(textbox,"",True,2000,300,0,100,5435,True,0,Arial,8,-2147483643,1)
+gui.f_Main.txtPart.event(lostfocus,txtpart_lostfocus)
+gui.f_Main.txtPart.defaultvalue("")
+gui.f_Main.txtPart.controlgroup(3)
+gui.f_Main.txtDescription.create(textbox,"",True,3000,300,0,2600,5435,True,0,Arial,8,-2147483643,1)
+gui.f_Main.txtDescription.defaultvalue("")
+gui.f_Main.txtDescription.controlgroup(3)
+gui.f_Main.lblRouter.create(label,"Router",True,1000,255,1,5620,25,True,0,Arial,8,-2147483633,0)
+gui.f_Main.lblRouter.parent("tabrfq",2)
+gui.f_Main.lblRouter.defaultvalue("")
+gui.f_Main.lblRouter.controlgroup(0)
+gui.f_Main.txtRouter.create(textbox,"",True,2000,300,0,5620,240,True,0,Arial,8,-2147483643,1)
+gui.f_Main.txtRouter.parent("tabrfq",2)
+gui.f_Main.txtRouter.event(lostfocus,txtrouter_lostfocus)
+gui.f_Main.txtRouter.defaultvalue("")
+gui.f_Main.txtRouter.controlgroup(3)
+gui.f_Main.txtRouterQty.create(textbox,"",True,1200,300,0,8505,240,True,0,Arial,8,-2147483643,1)
+gui.f_Main.txtRouterQty.parent("tabrfq",2)
+gui.f_Main.txtRouterQty.numericonly(2)
+gui.f_Main.txtRouterQty.event(lostfocus,txtrouterqty_lostfocus)
+gui.f_Main.txtRouterQty.defaultvalue("")
+gui.f_Main.txtRouterQty.controlgroup(3)
+gui.f_Main.lblRouterQty.create(label,"Router Qty",True,1000,255,1,8490,30,True,0,Arial,8,-2147483633,0)
+gui.f_Main.lblRouterQty.parent("tabrfq",2)
+gui.f_Main.lblRouterQty.defaultvalue("")
+gui.f_Main.lblRouterQty.controlgroup(0)
+gui.f_Main.cmdBrwRouter.create(button)
+gui.f_Main.cmdBrwRouter.caption("^")
+gui.f_Main.cmdBrwRouter.visible(True)
+gui.f_Main.cmdBrwRouter.size(300,300)
+gui.f_Main.cmdBrwRouter.zorder(0)
+gui.f_Main.cmdBrwRouter.position(7700,240)
+gui.f_Main.cmdBrwRouter.enabled(True)
+gui.f_Main.cmdBrwRouter.parent("tabrfq",2)
+gui.f_Main.cmdBrwRouter.fontname("Arial")
+gui.f_Main.cmdBrwRouter.fontsize(8)
+gui.f_Main.cmdBrwRouter.event(click,cmdbrwrouter_click)
+gui.f_Main.cmdBrwRouter.defaultvalue("")
+gui.f_Main.cmdBrwRouter.controlgroup(0)
+gui.f_Main.txtJob.create(textbox,"",True,1000,300,0,50,240,True,0,Arial,8,-2147483643,1)
+gui.f_Main.txtJob.parent("tabrfq",2)
+gui.f_Main.txtJob.event(lostfocus,txtjob_lostfocus)
+gui.f_Main.txtJob.defaultvalue("")
+gui.f_Main.txtJob.controlgroup(3)
+gui.f_Main.txtSuffix.create(textbox,"",True,500,300,0,1170,245,True,0,Arial,8,-2147483643,1)
+gui.f_Main.txtSuffix.parent("tabrfq",2)
+gui.f_Main.txtSuffix.event(lostfocus,txtsuffix_lostfocus)
+gui.f_Main.txtSuffix.defaultvalue("")
+gui.f_Main.txtSuffix.controlgroup(3)
+gui.f_Main.cmdBrwJob.create(button)
+gui.f_Main.cmdBrwJob.caption("^")
+gui.f_Main.cmdBrwJob.visible(True)
+gui.f_Main.cmdBrwJob.size(300,300)
+gui.f_Main.cmdBrwJob.zorder(0)
+gui.f_Main.cmdBrwJob.position(1755,240)
+gui.f_Main.cmdBrwJob.enabled(True)
+gui.f_Main.cmdBrwJob.parent("tabrfq",2)
+gui.f_Main.cmdBrwJob.fontname("Arial")
+gui.f_Main.cmdBrwJob.fontsize(8)
+gui.f_Main.cmdBrwJob.event(click,cmdbrwjob_click)
+gui.f_Main.cmdBrwJob.defaultvalue("")
+gui.f_Main.cmdBrwJob.controlgroup(0)
+gui.f_Main.lblJob.create(label,"Starting Job",True,925,255,1,65,40,True,0,Arial,8,-2147483633,0)
+gui.f_Main.lblJob.parent("tabrfq",2)
+gui.f_Main.lblJob.defaultvalue("")
+gui.f_Main.lblJob.controlgroup(0)
+gui.f_Main.lblSuffix.create(label,"Suffix",True,500,255,1,1170,40,True,0,Arial,8,-2147483633,0)
+gui.f_Main.lblSuffix.parent("tabrfq",2)
+gui.f_Main.lblSuffix.defaultvalue("")
+gui.f_Main.lblSuffix.controlgroup(0)
+gui.f_Main.lvRouterWOSeq.create(listview)
+gui.f_Main.lvRouterWOSeq.view(3)
+gui.f_Main.lvRouterWOSeq.addlistviewcolumn("Sequence",1650,0)
+gui.f_Main.lvRouterWOSeq.addlistviewcolumn("Part",2200,0)
+gui.f_Main.lvRouterWOSeq.addlistviewcolumn("Description",2600,0)
+gui.f_Main.lvRouterWOSeq.addlistviewcolumn("Quantity",1035,0)
+gui.f_Main.lvRouterWOSeq.addlistviewcolumn("Required Date",1320,0)
+gui.f_Main.lvRouterWOSeq.addlistviewcolumn("Work Order",1800,0)
+gui.f_Main.lvRouterWOSeq.visible(True)
+gui.f_Main.lvRouterWOSeq.size(17450,3875)
+gui.f_Main.lvRouterWOSeq.zorder(0)
+gui.f_Main.lvRouterWOSeq.position(50,640)
+gui.f_Main.lvRouterWOSeq.enabled(True)
+gui.f_Main.lvRouterWOSeq.parent("tabrfq",2)
+gui.f_Main.lvRouterWOSeq.fontname("Arial")
+gui.f_Main.lvRouterWOSeq.fontsize(8)
+gui.f_Main.lvRouterWOSeq.event(columnclick,lvrouterwoseq_columnclick)
+gui.f_Main.lvRouterWOSeq.event(itemclick,lvrouterwoseq_itemclick)
+gui.f_Main.lblQuantity.create(label,"Quantity",True,1000,255,1,5700,5235,True,0,Arial,8,-2147483633,0)
+gui.f_Main.lblQuantity.defaultvalue("")
+gui.f_Main.lblQuantity.controlgroup(0)
+gui.f_Main.txtQuantity.create(textbox,"",True,1200,300,0,5700,5435,True,0,Arial,8,-2147483643,1)
+gui.f_Main.txtQuantity.defaultvalue("")
+gui.f_Main.txtQuantity.controlgroup(3)
+gui.f_Main.lblReqDate.create(label,"Req. Date",True,1000,255,1,7000,5235,True,0,Arial,8,-2147483633,0)
+gui.f_Main.lblReqDate.defaultvalue("")
+gui.f_Main.lblReqDate.controlgroup(0)
+gui.f_Main.dtpDueDate.create(datepicker)
+gui.f_Main.dtpDueDate.visible(True)
+gui.f_Main.dtpDueDate.size(1500,285)
+gui.f_Main.dtpDueDate.zorder(0)
+gui.f_Main.dtpDueDate.position(7000,5435)
+gui.f_Main.dtpDueDate.enabled(True)
+gui.f_Main.dtpDueDate.checkbox(False)
+gui.f_Main.dtpDueDate.defaultvalue("")
+gui.f_Main.dtpDueDate.controlgroup(0)
+gui.f_Main.cmdAddLine.create(button)
+gui.f_Main.cmdAddLine.caption("Add")
+gui.f_Main.cmdAddLine.visible(True)
+gui.f_Main.cmdAddLine.size(1100,375)
+gui.f_Main.cmdAddLine.zorder(0)
+gui.f_Main.cmdAddLine.position(100,5845)
+gui.f_Main.cmdAddLine.enabled(True)
+gui.f_Main.cmdAddLine.fontname("Arial")
+gui.f_Main.cmdAddLine.fontsize(8)
+gui.f_Main.cmdAddLine.event(click,cmdaddline_click)
+gui.f_Main.cmdAddLine.defaultvalue("")
+gui.f_Main.cmdAddLine.controlgroup(0)
+gui.f_Main.cmdRemoveLine.create(button)
+gui.f_Main.cmdRemoveLine.caption("Remove")
+gui.f_Main.cmdRemoveLine.visible(True)
+gui.f_Main.cmdRemoveLine.size(1100,375)
+gui.f_Main.cmdRemoveLine.zorder(0)
+gui.f_Main.cmdRemoveLine.position(1340,5845)
+gui.f_Main.cmdRemoveLine.enabled(True)
+gui.f_Main.cmdRemoveLine.fontname("Arial")
+gui.f_Main.cmdRemoveLine.fontsize(8)
+gui.f_Main.cmdRemoveLine.event(click,f_main_remove_line)
+gui.f_Main.cmdRemoveLine.defaultvalue("")
+gui.f_Main.cmdRemoveLine.controlgroup(0)
+gui.f_Main.cmdBrwPart.create(button)
+gui.f_Main.cmdBrwPart.caption("^")
+gui.f_Main.cmdBrwPart.visible(True)
+gui.f_Main.cmdBrwPart.size(300,300)
+gui.f_Main.cmdBrwPart.zorder(0)
+gui.f_Main.cmdBrwPart.position(2200,5435)
+gui.f_Main.cmdBrwPart.enabled(True)
+gui.f_Main.cmdBrwPart.fontname("Arial")
+gui.f_Main.cmdBrwPart.fontsize(8)
+gui.f_Main.cmdBrwPart.event(click,cmdbrwpart_click)
+gui.f_Main.cmdBrwPart.defaultvalue("")
+gui.f_Main.cmdBrwPart.controlgroup(0)
+gui.f_Main.lbl14.create(label,"User",True,1935,255,1,14625,5245,True,0,Arial,8,-2147483633,0)
+gui.f_Main.lbl14.defaultvalue("")
+gui.f_Main.lbl14.controlgroup(0)
+gui.f_Main.chkRequisitions.create(checkbox)
+gui.f_Main.chkRequisitions.caption("Requisitions")
+gui.f_Main.chkRequisitions.visible(True)
+gui.f_Main.chkRequisitions.size(1200,255)
+gui.f_Main.chkRequisitions.zorder(0)
+gui.f_Main.chkRequisitions.position(9965,240)
+gui.f_Main.chkRequisitions.enabled(True)
+gui.f_Main.chkRequisitions.alignment(0)
+gui.f_Main.chkRequisitions.parent("tabrfq",2)
+gui.f_Main.chkRequisitions.fontname("Arial")
+gui.f_Main.chkRequisitions.fontsize(8)
+gui.f_Main.chkRequisitions.event(click,chkrequisitions_click)
+gui.f_Main.chkRequisitions.defaultvalue("")
+gui.f_Main.chkRequisitions.controlgroup(0)
+gui.f_Main.txtJob2.create(textbox,"",True,1050,300,0,8590,5430,True,0,Arial,8,-2147483643,1)
+gui.f_Main.txtJob2.defaultvalue("")
+gui.f_Main.txtJob2.controlgroup(0)
+gui.f_Main.txtSuffix2.create(textbox,"",True,600,300,0,9730,5430,True,0,Arial,8,-2147483643,1)
+gui.f_Main.txtSuffix2.defaultvalue("")
+gui.f_Main.txtSuffix2.controlgroup(0)
+gui.f_Main.lblJob2.create(label,"Job",True,1935,255,1,8615,5245,True,0,Arial,8,-2147483633,0)
+gui.f_Main.lblJob2.defaultvalue("")
+gui.f_Main.lblJob2.controlgroup(0)
+gui.f_Main.lblSuffix2.create(label,"Suffix",True,1935,255,1,9745,5245,True,0,Arial,8,-2147483633,0)
+gui.f_Main.lblSuffix2.defaultvalue("")
+gui.f_Main.lblSuffix2.controlgroup(0)
+gui.f_Main.cmdBrwJob2.create(button)
+gui.f_Main.cmdBrwJob2.caption("^")
+gui.f_Main.cmdBrwJob2.visible(True)
+gui.f_Main.cmdBrwJob2.size(300,300)
+gui.f_Main.cmdBrwJob2.zorder(0)
+gui.f_Main.cmdBrwJob2.position(10400,5420)
+gui.f_Main.cmdBrwJob2.enabled(True)
+gui.f_Main.cmdBrwJob2.fontname("Arial")
+gui.f_Main.cmdBrwJob2.fontsize(8)
+gui.f_Main.cmdBrwJob2.event(click,cmdbrwjob2_click)
+gui.f_Main.cmdBrwJob2.defaultvalue("")
+gui.f_Main.cmdBrwJob2.controlgroup(0)
+gui.f_Main.cmdbrwEnding.create(button)
+gui.f_Main.cmdbrwEnding.caption("^")
+gui.f_Main.cmdbrwEnding.visible(True)
+gui.f_Main.cmdbrwEnding.size(300,300)
+gui.f_Main.cmdbrwEnding.zorder(0)
+gui.f_Main.cmdbrwEnding.position(4435,245)
+gui.f_Main.cmdbrwEnding.enabled(True)
+gui.f_Main.cmdbrwEnding.parent("tabrfq",2)
+gui.f_Main.cmdbrwEnding.fontname("Arial")
+gui.f_Main.cmdbrwEnding.fontsize(8)
+gui.f_Main.cmdbrwEnding.event(click,cmdbrwending_click)
+gui.f_Main.cmdbrwEnding.defaultvalue("")
+gui.f_Main.cmdbrwEnding.controlgroup(0)
+gui.f_Main.txtEndSuff.create(textbox,"",True,500,300,0,3865,225,True,0,Arial,8,-2147483643,1)
+gui.f_Main.txtEndSuff.parent("tabrfq",2)
+gui.f_Main.txtEndSuff.defaultvalue("")
+gui.f_Main.txtEndSuff.controlgroup(0)
+gui.f_Main.txtEndJob.create(textbox,"",True,1000,300,0,2720,245,True,0,Arial,8,-2147483643,1)
+gui.f_Main.txtEndJob.parent("tabrfq",2)
+gui.f_Main.txtEndJob.defaultvalue("")
+gui.f_Main.txtEndJob.controlgroup(0)
+gui.f_Main.lblEndingJob.create(label,"Ending Job",True,900,255,1,2750,50,True,0,Arial,8,-2147483633,0)
+gui.f_Main.lblEndingJob.parent("tabrfq",2)
+gui.f_Main.lblEndingJob.defaultvalue("")
+gui.f_Main.lblEndingJob.controlgroup(0)
+gui.f_Main.lblEndingSuff.create(label,"Suffix",True,480,255,1,3875,50,True,0,Arial,8,-2147483633,0)
+gui.f_Main.lblEndingSuff.parent("tabrfq",2)
+gui.f_Main.lblEndingSuff.defaultvalue("")
+gui.f_Main.lblEndingSuff.controlgroup(0)
+gui.f_Main.lblto.create(label,"to",True,360,330,1,2295,290,True,0,Arial,8,-2147483633,0)
+gui.f_Main.lblto.parent("tabrfq",2)
+gui.f_Main.lblto.defaultvalue("")
+gui.f_Main.lblto.controlgroup(0)
+gui.f_Main.txtRName.tabstop(True)
+gui.f_Main.txtRName.tabindex(1)
+gui.f_Main.cmdBrwReply.tabstop(True)
+gui.f_Main.cmdBrwReply.tabindex(2)
+gui.f_Main.txtUser.tabstop(True)
+gui.f_Main.txtUser.tabindex(3)
+gui.f_Main.txtREmail.tabstop(True)
+gui.f_Main.txtREmail.tabindex(4)
+gui.f_Main.txtRFax.tabstop(True)
+gui.f_Main.txtRFax.tabindex(5)
+gui.f_Main.dtpReplyBy.tabstop(True)
+gui.f_Main.dtpReplyBy.tabindex(6)
+gui.f_Main.txtVendor.tabstop(True)
+gui.f_Main.txtVendor.tabindex(7)
+gui.f_Main.cmdBrwVendor.tabstop(True)
+gui.f_Main.cmdBrwVendor.tabindex(8)
+gui.f_Main.txtVendorName.tabstop(True)
+gui.f_Main.txtVendorName.tabindex(9)
+gui.f_Main.cmdAddVendor.tabstop(True)
+gui.f_Main.cmdAddVendor.tabindex(10)
+gui.f_Main.cmdRemoveVendor.tabstop(True)
+gui.f_Main.cmdRemoveVendor.tabindex(11)
+gui.f_Main.lvSelVendors.tabstop(True)
+gui.f_Main.lvSelVendors.tabindex(12)
+gui.f_Main.lvAvailContacts.tabstop(True)
+gui.f_Main.lvAvailContacts.tabindex(13)
+gui.f_Main.cmdAddContact.tabstop(True)
+gui.f_Main.cmdAddContact.tabindex(14)
+gui.f_Main.cmdRemoveContact.tabstop(True)
+gui.f_Main.cmdRemoveContact.tabindex(15)
+gui.f_Main.lvlSelContacts.tabstop(True)
+gui.f_Main.lvlSelContacts.tabindex(16)
+gui.f_Main.txtJob.tabstop(True)
+gui.f_Main.txtJob.tabindex(23)
+gui.f_Main.txtSuffix.tabstop(True)
+gui.f_Main.txtSuffix.tabindex(24)
+gui.f_Main.cmdBrwJob.tabstop(True)
+gui.f_Main.cmdBrwJob.tabindex(25)
+gui.f_Main.txtPart.tabstop(True)
+gui.f_Main.txtPart.tabindex(27)
+gui.f_Main.cmdBrwPart.tabstop(True)
+gui.f_Main.cmdBrwPart.tabindex(28)
+gui.f_Main.txtDescription.tabstop(True)
+gui.f_Main.txtDescription.tabindex(29)
+gui.f_Main.txtQuantity.tabstop(True)
+gui.f_Main.txtQuantity.tabindex(30)
+gui.f_Main.dtpDueDate.tabstop(True)
+gui.f_Main.dtpDueDate.tabindex(31)
+gui.f_Main.txtJob2.tabstop(True)
+gui.f_Main.txtJob2.tabindex(32)
+gui.f_Main.txtSuffix2.tabstop(True)
+gui.f_Main.txtSuffix2.tabindex(33)
+gui.f_Main.cmdBrwJob2.tabstop(True)
+gui.f_Main.cmdBrwJob2.tabindex(34)
+gui.f_Main.cmdAddLine.tabstop(True)
+gui.f_Main.cmdAddLine.tabindex(35)
+gui.f_Main.cmdRemoveLine.tabstop(True)
+gui.f_Main.cmdRemoveLine.tabindex(36)
+gui.f_Main.cmdDocuments.tabstop(True)
+gui.f_Main.cmdDocuments.tabindex(37)
+gui.f_Main.cmdSave.tabstop(True)
+gui.f_Main.cmdSave.tabindex(38)
+gui.f_Main.lvParts.tabstop(True)
+gui.f_Main.lvParts.tabindex(43)
+
+
+gui.f_Send..create
+gui.f_Send..caption("Send RFQs to Vendors")
+gui.f_Send..size(9900,6420)
+gui.f_Send..minx(0)
+gui.f_Send..miny(0)
+gui.f_Send..position(0,0)
+gui.f_Send..event(unload,f_Send_unload)
+gui.f_Send..alwaysontop(False)
+gui.f_Send..fontname("Arial")
+gui.f_Send..fontsize(8)
+gui.f_Send..forecolor(0)
+gui.f_Send..fontstyle(,,,,)
+gui.f_Send..BackColor(-2147483633)
+gui.f_Send..controlbox(True)
+gui.f_Send..maxbutton(True)
+gui.f_Send..minbutton(True)
+gui.f_Send..mousepointer(0)
+gui.f_Send..moveable(True)
+gui.f_Send..sizeable(True)
+gui.f_Send..ShowInTaskBar(True)
+gui.f_Send..titlebar(True)
+gui.f_Send.fgRFQs.create(gsflexgrid)
+gui.f_Send.fgRFQs.FixedRows(0)
+gui.f_Send.fgRFQs.FixedCols(0)
+gui.f_Send.fgRFQs.visible(True)
+gui.f_Send.fgRFQs.size(9500,2500)
+gui.f_Send.fgRFQs.zorder(0)
+gui.f_Send.fgRFQs.position(100,100)
+gui.f_Send.fgRFQs.enabled(True)
+gui.f_Send.cmdProcess.create(button)
+gui.f_Send.cmdProcess.caption("Process")
+gui.f_Send.cmdProcess.visible(True)
+gui.f_Send.cmdProcess.size(1000,375)
+gui.f_Send.cmdProcess.zorder(0)
+gui.f_Send.cmdProcess.position(100,5300)
+gui.f_Send.cmdProcess.enabled(True)
+gui.f_Send.cmdProcess.fontname("Arial")
+gui.f_Send.cmdProcess.fontsize(8)
+gui.f_Send.cmdProcess.event(click,f_Send_Process)
+gui.f_Send.cmdProcess.defaultvalue("")
+gui.f_Send.cmdProcess.controlgroup(0)
+gui.f_Send.txtSubject.create(textbox,"Request For Quote Attached",True,9500,300,0,100,3050,True,0,Arial,8,-2147483643,1)
+gui.f_Send.txtSubject.defaultvalue("")
+gui.f_Send.txtSubject.controlgroup(0)
+gui.f_Send.txtBody.create(textboxm)
+gui.f_Send.txtBody.text("Please see attached Request for Quote and respond accordingly.")
+gui.f_Send.txtBody.visible(True)
+gui.f_Send.txtBody.size(9500,1500)
+gui.f_Send.txtBody.zorder(0)
+gui.f_Send.txtBody.position(100,3650)
+gui.f_Send.txtBody.enabled(True)
+gui.f_Send.txtBody.alignment(0)
+gui.f_Send.txtBody.fontname("Arial")
+gui.f_Send.txtBody.fontsize(8)
+gui.f_Send.txtBody.BackColor(-2147483643)
+gui.f_Send.txtBody.defaultvalue("")
+gui.f_Send.txtBody.controlgroup(0)
+gui.f_Send.lblSubject.create(label,"Subject",,9500,255,1,100,2850,True,0,,8,-2147483633,0)
+gui.f_Send.lblSubject.defaultvalue("")
+gui.f_Send.lblSubject.controlgroup(0)
+gui.f_Send.lblBody.create(label,"Body",,9500,255,1,100,3450,True,0,,8,-2147483633,0)
+gui.f_Send.lblBody.defaultvalue("")
+gui.f_Send.lblBody.controlgroup(0)
+
+
+gui.f_Docs..create
+gui.f_Docs..caption("Documents")
+gui.f_Docs..size(7365,5055)
+gui.f_Docs..minx(0)
+gui.f_Docs..miny(0)
+gui.f_Docs..position(0,0)
+gui.f_Docs..event(unload,f_docs_unload)
+gui.f_Docs..alwaysontop(False)
+gui.f_Docs..fontname("Arial")
+gui.f_Docs..fontsize(8)
+gui.f_Docs..forecolor(0)
+gui.f_Docs..fontstyle(,,,,)
+gui.f_Docs..BackColor(-2147483633)
+gui.f_Docs..controlbox(True)
+gui.f_Docs..maxbutton(True)
+gui.f_Docs..minbutton(True)
+gui.f_Docs..mousepointer(0)
+gui.f_Docs..moveable(True)
+gui.f_Docs..sizeable(True)
+gui.f_Docs..ShowInTaskBar(True)
+gui.f_Docs..titlebar(True)
+gui.f_Docs.txtdocpath.create(textbox,"",True,6180,300,0,185,450,True,0,Arial,8,-2147483643,1)
+gui.f_Docs.txtdocpath.defaultvalue("")
+gui.f_Docs.txtdocpath.controlgroup(0)
+gui.f_Docs.lblDocPath.create(label,"Document Path",True,1935,255,1,230,240,True,0,Arial,8,-2147483633,0)
+gui.f_Docs.lblDocPath.defaultvalue("")
+gui.f_Docs.lblDocPath.controlgroup(0)
+gui.f_Docs.lvDocs.create(listview)
+gui.f_Docs.lvDocs.view(3)
+gui.f_Docs.lvDocs.addlistviewcolumn("Line",615,0)
+gui.f_Docs.lvDocs.addlistviewcolumn("Document Path",5000,2)
+gui.f_Docs.lvDocs.visible(True)
+gui.f_Docs.lvDocs.size(6705,2610)
+gui.f_Docs.lvDocs.zorder(0)
+gui.f_Docs.lvDocs.position(200,1540)
+gui.f_Docs.lvDocs.enabled(True)
+gui.f_Docs.lvDocs.fontname("Arial")
+gui.f_Docs.lvDocs.fontsize(8)
+gui.f_Docs.cmdAddDoc.create(button)
+gui.f_Docs.cmdAddDoc.caption("Add")
+gui.f_Docs.cmdAddDoc.visible(True)
+gui.f_Docs.cmdAddDoc.size(1100,375)
+gui.f_Docs.cmdAddDoc.zorder(0)
+gui.f_Docs.cmdAddDoc.position(200,875)
+gui.f_Docs.cmdAddDoc.enabled(True)
+gui.f_Docs.cmdAddDoc.fontname("Arial")
+gui.f_Docs.cmdAddDoc.fontsize(8)
+gui.f_Docs.cmdAddDoc.event(click,cmdadddoc_click)
+gui.f_Docs.cmdAddDoc.defaultvalue("")
+gui.f_Docs.cmdAddDoc.controlgroup(0)
+gui.f_Docs.cmdRemoveDoc.create(button)
+gui.f_Docs.cmdRemoveDoc.caption("Remove")
+gui.f_Docs.cmdRemoveDoc.visible(True)
+gui.f_Docs.cmdRemoveDoc.size(1100,375)
+gui.f_Docs.cmdRemoveDoc.zorder(0)
+gui.f_Docs.cmdRemoveDoc.position(1460,875)
+gui.f_Docs.cmdRemoveDoc.enabled(True)
+gui.f_Docs.cmdRemoveDoc.fontname("Arial")
+gui.f_Docs.cmdRemoveDoc.fontsize(8)
+gui.f_Docs.cmdRemoveDoc.event(click,cmdremovedoc_click)
+gui.f_Docs.cmdRemoveDoc.defaultvalue("")
+gui.f_Docs.cmdRemoveDoc.controlgroup(0)
+gui.f_Docs.cmdClearDocs.create(button)
+gui.f_Docs.cmdClearDocs.caption("Clear")
+gui.f_Docs.cmdClearDocs.visible(True)
+gui.f_Docs.cmdClearDocs.size(1100,375)
+gui.f_Docs.cmdClearDocs.zorder(0)
+gui.f_Docs.cmdClearDocs.position(2700,875)
+gui.f_Docs.cmdClearDocs.enabled(True)
+gui.f_Docs.cmdClearDocs.fontname("Arial")
+gui.f_Docs.cmdClearDocs.fontsize(8)
+gui.f_Docs.cmdClearDocs.event(click,cmdclear_click)
+gui.f_Docs.cmdClearDocs.defaultvalue("")
+gui.f_Docs.cmdClearDocs.controlgroup(0)
+gui.f_Docs.cmdDocBrowse.create(button)
+gui.f_Docs.cmdDocBrowse.caption("^")
+gui.f_Docs.cmdDocBrowse.visible(True)
+gui.f_Docs.cmdDocBrowse.size(405,330)
+gui.f_Docs.cmdDocBrowse.zorder(0)
+gui.f_Docs.cmdDocBrowse.position(6465,430)
+gui.f_Docs.cmdDocBrowse.enabled(True)
+gui.f_Docs.cmdDocBrowse.fontname("Arial")
+gui.f_Docs.cmdDocBrowse.fontsize(8)
+gui.f_Docs.cmdDocBrowse.event(click,cmddocbrowse_click)
+gui.f_Docs.cmdDocBrowse.defaultvalue("")
+gui.f_Docs.cmdDocBrowse.controlgroup(0)
+gui.f_Docs.txtdocpath.tabstop(True)
+gui.f_Docs.txtdocpath.tabindex(2)
+gui.f_Docs.cmdAddDoc.tabstop(True)
+gui.f_Docs.cmdAddDoc.tabindex(3)
+gui.f_Docs.cmdRemoveDoc.tabstop(True)
+gui.f_Docs.cmdRemoveDoc.tabindex(4)
+
+
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Variable.UDT.uContacts.Define("VENDOR",String,CUST)
+Variable.UDT.uContacts.Define("ID",String,ID)
+Variable.UDT.uContacts.Define("EMAIL",String,EMAIL1)
+Variable.UDT.uContacts.Define("NAME",String,FULL_NAME)
+Variable.UDT.uContacts.Define("Selected",Boolean)
+Variable.UDT.uContacts.Define("TIME",String)
+Variable.uGlobal.uContacts.Declare("uContacts")
+Variable.Global.iLastNumber.Declare(Long,0)
+Variable.UDT.uLines.Define("Line",String)
+Variable.UDT.uLines.Define("Part",String)
+Variable.UDT.uLines.Define("Description",String)
+Variable.UDT.uLines.Define("Qty",Float)
+Variable.UDT.uLines.Define("Type",String)
+Variable.UDT.uLines.Define("Router",String)
+Variable.UDT.uLines.Define("Job",String)
+Variable.UDT.uLines.Define("Suffix",String)
+Variable.UDT.uLines.Define("Sequence",String)
+Variable.UDT.uLines.Define("DueDate",String)
+Variable.UDT.uLines.Define("Requisition",String)
+Variable.uGlobal.uLines.Declare("uLines")
+Variable.UDT.uExport.Define("LINE",String,LINE)
+Variable.UDT.uExport.Define("RFQ",String,NUM)
+Variable.UDT.uExport.Define("REPLY_BY",String,REPLY_BY)
+Variable.UDT.uExport.Define("REPLY_NAME",String,REPLY_NAME)
+Variable.UDT.uExport.Define("DATE_SENT",String,DATE_SENT)
+Variable.UDT.uExport.Define("TIME_SENT",String,TIME_SENT)
+Variable.UDT.uExport.Define("METHOD_SENT",String,METHOD_SENT)
+Variable.UDT.uExport.Define("RCVD_DATE",String,RCVD_DATE)
+Variable.UDT.uExport.Define("VENDOR",String,VENDOR)
+Variable.UDT.uExport.Define("VENDOR_NAME",String,VENDOR_NAME)
+Variable.UDT.uExport.Define("CONTACT_NAME",String,CONTACT_NAME)
+Variable.UDT.uExport.Define("EMAIL_ADDRESS",String,EMAIL_ADDRESS)
+Variable.UDT.uExport.Define("MFG_PART_NUMBER",String,MFG_PART_NUMBER)
+Variable.UDT.uExport.Define("MFG_PART_NAME",String,MFG_PART_NAME)
+Variable.UDT.uExport.Define("PART_NUMBER",String,PART_NUMBER)
+Variable.UDT.uExport.Define("PART_DESC",String,PART_DESC)
+Variable.UDT.uExport.Define("UNIT",String,UNIT)
+Variable.UDT.uExport.Define("QUANTITY",Float,QUANTITY)
+Variable.UDT.uExport.Define("REQUIRED_BY",String,REQUIRED_BY)
+Variable.UDT.uExport.Define("FAX_NUMBER",String,FAX_NUMBER)
+Variable.UDT.uExport.Define("REPLY_FAX",String,REPLY_FAX)
+Variable.UDT.uExport.Define("TYPE",String)
+Variable.UDT.uExport.Define("ROUTER",String)
+Variable.UDT.uExport.Define("SUFFIX",String)
+Variable.UDT.uExport.Define("SEQUENCE",String)
+Variable.UDT.uExport.Define("A_RFQ",String)
+Variable.UDT.uExport.Define("A_LINE",String)
+Variable.UDT.uExport.Define("JOB",String)
+Variable.UDT.uExport.Define("REQUISITION",String)
+Variable.UDT.uExport.Define("REPLY_EMAIL",String,REPLY_EMAIL)
+Variable.uGlobal.uExport.Declare("uExport")
+Variable.Global.iLastDocID.Declare(Long,0)
+Variable.Global.sRFQs.Declare(String)
+Variable.UDT.uRFQ.Define("TRMNL_NO",String,TRMNL_NO)
+Variable.UDT.uRFQ.Define("RPTID",String,RPTID)
+Variable.UDT.uRFQ.Define("VENDOR",String,VENDOR)
+Variable.UDT.uRFQ.Define("LINE",String,LINE)
+Variable.UDT.uRFQ.Define("PART",String,PART)
+Variable.UDT.uRFQ.Define("QTY",String,QTY)
+Variable.UDT.uRFQ.Define("DESCR",String,DESCR)
+Variable.UDT.uRFQ.Define("REPLY_NAME",String,REPLY_NAME)
+Variable.UDT.uRFQ.Define("REPLY_EMAIL",String,REPLY_EMAIL)
+Variable.UDT.uRFQ.Define("ATTN",String,ATTN)
+Variable.UDT.uRFQ.Define("FAX_TITLE",String,FAX_TITLE)
+Variable.UDT.uRFQ.Define("KEY_SEQ",String,KEY_SEQ)
+Variable.UDT.uRFQ.Define("REPLY_DATE",String,REPLY_DATE)
+Variable.UDT.uRFQ.Define("REPLY_FAX",String,REPLY_FAX)
+Variable.UDT.uRFQ.Define("REQD_DATE",String,REQD_DATE)
+Variable.UDT.uRFQ.Define("RFQ_DATE",String,RFQ_DATE)
+Variable.UDT.uRFQ.Define("RFQ_NUM",String,RFQ_NUM)
+Variable.UDT.uRFQ.Define("UNIT",String,UNIT)
+Variable.UDT.uRFQ.Define("VEN_ADDS_1",String,VEN_ADDS_1)
+Variable.UDT.uRFQ.Define("VEN_ADDS_2",String,VEN_ADDS_2)
+Variable.UDT.uRFQ.Define("VEN_ADDS_3",String,VEN_ADDS_3)
+Variable.UDT.uRFQ.Define("VEN_ADDS_4",String,VEN_ADDS_4)
+Variable.UDT.uRFQ.Define("VEN_ADDS_5",String,VEN_ADDS_5)
+Variable.UDT.uRFQ.Define("VEN_CITY",String,VEN_CITY)
+Variable.UDT.uRFQ.Define("VEN_COUNTRY",String,VEN_COUNTRY)
+Variable.UDT.uRFQ.Define("VEN_FAX_OUT",String,VEN_FAX_OUT)
+Variable.UDT.uRFQ.Define("VEN_NAME_OUT",String,VEN_NAME_OUT)
+Variable.UDT.uRFQ.Define("VEN_STATE",String,VEN_STATE)
+Variable.UDT.uRFQ.Define("VEN_ZIP",String,VEN_ZIP)
+Variable.Global.sQuoteAll.Declare(String)
+Variable.Global.iNextRFQ.Declare(Long,0)
+Variable.Global.iKey.Declare(Long,0)
+Variable.UDT.uDocuments.Define("uDocuments",String,uDocuments)
+Variable.uGlobal.uDocuments.Declare("uDocuments")
+Variable.Global.sExcelFile.Declare(String)
+Variable.Global.sSeq.Declare(String)
+
+Variable.Global.sSeq2.Declare(String)
+Variable.Global.uVendor.Declare(String)
+Variable.UDT.uExcel.Define("uVendor",String,uVendor)
+Variable.UDT.uExcel.Define("uExcel",String,uExcel)
+Variable.uGlobal.uExcel.Declare("uExcel")
+Variable.uGlobal.uCopy.Declare("uContacts")
+Variable.uGlobal.uRFQ.Declare("uRFQ")
+Variable.Global.sTimeDate.Declare(String)
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+'ERROR HANDLING ABOVE
+
+'DECLARE VARIABLES
+V.Local.sError.Declare(String)
+V.Local.sSQL.Declare(String)
+V.Local.iNextRFQ.Declare(Long)
+
+'establish connection to the database
+Function.ODBC.Connection!conx.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass,1200)
+
+F.Intrinsic.Debug.EnableLogging
+
+'FIRST, GET USER THAT IS CALLING THE PROGRAM. PASS THAT TO THE "LOADREPLYTO" SUB WHICH WILL LOAD THE REPLY CONTACT INFO
+Function.Intrinsic.Control.CallSub(Loadreplyto,"User",V.Caller.User)
+
+'Make Tab(0) invisible so that the referencing of the other tabs does not change
+Gui.f_Main.tabRFQ.TabVisible(0,False)
+
+'Setting default tab
+Gui.f_Main.tabRFQ.SetTab(1)
+F.Intrinsic.Control.If(V.Caller.Hook,<>,46510)
+	Gui.f_Main..Show
+F.Intrinsic.Control.EndIf
+
+'ERROR HANDLING BELOW
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.Main.End
+
+Program.Sub.f_Main_Unload.Start
+F.Intrinsic.Control.SetErrorHandler("f_Main_Unload_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'close connection to the database and end the program
+Function.ODBC.Connection!conx.Close
+Function.Intrinsic.Control.End
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("f_Main_Unload_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.f_Main_Unload.End
+
+Program.Sub.LoadReplyTo.Start
+F.Intrinsic.Control.SetErrorHandler("LoadReplyTo_Err")
+F.Intrinsic.Control.ClearErrors
+'ERROR HANDLING ABOVE
+
+'DECLARE VARIABLES
+V.Local.sError.Declare(String)
+V.Local.sUser.Declare(String)
+V.Local.sSQL.Declare(String)
+V.Local.sName.Declare(String)
+V.Local.sEmail.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sFax.Declare(String)
+
+'GET USER NAME FROM CALLING SUB (THIS SUB IS CALLED FROM MULTIPLE PROCESSES)
+V.Local.sUser.Set(V.Args.User)
+
+'USER NAME
+Gui.f_Main.txtUser.Text(V.Local.sUser)
+
+'GET USER'S FULL NAME
+Function.Global.Security.GetFullName(V.Local.sUser,V.Local.sName)
+Gui.f_Main.txtRName.Text(V.Local.sName)
+
+'GET USER'S EMAIL
+Function.Global.Security.GetUserEmail(V.Local.sUser,V.Local.sEmail)
+Gui.f_Main.txtREmail.Text(V.Local.sEmail)
+
+'Getting pieces of fax number from options
+V.Local.sRet.Redim(0,2)
+F.Global.General.ReadOption(401941,1,"",14,V.Local.sRet(0))
+F.Global.General.ReadOption(401941,1,"",15,V.Local.sRet(1))
+F.Global.General.ReadOption(401941,1,"",16,V.Local.sRet(2))
+
+'Putting together fax number and setting to screen
+F.Intrinsic.String.Build("({0}){1}-{2}",V.Local.sRet(0),V.Local.sRet(1),V.Local.sRet(2),V.Local.sFax)
+Gui.f_Main.txtRFax.Text(V.Local.sFax)
+
+'TERMINATE SUBROUTINE
+F.Intrinsic.Control.ExitSub
+
+'ERROR HANDLING BELOW
+F.Intrinsic.Control.Label("LoadReplyTo_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.LoadReplyTo.End
+
+program.sub.f_main_add_line.start
+F.Intrinsic.Control.SetErrorHandler("f_main_add_part_Err")
+F.Intrinsic.Control.ClearErrors
+'ERROR HANDLING ABOVE
+
+'DECLARE VARIABLES
+V.Local.sError.Declare(String)
+V.Local.sKey.Declare(String)
+V.Local.sSeq.Declare(String)
+V.Local.iOrd.Declare(Long)
+V.Local.sText.Declare(String)
+V.Local.iC.Declare(Long,-1)
+V.Local.sRet.Declare(String)
+V.Local.sReq.Declare(String)
+
+'Making sure user has a part selected to add
+Function.Intrinsic.Control.If(V.Screen.f_Main!txtPart.Text,=,"")
+	Function.Intrinsic.UI.Msgbox("Part Number is Required","Required Fields")
+	Function.Intrinsic.Control.ExitSub
+Function.Intrinsic.Control.ElseIf(V.screen.f_Main!txtQuantity.Text,=<,0)
+	Function.Intrinsic.UI.Msgbox("Quantity must be greater than 0","Required Fields")
+	Function.Intrinsic.Control.ExitSub
+Function.Intrinsic.Control.Endif
+
+
+Function.Intrinsic.Control.Case("Router")
+	Function.Intrinsic.Control.If(V.Screen.f_Main!txtRouter.Text,=,"")
+		Function.Intrinsic.UI.Msgbox("Router number when using type "Router" is required","Required Fields")
+		Function.Intrinsic.Control.ExitSub
+	Function.Intrinsic.Control.EndIf
+	Gui.f_Main.lvRouterWOSeq.RetrieveSelectedListitems(V.Local.sKey)
+	Gui.f_Main.lvRouterWOSeq.ListitemKeyToOrdinal(V.Local.sKey,V.Local.iOrd)
+	V.Local.sSeq.Set(V.Screen.f_Main!lvRouterWOSeq.ListItemText(v.Local.iOrd))
+Function.Intrinsic.Control.Case("Job")
+	Function.Intrinsic.Control.If(V.Screen.f_Main!txtJob.Text,=,"")
+		Function.Intrinsic.UI.Msgbox("Job number when using type "Job" is required","Required Fields")
+		Function.Intrinsic.Control.ExitSub
+	Function.Intrinsic.Control.EndIf
+	Gui.f_Main.lvRouterWOSeq.RetrieveSelectedListitems(V.Local.sKey)
+	Gui.f_Main.lvRouterWOSeq.ListitemKeyToOrdinal(V.Local.sKey,V.Local.iOrd)
+	V.Local.sSeq.Set(V.Screen.f_Main!lvRouterWOSeq.ListItemText(v.Local.iOrd))
+Function.Intrinsic.Control.Case("Requisition")
+	Function.Intrinsic.Control.If(V.Screen.f_Main!lvRouterWOSeq.SelectedItemKey,<>,"***NORETURN***")
+		Gui.f_Main.lvRouterWOSeq.ListitemKeyToOrdinal(V.Screen.f_Main!lvRouterWOSeq.SelectedItemKey,V.Local.iOrd)
+		V.Local.sReq.Set(V.Screen.f_Main!lvRouterWOSeq.ListItemText(v.Local.iOrd))
+	Function.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndSelect
+
+'set fields in the uLines UDT
+V.uglobal.uLines(v.Local.iC)!Part.Set(V.Screen.f_Main!txtPart.Text)
+V.uGlobal.uLines(v.Local.iC)!Description.Set(V.Screen.f_Main!txtDescription.Text)
+V.uGlobal.uLines(v.Local.iC)!Qty.Set(V.Screen.f_Main!txtQuantity.Text)
+V.uglobal.uLines(v.Local.iC)!Router.Set(V.Screen.f_Main!txtRouter.Text)
+V.uGlobal.uLines(v.Local.iC)!Job.Set(V.Screen.f_Main!txtJob.Text)
+V.uGlobal.uLines(v.Local.iC)!Suffix.Set(V.Screen.f_Main!txtSuffix.Text)
+V.uGlobal.uLines(v.Local.iC)!Sequence.Set(V.Local.sSeq.Trim)
+V.uglobal.uLines(v.Local.iC)!DueDate.Set(V.Screen.f_Main!dtpDueDate.Value)
+V.uGlobal.uLines(v.local.iC)!Requisition.Set(V.Screen.f_Main!txtReq.Text)
+
+Function.Intrinsic.Control.CallSub(Loadlinesgrid)
+
+'TERMINATE SUBROUTINE
+F.Intrinsic.Control.ExitSub
+
+'ERROR HANDLING BELOW
+F.Intrinsic.Control.Label("f_main_add_part_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.f_main_add_line.End
+
+program.sub.f_main_remove_line.start
+F.Intrinsic.Control.SetErrorHandler("f_main_remove_line_Err")
+F.Intrinsic.Control.ClearErrors
+'ERROR HANDLING ABOVE
+
+'DECLARE VARIABLES
+V.Local.sError.Declare(String)
+V.Local.sKey.Declare(String)
+V.Local.iOrd.Declare(Long)
+V.Local.sRet.Declare(String)
+
+
+V.Local.sText.Declare(String)
+
+Gui.f_Main.lvParts.RetrieveSelectedListitems(V.Local.sKey)
+Function.Intrinsic.Control.If(V.Local.sKey,<>,"***NORETURN***")
+	Gui.f_Main.lvParts.ListitemKeyToOrdinal(V.Local.sKey,V.Local.iOrd)
+	V.Local.sText.Set(V.Screen.f_Main!lvParts.ListItemText(V.Local.iOrd))
+
+	'flag fields in the udt and delete them
+	Function.Intrinsic.Variable.UDTMultiFlag(V.uGlobal.uLines!LINE,V.Local.sText)
+	Function.Intrinsic.Variable.UDTDeleteFlagged(V.uGlobal.uLines)
+
+	'remove the part form the listview
+	Gui.f_Main.lvParts.RemoveItem(V.Local.sKey)
+
+Function.Intrinsic.Control.EndIf
+
+'TERMINATE SUBROUTINE
+F.Intrinsic.Control.ExitSub
+
+'ERROR HANDLING BELOW
+F.Intrinsic.Control.Label("f_main_remove_line_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.f_main_remove_line.End
+
+program.sub.f_main_documents.start
+F.Intrinsic.Control.SetErrorHandler("f_main_load_docs_Err")
+F.Intrinsic.Control.ClearErrors
+'ERROR HANDLING ABOVE
+
+'DECLARE VARIABLES
+V.Local.sError.Declare(String)
+V.Local.iRet.Declare(Long)
+
+Gui.f_Docs..Visible(true)
+
+V.Local.sFile.Declare(String)
+
+'TERMINATE SUBROUTINE
+F.Intrinsic.Control.ExitSub
+
+'ERROR HANDLING BELOW
+F.Intrinsic.Control.Label("f_main_load_docs_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.f_main_documents.End
+
+program.sub.f_main_load_line.start
+F.Intrinsic.Control.SetErrorHandler("f_main_load_line_Err")
+F.Intrinsic.Control.ClearErrors
+'ERROR HANDLING ABOVE
+
+'DECLARE VARIABLES
+V.Local.sError.Declare(String)
+V.Local.sKey.Declare(String)
+V.Local.iOrd.Declare(Long)
+V.Local.sText.Declare(String)
+
+Gui.f_Main.lvParts.RetrieveSelectedListitems(V.Local.sKey)
+Gui.f_Main.lvParts.ListitemKeyToOrdinal(V.Local.sKey,V.Local.iOrd)
+
+Function.Intrinsic.String.Split(V.SCreen.f_Main!lvParts.ListItemTextExtended(v.Local.iOrd),"*!*",V.Local.sText)
+
+'Gui.f_Main.txtLine.Text(V.Local.sText(0).Trim)
+Gui.f_Main.txtPart.Text(V.Local.sText(1).Trim)
+Gui.f_Main.txtDescription.Text(V.Local.sText(2).Trim)
+Gui.f_Main.txtQuantity.Text(V.Local.sText(3).Trim)
+'Gui.f_Main.txtRouter.Text(V.Local.sText(6).Trim)
+Gui.f_Main.txtJob.Text(V.Local.sText(5).Trim)
+Gui.f_Main.txtSuffix.Text(V.Local.sText(6).Trim)
+
+Function.Intrinsic.Control.Case("Router")
+Function.Intrinsic.Control.Case("Job")
+Function.Intrinsic.Control.EndSelect
+
+'TERMINATE SUBROUTINE
+F.Intrinsic.Control.ExitSub
+
+'ERROR HANDLING BELOW
+F.Intrinsic.Control.Label("f_main_load_line_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.f_main_load_line.End
+
+Program.Sub.LoadLinesGrid.Start
+F.Intrinsic.Control.SetErrorHandler("LoadLinesGrid_Err")
+F.Intrinsic.Control.ClearErrors
+'ERROR HANDLING ABOVE
+
+'DECLARE VARIABLES
+V.Local.sError.Declare(String)
+V.Local.i.Declare(Long)
+V.Local.iLastLine.Declare(Long,0)
+V.Local.i2.Declare(Long)
+V.Local.sRet.Declare(String)
+
+Gui.f_Main.lvParts.ClearItems
+
+'loop through the uLines UDT
+F.Intrinsic.Control.For(V.Local.i,V.uGlobal.uLines.LBound,V.uGlobal.uLines.UBound,1)
+	F.Intrinsic.Math.Add(V.Local.iLastLine,1,V.Local.iLastLine)
+		Function.Intrinsic.Control.If(V.Local.sRet,<>,"")
+		Function.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+		Function.Intrinsic.Control.For(V.Local.i2,0,V.Local.sRet.UBound,1)
+		Function.Intrinsic.Control.Next(V.Local.i2)
+	Function.Intrinsic.Control.EndIf
+	V.uGlobal.uLines(v.Local.i)!Line.Set(V.Local.iLastLine)
+	'add list item and set the list item subtext based on data in uLines UDt
+	Gui.f_Main.lvParts.AddListItem(V.uGlobal.uLines(v.Local.i)!Line,V.uglobal.uLines(v.Local.i)!Line)
+	Gui.f_Main.lvParts.SetListItemSubItemText(V.uGlobal.uLines(v.Local.i)!Line,1,V.uGlobal.uLines(v.Local.i)!Part.Trim)
+	Gui.f_Main.lvParts.SetListItemSubItemText(V.uGlobal.uLines(v.Local.i)!Line,2,V.uGlobal.uLines(v.Local.i)!Description.Trim)
+	Gui.f_Main.lvParts.SetListItemSubItemText(V.uGlobal.uLines(v.Local.i)!Line,3,V.uGlobal.uLines(v.Local.i)!Qty.Trim)
+	Gui.f_Main.lvParts.SetListItemSubItemText(V.uGlobal.uLines(v.Local.i)!Line,4,V.uGlobal.uLines(v.Local.i)!Requisition.Trim)
+	Gui.f_Main.lvParts.SetListItemSubItemText(V.uGlobal.uLines(v.Local.i)!Line,5,V.uGlobal.uLines(v.Local.i)!Job.Trim)
+	Gui.f_Main.lvParts.SetListItemSubItemText(V.uGlobal.uLines(v.Local.i)!Line,6,V.uGlobal.uLines(v.Local.i)!Suffix.Trim)
+	Gui.f_Main.lvParts.SetListItemSubItemText(V.uGlobal.uLines(v.Local.i)!Line,7,V.uGlobal.uLines(v.Local.i)!DueDate)
+F.Intrinsic.Control.Next(V.Local.i)
+
+V.Global.iLastNumber.Set(V.Local.iLastLine)
+
+'TERMINATE SUBROUTINE
+F.Intrinsic.Control.ExitSub
+
+'ERROR HANDLING BELOW
+F.Intrinsic.Control.Label("LoadLinesGrid_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.LoadLinesGrid.End
+
+program.sub.f_main_save_all.start
+F.Intrinsic.Control.SetErrorHandler("f_main_save_all_Err")
+F.Intrinsic.Control.ClearErrors
+'ERROR HANDLING ABOVE
+
+'DECLARE VARIABLES
+V.Local.sError.Declare(String)
+V.Local.sVendors.Declare(String)
+V.Local.i.Declare(Long)
+V.Local.sRet.Declare(String)
+V.Local.sVendorsNoContacts.Declare(String)
+V.Local.sParts.Declare(String)
+V.Local.iRet.Declare(Long)
+V.Local.sSQL.Declare(String)
+V.Local.sRFQ.Declare(String)
+V.Local.sQuoteFile.Declare(String)
+V.Local.bExists.Declare(Boolean)
+V.Local.ssql2.Declare(String)
+V.Local.ikey.Declare(Long)
+V.Local.bdocexists.Declare(Boolean)
+V.Local.sdocfile.Declare(String)
+V.Local.sdocuments.Declare(String)
+V.Local.srows.Declare(String)
+V.Local.iord.Declare(Long)
+V.Local.srange.Declare(String)
+V.Local.sdocuments2.Declare(String)
+V.local.icount.Declare(Long)
+V.Local.icount2.Declare(Long)
+V.Local.scontact.Declare(String)
+V.Local.sPart.Declare(String)
+V.Local.sfinal.Declare(String)
+V.Local.sfinal2.Declare(String)
+V.Local.bbool.Declare(Boolean)
+V.Local.squantity.Declare(String)
+V.Local.ssort.Declare(String)
+V.Local.exists.Declare(Boolean)
+V.Local.stemp.Declare(String)
+V.Local.sJob.Declare(String)
+V.Local.sSuffix.Declare(String)
+V.Local.iLen.Declare(Long)
+
+V.Local.stimestamp.Declare(String)
+
+F.Intrinsic.Control.If(V.Screen.f_Docs.Visible,=,True)
+	V.Screen.f_Docs.Visible(False)
+F.Intrinsic.Control.EndIf
+
+'Loop through the document list view
+Gui.f_Docs.lvDocs.RetrieveAllListItems(V.Local.srows)
+F.Intrinsic.Control.If(V.Local.srows.Trim,<>,"***NORETURN***")
+	F.Intrinsic.String.Split(V.Local.srows,"*!*",V.Local.srows)
+	F.Intrinsic.Control.For(V.Local.i,0,V.Local.srows.UBound,1)
+		Gui.f_Docs.lvDocs.RetrieveItemOrdinal(V.Local.srows(v.Local.i).Trim,V.Local.iord)
+		V.Local.srange.Set(V.Screen.f_Docs!lvDocs.ListItemTextExtended(v.Local.iord))
+		F.Intrinsic.control.If(V.Local.srange.Trim,<>,"")
+			F.Intrinsic.string.Split(V.local.srange,"*!*",V.Local.srange)
+			V.Local.srange.Set(V.Local.srange(1))
+		F.Intrinsic.String.Concat(V.local.sdocuments,V.local.srange,V.ambient.newline,V.Local.sdocuments)
+	F.Intrinsic.Control.Next(V.Local.i)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+'check to see if the temporary file already exists, if so, delete it and replace it with the new one
+Function.Intrinsic.String.Concat(V.Caller.FilesDir,"\Documents.txt",V.Local.sDocFile)
+Function.Intrinsic.File.Exists(V.Local.sDocFile,V.Local.bDocExists)
+Function.Intrinsic.Control.If(V.Local.bDocExists,=,True)
+	Function.Intrinsic.File.DeleteFile(V.Local.sDocFile)
+Function.Intrinsic.Control.EndIf
+Function.Intrinsic.File.String2File(V.Local.sDocFile,V.local.sdocuments)
+
+'flag items in the UDT where element is = 0 and delete them
+F.Intrinsic.Variable.UDTMultiFlag(V.uGlobal.uContacts!VENDOR,"")
+F.Intrinsic.Variable.UDTMultiFlag(V.uGlobal.uContacts!Selected,False)
+F.Intrinsic.Variable.UDTDeleteFlagged(V.uGlobal.uContacts)
+
+'loop through the selected contacts and get vendor and part, then pad them for the temporary textfile
+F.Intrinsic.Control.For(V.Local.icount,V.uGlobal.uContacts.lBound,V.uGlobal.uContacts.uBound,1)
+
+	F.intrinsic.string.concat(V.Ambient.Time,V.Ambient.Date,V.Local.stimestamp)
+	F.intrinsic.String.StripCharacters(V.local.stimestamp,V.Local.stimestamp)
+	
+	F.Intrinsic.String.Len(V.Local.stimestamp,V.Local.iLen)
+	F.Intrinsic.Control.If(V.Local.iLen,<>,16)
+		F.Intrinsic.String.Build("0{0}",v.Local.stimestamp,V.Local.stimestamp)
+	F.Intrinsic.Control.EndIf
+	
+	V.uglobal.uContacts(v.Local.icount)!TIME.Set(V.Local.stimestamp)
+	F.Intrinsic.UI.Sleep(1)
+
+	V.Local.scontact.Set(V.uGlobal.uContacts(v.local.icount)!VENDOR)
+	F.Intrinsic.String.Rpad(V.Local.scontact," ",6,V.Local.scontact)
+
+	'loop through parts
+	F.Intrinsic.Control.For(V.Local.icount2,V.uGlobal.uLines.lBound,V.uGlobal.uLines.uBound,1)
+		V.Local.sPart.Set(V.uGlobal.uLines(v.Local.icount2)!PART)
+
+		'new line added for sort code
+'		F.Intrinsic.string.Concat(V.uGlobal.uLines(v.Local.icount2)!Job,"-",V.uGlobal.ulines(v.Local.icount2)!Suffix,V.Local.ssort)
+
+		V.Local.sJob.Set(V.uGlobal.uLines(v.Local.icount2)!Job)
+		V.Local.sSuffix.Set(V.uGlobal.ulines(v.Local.icount2)!Suffix)
+		F.Intrinsic.Control.If(V.Local.sJob,=,"")
+			V.Local.ssort.Set("      -   ")
+		F.Intrinsic.Control.Else
+			F.Intrinsic.string.Concat(V.Local.sJob.Trim,"-",V.Local.sSuffix.Trim,V.Local.ssort)
+		F.Intrinsic.Control.EndIf
+		
+		F.Intrinsic.String.RPad(V.Local.sPart," ",20,V.Local.sPart)
+		
+		V.Local.squantity.Set(V.uGlobal.uLines(v.Local.icount2)!Qty)
+		F.Intrinsic.String.Rpad(V.Local.scontact," ",214,V.Local.scontact)
+		F.Intrinsic.String.RPad(V.local.squantity," ",25,V.Local.squantity)
+		F.Intrinsic.String.LPad(V.Local.ssort," ",305,V.Local.ssort)
+
+		F.Intrinsic.String.LPad(V.Local.stimestamp," ",26,V.Local.stimestamp)
+
+			F.Intrinsic.Control.If(V.Local.sfinal,=,"")
+				F.Intrinsic.String.Concat(V.local.spart,V.Local.scontact,V.local.ssort,V.local.stimestamp,V.Local.sfinal2)
+				F.Intrinsic.String.IsInString(V.local.sfinal,V.local.sfinal2,True,V.Local.bbool)
+
+						F.Intrinsic.Control.If(V.Local.bbool,=,False)
+						F.Intrinsic.String.Concat(V.local.spart,V.Local.scontact,V.local.ssort,V.Local.sfinal)
+						F.Intrinsic.String.Concat(V.local.spart,V.Local.scontact,V.local.squantity,V.local.ssort,V.local.stimestamp,V.Local.sfinal)
+
+						V.Local.bbool.Set(False)
+						F.intrinsic.Control.EndIf
+
+			F.Intrinsic.Control.elseIf(V.Local.sfinal,<>,"")
+				F.Intrinsic.String.Concat(V.local.spart,V.Local.scontact,V.local.squantity,V.local.ssort,V.local.stimestamp,V.Local.sfinal2)
+
+				F.Intrinsic.String.IsInString(V.local.sfinal,V.local.sfinal2,True,V.Local.bbool)
+
+				F.Intrinsic.Control.If(V.Local.bbool,=,False)
+					V.Local.sfinal2.Set("")
+					F.Intrinsic.String.Concat(V.Local.sfinal,V.Ambient.NewLine,V.local.spart,V.Local.scontact,V.local.squantity,V.local.ssort,V.local.stimestamp,V.Local.sfinal)
+
+					V.Local.bbool.Set(False)
+	
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Next(V.Local.icount2)
+F.Intrinsic.Control.Next(V.Local.icount)
+
+'F.ODBC.Connection!conx.Close
+
+		'ENSURING VENDOR(S) ARE SELECTED, AND ALL VENDORS HAVE CONTACTS SELECTED
+		Gui.f_Main.lvSelVendors.RetrieveAllListItems(V.Local.sVendors)
+		Function.Intrinsic.Control.If(V.Local.sVendors,<>,"***NORETURN***")
+			Function.Intrinsic.String.Split(V.Local.sVendors,"*!*",V.Local.sVendors)
+			Function.Intrinsic.Control.For(V.Local.i,0,V.Local.sVendors.UBound,1)
+		Function.Intrinsic.Variable.UDTMultiSeek(V.uGlobal.uContacts!VENDOR,V.Local.sVendors(v.Local.i).trim,V.uglobal.uContacts!Selected,True,V.Local.sRet)
+		Function.Intrinsic.Control.If(V.Local.sRet,=,"")
+			Function.Intrinsic.Control.If(V.Local.sVendorsNoContacts,=,"")
+				V.Local.sVendorsNoContacts.Set(V.Local.sVendors(v.Local.i).Trim)
+			Function.Intrinsic.Control.Else
+				Function.Intrinsic.String.Concat(V.Local.sVendorsNoContacts,V.Ambient.NewLine,V.Local.sVendors(V.Local.i).Trim,V.Local.sVendorsNoContacts)
+			Function.Intrinsic.Control.EndIf
+		Function.Intrinsic.Control.EndIf
+	Function.Intrinsic.Control.Next(V.Local.i)
+	Function.Intrinsic.Control.If(V.Local.sVendorsNoContacts,<>,"")
+		Function.Intrinsic.String.Concat("Vendors have been selected, but no contact has been selected. The below Vendors need to have Contacts assigned",V.Ambient.NewLine,V.Ambient.NewLine,V.Local.sVendorsNoContacts,V.Local.sVendorsNoContacts)
+		Function.Intrinsic.UI.Msgbox(V.Local.sVendorsNoContacts,"Vendor/Contacts Mismatch")
+		Function.Intrinsic.Control.ExitSub
+	Function.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.Else
+	Function.Intrinsic.UI.Msgbox("There are no Vendors selected. You must select Vendor's, and Contacts prior to processing this RFQ","No Vendors Selected")
+	Function.Intrinsic.Control.ExitSub
+Function.Intrinsic.Control.EndIf
+
+'ENSURING PARTS HAVE BEEN SELECTED.
+Gui.f_Main.lvParts.RetrieveAllListItems(V.Local.sParts)
+Function.Intrinsic.Control.If(V.Local.sParts,=,"***NORETURN***")
+	Function.Intrinsic.UI.Msgbox("You must add parts to the RFQ, prior to saving.","No Parts Selected")
+	Function.Intrinsic.Control.ExitSub
+Function.Intrinsic.Control.EndIf
+
+Gui.f_Main..Visible(False)
+
+Function.Intrinsic.UI.InvokeWaitDialog("Processing.........","Please Wait")
+
+Function.Intrinsic.Variable.UDTMultiQuickSort(V.uGlobal.uExport!RFQ,False,V.uGlobal.uExport!LINE,False)
+
+Function.Intrinsic.String.Concat(V.Caller.FilesDir,"\vendquot.txt",V.Local.sQuoteFile)
+Function.Intrinsic.File.Exists(V.Local.sQuoteFile,V.Local.bExists)
+Function.Intrinsic.Control.If(V.Local.bExists,=,True)
+	Function.Intrinsic.File.DeleteFile(V.Local.sQuoteFile)
+Function.Intrinsic.Control.EndIf
+Function.Intrinsic.File.String2File(V.Local.sQuoteFile,V.local.sfinal)
+
+F.Intrinsic.String.Build("{0}\{1}{2}000UPLVENQPEXPORT000000001.TMP",v.caller.localgsstempdir,V.Caller.User.trim,V.Caller.Terminal,V.Local.stemp)
+
+F.Intrinsic.File.Exists(V.Local.stemp,V.Local.exists)
+
+'if the temporary file exists, delete it
+F.Intrinsic.Control.If(V.local.exists,=,True)
+	F.Intrinsic.File.deletefile(V.Local.stemp)
+F.Intrinsic.Control.EndIf
+
+Function.Global.General.CallWrapperSync(50,"UPLVENQP/A/X")
+
+'call the read export and build export subs
+F.Intrinsic.Control.CallSub(Readexportfile)
+F.Intrinsic.Control.CallSub(Buildexportexcel)
+
+Function.Intrinsic.UI.CloseWaitDialog
+
+Function.Intrinsic.Control.CallSub(F_send_load)
+
+'ERROR HANDLING BELOW
+F.Intrinsic.Control.Label("f_main_save_all_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.f_main_save_all.End
+
+program.sub.f_Send_unload.start
+F.Intrinsic.Control.SetErrorHandler("f_Send_unload_Err")
+F.Intrinsic.Control.ClearErrors
+'ERROR HANDLING ABOVE
+
+'DECLARE VARIABLES
+V.Local.sError.Declare(String)
+V.Local.sMsg.Declare(String)
+V.Local.iRet.Declare(String)
+
+Function.Intrinsic.UI.Msgbox("Are you sure you want to exit? RFQs have already been created, and exiting now, will only prevent them from being sent. Records will NOT be deleted","Are you sure?",4,V.Local.iRet)
+Function.Intrinsic.Control.If(V.Local.iRet,=,6)
+	Function.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+'TERMINATE SUBROUTINE
+F.Intrinsic.Control.ExitSub
+
+'ERROR HANDLING BELOW
+F.Intrinsic.Control.Label("f_Send_unload_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.f_Send_unload.End
+
+Program.Sub.f_Send_Load.Start
+F.Intrinsic.Control.SetErrorHandler("f_Process_Load_Err")
+F.Intrinsic.Control.ClearErrors
+'ERROR HANDLING ABOVE
+
+'DECLARE VARIABLES
+V.Local.sError.Declare(String)
+V.Local.i.Declare(Long)
+V.Local.iRow.Declare(Long)
+V.Local.sRFQ.Declare(String)
+V.Local.sFile.Declare(String)
+
+V.Local.skey.Declare(String)
+V.Local.iord.Declare(Long)
+V.Local.svendor.Declare(String)
+V.Local.i2.Declare(Long)
+V.Local.i3.Declare(Long)
+V.Local.srows.Declare(String)
+V.Local.sret.Declare(String)
+
+'call the buildstyle sub
+Function.Intrinsic.Control.CallSub(F_send_buildstyle)
+
+		'loop through the ucontacts UDT and build the rows with the vendors, names, and emails stored in the uContacts UDT
+		Function.Intrinsic.Control.For(V.local.i,0,V.uGlobal.uContacts.UBound,1)
+		Function.Intrinsic.Math.Add(V.Screen.f_Send!fgRFQs.Rows,1,V.Local.iRow)
+			Gui.f_Send.fgRFQs.Rows(V.Local.iRow)
+			Function.Intrinsic.Math.Sub(V.Local.iRow,1,V.Local.iRow)
+			Gui.f_Send.fgRFQs.ApplyStyle(V.Local.iRow,2)
+			Gui.f_Send.fgRFQs.TextMatrix(0,V.Local.iRow,V.uGlobal.uContacts(v.Local.i)!VENDOR.Trim)
+			Gui.f_Send.fgRFQs.TextMatrix(1,V.Local.iRow,V.uglobal.uContacts(v.Local.i)!NAME.Trim)
+			Gui.f_Send.fgRFQs.TextMatrix(2,V.local.iRow,V.uGlobal.uContacts(v.Local.i)!EMAIL.Trim)
+
+		Function.Intrinsic.Control.Next(V.Local.i)
+
+'show the form
+Gui.f_Send..Show
+Gui.f_Send.fgRFQs.Visible(true)
+
+'TERMINATE SUBROUTINE
+F.Intrinsic.Control.ExitSub
+
+'ERROR HANDLING BELOW
+F.Intrinsic.Control.Label("f_Process_Load_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.f_Send_Load.End
+
+Program.Sub.f_Send_BuildStyle.Start
+F.Intrinsic.Control.SetErrorHandler("f_Process_BuildStyle_Err")
+F.Intrinsic.Control.ClearErrors
+'ERROR HANDLING ABOVE
+
+'DECLARE VARIABLES
+V.Local.sError.Declare(String)
+V.Local.sTitles.Declare(String)
+V.Local.i.Declare(Long)
+
+Gui.f_Send.fgRFQs.Visible(false)
+
+Gui.f_Send.fgRFQs.Cols(5)
+Gui.f_Send.fgRFQs.Rows(1)
+Gui.f_Send.fgRFQs.FixedRows(1)
+
+Gui.f_Send.fgRFQs.ClearStyle(1)
+Gui.f_Send.fgRFQs.ClearStyle(2)
+
+Gui.f_Send.fgRFQs.SetColumnPercentages(".20:.20:.20:.20:.20")
+
+'vendor number column
+Gui.f_Send.fgRFQs.TextMatrix(0,0,"Vendor Number")
+Gui.f_send.fgRFQs.BuildStyle(1,0,"Type","Locked",True)
+Gui.f_Send.fgRFQs.BuildStyle(1,0,"Format","Alignment",4)
+
+'vendor name column
+Gui.f_Send.fgRFQs.TextMatrix(1,0,"Vendor Name")
+Gui.f_Send.fgRFQs.BuildStyle(1,1,"Type","Locked",True)
+Gui.f_Send.fgRFQs.BuildStyle(1,1,"Format","Alignment",4)
+
+'vendor email colum
+Gui.f_Send.fgRFQs.TextMatrix(2,0,"Vendor Email")
+Gui.f_Send.fgRFQs.BuildStyle(1,2,"Type","Locked",True)
+Gui.f_Send.fgRFQs.BuildStyle(1,2,"Format","Alignment",4)
+
+'include excel column
+Gui.f_Send.fgRFQs.TextMatrix(3,0,"Include Excel")
+Gui.f_Send.fgRFQs.BuildStyle(1,3,"Format","Alignment",4)
+Gui.f_Send.fgRFQs.BuildStyle(2,3,"Format","Alignment",4)
+Gui.f_Send.fgRFQs.BuildStyle(2,3,"Type","Checkbox",True)
+
+'include docs column
+Gui.f_Send.fgRFQs.TextMatrix(4,0,"Include Docs")
+Gui.f_Send.fgRFQs.BuildStyle(1,4,"Format","Alignment",4)
+Gui.f_Send.fgRFQs.BuildStyle(2,4,"Format","Alignment",4)
+Gui.f_Send.fgRFQs.BuildStyle(2,4,"Type","Checkbox",True)
+
+Gui.f_Send.fgRFQs.ApplyStyle(0,1)
+
+'TERMINATE SUBROUTINE
+F.Intrinsic.Control.ExitSub
+
+'ERROR HANDLING BELOW
+F.Intrinsic.Control.Label("f_Process_BuildStyle_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.f_Send_BuildStyle.End
+
+program.sub.f_Send_Process.start
+F.Intrinsic.Control.SetErrorHandler("f_Send_Process_Err")
+F.Intrinsic.Control.ClearErrors
+'ERROR HANDLING ABOVE
+
+'DECLARE VARIABLES
+V.Local.sError.Declare(String)
+V.local.i.Declare(Long)
+V.Local.iRows.Declare(Long)
+V.Local.sRet.Declare(String)
+V.Local.iRPTID.Declare(Long)
+V.Local.sAttach.Declare(String)
+V.Local.sAttachments.Declare(String)
+V.Local.sPN.Declare(String,"RFQ")
+V.Local.sPV.Declare(String)
+V.Local.iUser.Declare(String)
+V.Local.sSender.Declare(String)
+V.Local.sRecipients.Declare(String)
+V.Local.sRetRec.Declare(String)
+V.Local.i2.Declare(Long)
+V.local.iPID.Declare(Long)
+V.Local.sRow.Declare(String)
+V.Local.iPath.Declare(Long)
+V.Local.i3.Declare(Long)
+V.Local.bSent.Declare(Boolean)
+V.Local.i4.Declare(Long)
+V.Local.sreportfilepath.Declare(String)
+V.Local.sreportfilename.Declare(String)
+V.Local.semail.Declare(String)
+V.Local.bfileexists.Declare(Boolean)
+V.Local.i5.Declare(Long)
+
+V.Local.sfilename.Declare(String)
+V.Local.sfilename2.Declare(String)
+V.Local.sfilepath.Declare(String)
+
+Gui.f_Send..Visible(False)
+Function.Intrinsic.UI.InvokeWaitDialog("Sending emails","Please Wait")
+
+'call the build RFQ report subroutine
+F.intrinsic.Control.CallSub(Buildrfqreport)
+
+'flag 0 element parts of uExcel UDT
+F.Intrinsic.Variable.UDTMultiFlag(V.uGlobal.uExcel!uVENDOR,"")
+F.Intrinsic.Variable.UDTDeleteFlagged(V.uGlobal.uExcel)
+
+F.Global.Security.GetUserId(V.Caller.User,V.Caller.CompanyCode,V.Local.iUser)
+F.Intrinsic.Math.Sub(V.Screen.f_Send!fgRFQs.Rows,1,V.Local.iRows)
+F.Intrinsic.Control.For(V.Local.i,1,V.Local.iRows,1)
+	'bSent to keep track of current contact to see if message already sent.
+	V.Local.bSent.Set(False)
+	V.Local.sAttachments.Set("")
+	V.Local.sAttach.Set("")
+	V.Local.sRet.Set("")
+	V.Local.iPath.Set(0)
+	Gui.f_Send.fgRFQs.ReadRow(V.Local.i,V.Local.sRow)
+	F.Intrinsic.String.Split(V.Local.sRow,"*!*",V.Local.sRow)
+	'include attachments checked?
+	F.Intrinsic.Control.If(V.Local.sRow(4).Trim,=,1)
+	
+		F.Intrinsic.Control.If(V.uGlobal.uDocuments(0)!uDocuments.Trim,<>,"")
+			F.Intrinsic.Control.For(V.Local.i2,V.uGlobal.uDocuments.LBound,V.uGlobal.uDocuments.UBound,1)
+				V.Local.sAttach.Set("")
+				V.Local.sRet.Set("")
+				'breakdown filepath and rebuild file attachment list for Queue message function
+				F.Intrinsic.String.Split(V.uGlobal.uDocuments(v.Local.i2)!uDocuments.Trim,"\",V.Local.sRet)
+				F.Intrinsic.Math.Sub(V.Local.sRet.UBound,1,V.Local.iPath)
+				F.Intrinsic.Control.For(V.Local.i3,V.Local.sRet.LBound,V.Local.iPath,1)
+					F.Intrinsic.Control.If(V.Local.i3,=,V.Local.sRet.LBound)
+						F.Intrinsic.String.Build("{0}{1}",V.Local.sAttach,V.Local.sRet(v.Local.i3).Trim,V.Local.sAttach)
+					F.Intrinsic.Control.Else
+						F.Intrinsic.String.Build("{0}\{1}",V.Local.sAttach,V.Local.sRet(v.Local.i3).Trim,V.Local.sAttach)
+					F.Intrinsic.Control.EndIf
+				F.Intrinsic.Control.Next(V.Local.i3)
+				F.Intrinsic.String.Build("{0}*!*{1}",V.Local.sRet(v.Local.sRet.UBound).Trim,V.Local.sAttach,V.Local.sAttach)
+				F.Intrinsic.String.Build("{0}{1}@!@",V.Local.sAttachments,V.Local.sAttach,V.Local.sAttachments)
+			F.Intrinsic.Control.Next(V.Local.i2)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+	'Inculde Excel File?
+	V.Local.sAttach.Set("")
+
+	F.Intrinsic.Control.If(V.Local.sRow(3).Trim,<>,1)
+	F.intrinsic.Control.AndIf(V.Local.sRow(4),=,1)
+				F.Intrinsic.String.Build("{0}*!*{1}",V.screen.f_main!txtREmail.text,V.Screen.f_Main!txtREmail.Text,V.Local.semail)
+				F.Intrinsic.String.Build("{0}*!*{1}",V.Local.sRow(2),V.Local.sRow(2),V.Local.sRow(2))
+		F.Global.Messaging.QueueMessage(V.Caller.CompanyCode,V.Local.iUser,V.Caller.Caller,V.Screen.f_Send!txtSubject.Text,v.local.semail,V.Local.sRow(2).Trim,V.Screen.f_Send!txtBody.Text,1,V.Screen.f_Main!txtREmail.Text,False,"","","","","","","",V.local.sAttachments,False)
+		V.Local.bSent.Set(True)
+	F.Intrinsic.Control.Else
+		'build the report filepath and check if it exists, if so delete it
+		'BreakdownfilepathandrebuildfileattachmentlistforQueuemessagefunction
+		F.Intrinsic.Control.For(V.Local.i4,V.uGlobal.uExcel.LBound,V.uGlobal.uExcel.Ubound,1)
+			F.Intrinsic.String.Build("{0}{1}{2}",V.Local.sRow(0),V.global.stimedate,".pdf",V.Local.sfilename)
+			F.Intrinsic.String.Build("{0}\{1}\{2}\",V.Caller.FilesDir,"RFQ","Export",V.Local.sfilepath)
+			F.Intrinsic.String.Build("{0}*!*{1}",V.Local.sfilename,V.Local.sfilepath,V.Local.sfilename2)
+			F.Intrinsic.Control.If(V.Local.sRow(0),<>,V.uGlobal.uExcel(v.Local.i4)!uVendor.Trim)
+				'Since we are checking to see if current uContact!vendor = vendor in uExcel we have to see if message has already been sent, if already sent then move to next contact
+				F.Intrinsic.Control.If(V.Local.bSent,=,True)
+					F.Intrinsic.Control.Next(V.Local.i)
+				F.Intrinsic.Control.Else
+					F.Intrinsic.Control.Next(V.Local.i4)
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.Else
+				V.Global.sExcelFile.Set(V.uGlobal.uExcel(v.Local.i4)!uExcel.Trim)
+		
+				F.Intrinsic.String.Split(V.Global.sExcelFile,"\",V.Local.sRet)
+				F.Intrinsic.Math.Sub(V.Local.sRet.UBound,1,V.Local.iPath)
+				F.Intrinsic.Control.For(V.Local.i3,V.Local.sRet.LBound,V.Local.iPath,1)
+					F.Intrinsic.Control.If(V.Local.i3,=,V.Local.sRet.LBound)
+						F.Intrinsic.String.Build("{0}{1}",V.Local.sAttach,V.Local.sRet(v.Local.i3).Trim,V.Local.sAttach)
+					F.Intrinsic.Control.Else
+						F.Intrinsic.String.Build("{0}\{1}",V.Local.sAttach,V.Local.sRet(v.Local.i3).Trim,V.Local.sAttach)
+					F.Intrinsic.Control.EndIf
+				F.Intrinsic.Control.Next(V.Local.i3)
+				F.Intrinsic.String.Build("{0}*!*{1}@!@",V.Local.sRet(v.Local.sRet.UBound).Trim,V.Local.sAttach,V.Local.sAttach)
+				F.Intrinsic.String.Build("{0}{1}{2}",V.Local.sAttachments.Trim,V.Local.sAttach,V.local.sfilename2,V.local.sAttachments)
+
+			F.Intrinsic.Control.EndIf
+			'Allow for server direct addresses(ie. "\\server1" and get rid of "\\\" where an extra was added
+			F.Intrinsic.String.Replace(V.Local.sAttachments,"\\\","\\",V.Local.sAttachments)
+			F.Intrinsic.Control.If(V.Local.sAttachments.Trim,<>,"")
+				'Include Attachment
+				F.Intrinsic.String.Build("{0}*!*{1}",V.screen.f_main!txtREmail.text,V.Screen.f_Main!txtREmail.Text,V.Local.semail)
+				F.Intrinsic.String.Build("{0}*!*{1}",V.Local.sRow(2),V.Local.sRow(2),V.Local.sRow(2))
+				F.Global.Messaging.QueueMessage(V.Caller.CompanyCode,V.Local.iUser,V.Caller.Caller,V.Screen.f_Send!txtSubject.Text,v.local.semail,V.Local.sRow(2).Trim,V.Screen.f_Send!txtBody.Text,1,V.Screen.f_Main!txtREmail.Text,False,"","","","","","","",V.local.sAttachments,False)
+				V.Local.bSent.Set(True)
+			F.Intrinsic.Control.Else
+				'No attachment
+				F.Global.Messaging.QueueMessage(V.Caller.CompanyCode,V.Local.iUser,V.Caller.Caller,V.Screen.f_Send!txtSubject.Text,V.Screen.f_Main!txtREmail.Text,V.Local.sRow(2).Trim,V.Screen.f_Send!txtBody.Text)
+				V.Local.bSent.Set(True)
+			F.Intrinsic.Control.EndIf
+	
+		F.Intrinsic.Control.Next(V.Local.i4)
+
+	F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Next(V.Local.i)
+
+F.Intrinsic.UI.CloseWaitDialog
+
+Function.Intrinsic.Control.CallSub(F_main_unload)
+
+'ERROR HANDLING BELOW
+F.Intrinsic.Control.Label("f_Send_Process_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+
+program.sub.f_Send_Process.End
+
+Program.Sub.f_Send_Retrieve_Docs.Start
+F.Intrinsic.Control.SetErrorHandler("f_Send_Retrieve_Docs_Err")
+F.Intrinsic.Control.ClearErrors
+'ERROR HANDLING ABOVE
+
+'DECLARE VARIABLES
+V.Local.sError.Declare(String)
+V.Local.sSQL.Declare(String)
+V.Local.sRFQ.Declare(String)
+V.Local.sAttachments.Declare(String)
+V.Local.sTemp.Declare(String)
+V.Local.sTempFileName.Declare(String)
+V.Local.sTempFilePath.Declare(String)
+V.Local.i.Declare(Long)
+V.Local.iEnd.Declare(Long)
+
+V.Local.sRFQ.Set(V.Args.RFQ)
+V.Local.sAttachments.Set("")
+
+Function.Intrinsic.String.Concat("SELECT * FROM GCG_VENDOR_RFQ_DOCS WHERE RFQ_NO = '",V.Local.sRFQ,"'",V.local.sSQL)
+Function.ODBC.Connection!conx.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+Function.Intrinsic.Control.DoUntil(V.ODBC.conx!rst.EOF,=,True)
+	V.Local.sTemp.Redim(0,0)
+	V.Local.sTempFileName.Set("")
+	V.Local.sTempFilePath.Set("")
+	Function.Intrinsic.String.Split(V.ODBC.conx!rst.FieldValTrim!FILEPATH,"\",V.Local.sTemp)
+	V.Local.sTempFileName.Set(V.Local.sTemp(V.Local.sTemp.UBound))
+	Function.Intrinsic.Math.Sub(V.Local.sTemp.UBound,1,V.Local.iEnd)
+	Function.Intrinsic.Control.For(V.Local.i,0,V.Local.iEnd,1)
+		Function.Intrinsic.Control.If(V.Local.i,=,0)
+			V.Local.sTempFilePath.Set(V.Local.sTemp(0))
+		Function.Intrinsic.Control.Else
+			Function.Intrinsic.String.Concat(V.Local.sTempFilePath,"\",V.Local.sTemp(v.Local.i),V.Local.sTempFilePath)
+		Function.Intrinsic.Control.EndIf
+	Function.Intrinsic.Control.Next(V.Local.i)
+	Function.Intrinsic.Control.If(V.Local.sAttachments,=,"")
+		Function.Intrinsic.String.Concat(V.Local.sTempFileName,"*!*",V.Local.sTempFilePath,V.Local.sAttachments)
+	Function.Intrinsic.Control.Else
+		Function.Intrinsic.String.Concat(V.Local.sAttachments,"@!@",V.Local.sTempFileName,"*!*",V.Local.sTempFilePath,V.Local.sAttachments)
+	Function.Intrinsic.Control.EndIf
+	Function.ODBC.conx!rst.MoveNext
+Function.Intrinsic.Control.Loop
+
+Function.Intrinsic.Control.If(V.Local.sAttachments,<>,"")
+	Function.Intrinsic.Variable.AddRV("Attachments",V.Local.sAttachments)
+Function.Intrinsic.Control.Else
+	Function.Intrinsic.Variable.AddRV("Attachments","None")
+Function.Intrinsic.Control.EndIf
+
+'TERMINATE SUBROUTINE
+F.Intrinsic.Control.ExitSub
+
+'ERROR HANDLING BELOW
+F.Intrinsic.Control.Label("f_Send_Retrieve_Docs_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.f_Send_Retrieve_Docs.End
+
+Program.Sub.BuildExportExcel.Start
+F.Intrinsic.Control.SetErrorHandler("BuildExportExcel_Err")
+F.Intrinsic.Control.ClearErrors
+'ERROR HANDLING ABOVE
+
+'DECLARE VARIABLES
+V.Local.sError.Declare(String)
+V.Local.sRFQ.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.i.Declare(Long)
+V.Local.sExcel.Declare(String)
+V.Local.sRowData.Declare(String)
+V.Local.sData.Declare(String)
+V.Local.sFile.Declare(String)
+V.Local.sTemplate.Declare(String)
+V.Local.sDate.Declare(String)
+V.Local.icount2.Declare(Long)
+V.Local.ssort.Declare(String)
+V.Local.icount.Declare(Long)
+V.Local.icount.Set(0)
+V.local.ivendcount.declare(Long)
+V.Local.svendor.Declare(String)
+V.Local.ifilecount.Declare(Long)
+V.Local.svendorUDT.Declare(String)
+V.Local.icopycount.Declare(Long)
+V.Local.icopycount2.Declare(Long)
+V.local.iuboundcount.Declare(Long)
+V.Local.iexcelcount.Declare(Long)
+V.Local.iexcelcount.Set(0)
+V.Local.ssql2.Declare(String)
+V.Local.ssort2.Declare(String)
+V.Local.sJob.Declare(String)
+V.Local.sSuffix.Declare(String)
+V.Local.iLen.Declare(Long)
+V.Local.stimestamp.Declare(string)
+
+'set the UDT fieldreferences
+F.Intrinsic.variable.SetUDTFieldReference(V.uGlobal.uExcel!uExcel,"uExcel")
+F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uExcel!uVendor,"uVendor")
+
+'format date
+F.Intrinsic.String.Format(V.Ambient.Date,"MMDDYYYY",V.Local.sDate)
+F.Intrinsic.String.Build("{0}-{1}",V.Local.sDate,V.Ambient.Time,V.Local.sDate)
+F.Intrinsic.String.Replace(V.Local.sDate,":","",V.Local.sDate)
+
+'built the template for the excel spreadsheet
+Function.Intrinsic.String.Concat(V.Caller.FilesDir,"\RFQ\Export\ExcelOutputTemplate.xlsx",V.Local.sTemplate)
+'
+''set the titles in the spreadsheet
+V.Local.sData.Set("Part*!*Description*!*Quantity*!*Vendor*!*Sort*!*Seq*!*Price")
+
+'flag parts of the UDT with the element = 0 and delete them
+F.Intrinsic.Variable.UDTMultiFlag(V.uGlobal.uContacts!VENDOR,"")
+F.Intrinsic.Variable.UDTDeleteFlagged(V.uGlobal.uContacts)
+
+V.Local.ivendcount.Set(0)
+F.Intrinsic.Variable.UDTCopy(V.uGlobal.uContacts,V.uGlobal.uCopy,True)
+
+'flag and delete duplicate information in the UDT
+F.Intrinsic.Variable.UDTMultiFlagDuplicates(V.uGlobal.uCopy!VENDOR)
+F.Intrinsic.Variable.UDTDeleteFlagged(V.uGlobal.uCopy)
+
+'DO A FOR LOOP HERE LOOP THROUGH THE COPY AND SET TO UEXCELUDT
+V.uglobal.uExcel.Redim(-1,-1)
+V.Local.iuboundcount.Set(0)
+V.Local.icopycount.Set(1)
+
+'loop through the copy UDT created
+F.Intrinsic.Control.For(V.Local.icopycount,V.uGlobal.uCopy.LBound,V.uGlobal.uCopy.UBound,1)
+	F.Intrinsic.Control.If(V.uGlobal.uExcel.UBound,<>,-1)
+		F.Intrinsic.Math.Add(V.uGlobal.uExcel.UBound,1,V.local.iuboundcount)
+		V.uGlobal.uexcel.RedimPreserve(0,V.Local.iuboundcount)
+	F.Intrinsic.Control.Else
+		V.uGlobal.uexcel.Redim(0,0)
+	F.Intrinsic.Control.EndIf
+
+	V.uGlobal.uExcel(v.local.iuboundcount)!uVendor.Set(V.uGlobal.uCopy(v.Local.icopycount)!VENDOR)
+F.Intrinsic.Control.Next(V.Local.icopycount)
+
+'for loop for vendor
+F.Intrinsic.Control.For(V.Local.ivendcount,0,V.uGlobal.uContacts.ubound,1)
+	F.Intrinsic.Control.If(V.Local.svendor.Trim,<>,V.uGlobal.uContacts(v.Local.ivendcount)!VENDOR.Trim)
+		'for loop to get sequences
+		F.Intrinsic.Control.For(V.Local.icount2,0,V.uGlobal.uLines.UBound,1)
+
+			V.Local.sJob.Set(V.uGlobal.uLines(v.Local.icount2)!Job)
+			V.Local.sSuffix.Set(V.uGlobal.ulines(v.Local.icount2)!Suffix)
+			F.Intrinsic.Control.If(V.Local.sJob,=,"")
+				V.Local.ssort.Set("      -   ")
+			F.Intrinsic.Control.Else
+				F.Intrinsic.string.Concat(V.Local.sJob.Trim,"-",V.Local.sSuffix.Trim,V.Local.ssort)
+			F.Intrinsic.Control.EndIf
+			
+			V.Local.stimestamp.Set(V.uglobal.ucontacts(v.local.ivendcount)!TIME)
+			F.Intrinsic.String.Len(V.Local.stimestamp,V.Local.iLen)
+			F.Intrinsic.Control.If(V.Local.iLen,<>,16)
+				F.Intrinsic.String.Build("0{0}",v.Local.stimestamp,V.Local.stimestamp)
+			F.Intrinsic.Control.EndIf
+			
+			F.Intrinsic.String.Build("SELECT SEQ FROM VEND_QTE_HEADER WHERE PART = '{0}' AND VENDOR = '{1}' AND SORT_CODE_1 = '{2}' and SORT_CODE_2 = '{3}'",V.uGlobal.uLines(V.Local.icount2)!Part,V.uGlobal.uContacts(v.Local.ivendcount)!VENDOR,V.Local.ssort,V.uglobal.ucontacts(v.local.ivendcount)!TIME,V.Local.ssql2)
+			F.ODBC.Connection!conx.OpenRecordsetRO("rst",V.Local.ssql2)
+			F.Intrinsic.Control.If(V.ODBC.conx!rst.EOF,<>,True)
+				V.Local.ssort2.Set(V.ODBC.conx!rst.FieldValTrim!SEQ)
+				F.Intrinsic.String.LPad(V.Local.ssort2,0,6,V.Local.ssort2)
+				V.Local.svendor.Set(V.uGlobal.uContacts(v.Local.ivendcount)!VENDOR)
+				Function.Intrinsic.String.Concat(V.uGlobal.uLines(v.Local.icount2)!Part.Trim,"*!*",V.uGlobal.uLines(v.Local.icount2)!Description.Trim,V.Local.sRowData)
+				F.Intrinsic.string.Concat(V.uGlobal.uLines(v.Local.icount2)!Job.trim,"-",V.uGlobal.ulines(v.Local.icount2)!Suffix,V.Local.ssort)
+				Function.Intrinsic.String.Concat(V.Local.sRowData,"*!*",V.uglobal.uLines(v.Local.icount2)!Qty.Trim,"*!*",V.Local.svendor,"*!*",V.local.ssort,"*!*",V.local.ssort2,"*!*",V.global.sseq2(v.Local.icount),V.Local.sRowData)
+				F.Intrinsic.String.Concat(V.Local.sData,"$!$",V.Local.sRowData,V.Local.sData)
+			F.Intrinsic.Control.EndIf
+			'next loop for sequences
+			F.ODBC.conx!rst.Close
+
+		F.Intrinsic.Control.Next(V.Local.icount2)
+
+			'concat the file path for the spreadhseet, then write it. Afterwards add 1 to the count and loop through again to create another spreadsheet for other vendors, if needed.	
+			Function.Intrinsic.String.Concat("RFQ",V.local.sDate,".xlsx*!*",V.Caller.FilesDir,"\RFQ\Export",V.Local.sExcel)
+			Function.Intrinsic.String.Concat(V.Caller.FilesDir,"\RFQ\Export\RFQ",V.uGlobal.uContacts(v.Local.ivendcount)!VENDOR.Trim,V.Local.sDate,".xlsx",V.Local.sFile)
+			Function.Automation.MSExcel.WriteSpreadsheet(V.Local.sFile,V.Local.sData)
+			F.Intrinsic.Math.Add(V.Local.iexcelcount,1,V.Local.iexcelcount)
+			V.uGlobal.uExcel(v.Local.iexcelcount)!uExcel.Set(V.Local.sFile)
+			'clear the data and rowdata before moving to the next ount
+			V.Local.sData.Set("")
+			V.Local.sRowData.Set("")
+			F.Intrinsic.Math.Add(V.Local.icount2,1,V.Local.icount2)
+		F.Intrinsic.Control.else
+'			F.ODBC.conx!rst.Close
+		F.intrinsic.control.endif
+
+'if needed change the vendor to create the new spreadsheet
+V.Local.svendor.Set(V.uGlobal.uContacts(v.Local.ivendcount)!VENDOR.Trim)
+
+V.Local.sData.Set("Part*!*Description*!*Quantity*!*Vendor*!*Sort*!*Seq*!*Price")
+
+F.Intrinsic.Control.Next(V.Local.ivendcount)
+
+
+'ERROR HANDLING BELOW
+F.Intrinsic.Control.Label("BuildExportExcel_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.BuildExportExcel.End
+
+Program.Sub.ClearReplyTo.Start
+F.Intrinsic.Control.SetErrorHandler("ClearReplyTo_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'clear the textboxes
+Gui.f_Main.txtRName.Text("")
+Gui.f_Main.txtUser.Text("")
+Gui.f_Main.txtREmail.Text("")
+Gui.f_Main.txtRFax.Text("")
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("ClearReplyTo_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.ClearReplyTo.End
+
+program.sub.txtvendor_lostfocus.start
+F.Intrinsic.Control.SetErrorHandler("txtvendor_lostfocus_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sSQL.Declare(String)
+
+Function.Intrinsic.Control.If(V.Screen.f_Main!txtVendor.text,<>,"")
+	Function.Intrinsic.String.Concat("SELECT NAME_VENDOR FROM V_VENDOR_MASTER WHERE VENDOR = '",V.Screen.f_Main!txtVendor.Text,"'",V.Local.sSQL)
+	Function.ODBC.Connection!conx.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+	Function.Intrinsic.Control.If(V.ODBC.conx!rst.EOF,=,False)
+		Gui.f_Main.txtVendorName.Text(V.ODBC.conx!rst.FieldValTrim!NAME_VENDOR)
+		Gui.f_Main.cmdAddVendor.SetFocus
+	Function.Intrinsic.Control.Else
+		Function.Intrinsic.UI.Msgbox("Selected Vendor is invalid","Invalid Vendor")
+		Gui.f_Main.txtVendor.Text("")
+		Gui.f_Main.txtVendorName.Text("")
+		Gui.f_Main.txtVendor.SetFocus
+	Function.Intrinsic.Control.EndIf
+	Function.ODBC.conx!rst.Close
+Function.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("txtvendor_lostfocus_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.txtvendor_lostfocus.End
+
+program.sub.cmdremovevendor_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdremovevendor_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sKey.Declare(String)
+V.Local.iOrd.Declare(Long)
+V.Local.sText.Declare(String)
+
+Gui.f_Main.lvSelVendors.RetrieveSelectedListitems(V.Local.sKey)
+Function.Intrinsic.Control.If(V.Local.sKey,<>,"***NORETURN***")
+	Gui.f_Main.lvSelVendors.ListitemKeyToOrdinal(V.Local.sKey,V.Local.iOrd)
+	V.Local.sText.Set(V.Screen.f_Main!lvSelVendors.ListItemText(V.Local.iOrd))
+
+	Function.Intrinsic.Variable.UDTMultiFlag(V.uGlobal.uContacts!VENDOR,V.Local.sText)
+	Function.Intrinsic.Variable.UDTDeleteFlagged(V.uGlobal.uContacts)
+
+	Gui.f_Main.lvSelVendors.RemoveItem(V.Local.sKey)
+
+	Gui.f_Main.lvAvailContacts.ClearItems
+	Gui.f_Main.lvlSelContacts.ClearItems
+Function.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdremovevendor_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdremovevendor_click.End
+
+program.sub.cmdbrwreply_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdbrwreply_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sRet.Declare(String)
+
+'call the common browser, then call the loadreplyto sub
+Function.Intrinsic.UI.CommonBrowser(10,"",V.Local.sRet)
+Function.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	Function.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	Function.Intrinsic.Control.CallSub(Loadreplyto,"User",V.Local.sRet(1).Trim)
+Function.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdbrwreply_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdbrwreply_click.End
+
+program.sub.cmdbrwvendor_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdbrwvendor_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sRet.Declare(String)
+
+'call the commonbrowser and set the vendor/vendor name textboxes based on whatever selection is made
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+
+Function.Intrinsic.UI.CommonBrowser(300,"",V.Local.sRet)
+Function.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	Function.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	Gui.f_Main.txtVendor.Text(V.Local.sRet(0).Trim)
+	Gui.f_Main.txtVendorName.Text(V.Local.sRet(1).Trim)
+Function.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdbrwvendor_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdbrwvendor_click.End
+
+program.sub.cmdaddvendor_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdaddvendor_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sKey.Declare(String)
+V.Local.sText.Declare(String)
+V.Local.iOrd.Declare(Long)
+V.Local.i.Declare(Long)
+V.Local.sSQL.Declare(String)
+V.Local.sRet.Declare(String)
+
+'if the vendor text isn't blank go through the selected vendors to retrieve the information
+Function.Intrinsic.Control.If(V.Screen.f_Main!txtVendor.Text,<>,"")
+	Gui.f_Main.lvSelVendors.RetrieveAllListItems(V.Local.sKey)
+	Function.Intrinsic.Control.If(V.Local.sKey,<>,"***NORETURN***")
+		Function.Intrinsic.String.Split(V.Local.sKey,"*!*",V.Local.sKey)
+
+		'Checking to see if Vendor already in list
+		Function.Intrinsic.Control.For(V.Local.i,0,V.Local.sKey.UBound,1)
+			Function.Intrinsic.Control.If(V.Local.sKey(v.local.i).trim,=,V.Screen.f_Main!txtVendor.Text)
+				Function.Intrinsic.UI.Msgbox("This Vendor is already in the selection list. Please choose another","Vendor Already Selected")
+				Function.Intrinsic.Control.ExitSub
+			Function.Intrinsic.Control.Endif
+		Function.Intrinsic.Control.Next(V.Local.i)
+
+		Gui.f_Main.lvSelVendors.AddListItem(V.Screen.f_Main!txtVendor.Text,V.Screen.f_Main!txtvendor.Text)
+		Gui.f_Main.lvSelVendors.SetListItemSubItemText(V.Screen.f_Main!txtVendor.Text,1,V.Screen.f_Main!txtVendorName.Text)
+	Function.Intrinsic.Control.Else
+		Gui.f_Main.lvSelVendors.AddListItem(V.Screen.f_Main!txtVendor.Text,V.Screen.f_Main!txtvendor.Text)
+		Gui.f_Main.lvSelVendors.SetListItemSubItemText(V.Screen.f_Main!txtVendor.Text,1,V.Screen.f_Main!txtVendorName.Text)
+	Function.Intrinsic.Control.EndIf
+
+	'Loading Contacts from Vendor
+	Function.Intrinsic.String.Concat("select CUST, ID, EMAIL1, (RTRIM(NAME_FIRST) + ' ' + RTRIM(NAME_LAST)) AS FULL_NAME from "CONTACT" WHERE TYPE = 'V' AND CUST = '",V.Screen.f_Main!txtVendor.Text,"'",V.Local.sSQL)
+	Function.ODBC.Connection!conx.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+	Function.Intrinsic.Control.If(V.ODBC.conx!rst.EOF,=,False)
+	Function.Intrinsic.Variable.LoadUDTFromRecordset("CONX","RST","V.UGLOBAL.UCONTACTS",True)
+	Function.Intrinsic.Control.EndIf
+	Function.ODBC.conx!rst.Close
+
+	'clear the vendor text
+	Gui.f_Main.txtVendor.Text("")
+	Gui.f_Main.txtVendorName.Text("")
+	Gui.f_Main.txtVendor.SetFocus
+Function.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdaddvendor_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdaddvendor_click.End
+
+program.sub.lvselvendors_itemclick.start
+F.Intrinsic.Control.SetErrorHandler("lvselvendors_itemclick_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sKey.Declare(String)
+V.Local.iOrd.Declare(String)
+V.Local.sText.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.i.Declare(Long)
+V.Local.sKeyNew.Declare(String,"0")
+
+V.Local.icount.Declare(Long)
+V.Local.sloop.Declare(String)
+V.Local.iordinal.Declare(Long)
+V.Local.srange.Declare(String)
+V.Local.sname.Declare(String)
+V.Local.semail.Declare(String)
+V.Local.icount2.Declare(Long)
+V.Local.srange2.Declare(Long)
+V.Local.iloopcount.Declare(Long)
+V.Local.inamecount.Declare(Long)
+V.Local.iemailcount.Declare(Long)
+V.Local.svendor.Declare(String)
+V.Local.sname2.Declare(String)
+V.Local.iselect.Declare(Long)
+
+'Gui.f_Main.lvlSelContacts.ClearItems
+'Gui.f_Main.lvAvailContacts.ClearItems
+
+'F.Intrinsic.Debug.InvokeDebugger
+'F.Intrinsic.Debug.Stop
+
+'F.Intrinsic.Variable.UDTMultiFlag(V.uGlobal.uContacts!EMAIL,"")
+'F.Intrinsic.Variable.UDTMultiFlag(V.uGlobal.uContacts!ID,"")
+'F.Intrinsic.Variable.UDTMultiFlag(V.uGlobal.uContacts!NAME,"")
+''F.Intrinsic.Variable.UDTMultiFlag(V.uGlobal.uContacts!Selected,"")
+'F.Intrinsic.Variable.UDTMultiFlag(V.uGlobal.uContacts!VENDOR,"")
+'
+'
+'F.Intrinsic.Variable.UDTDeleteFlagged(V.uGlobal.uContacts)
+
+
+Gui.f_Main.lvSelVendors.RetrieveSelectedListitems(V.Local.sKey)
+
+'Function.Intrinsic.Variable.UDTMultiSeek(V.uGlobal.uContacts!VENDOR,V.Local.sKey,V.uGlobal.uContacts!Selected,False,V.Local.sRet)
+'Function.Intrinsic.Control.If(V.Local.sRet,<>,"")
+'	    Function.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+'    Function.Intrinsic.Control.For(V.Local.i,0,V.Local.sRet.UBound,1)
+'        Gui.f_Main.lvAvailContacts.AddListItem(V.Local.sKeyNew,V.uGlobal.uContacts(v.Local.sRet(v.Local.i))!NAME)
+'        Gui.f_Main.lvAvailContacts.SetListItemSubItemText(V.Local.sKeyNew,1,V.uGlobal.uContacts(V.Local.sRet(v.Local.i))!EMAIL)
+'        Gui.f_Main.lvAvailContacts.SetListItemSubItemText(V.Local.sKeyNew,2,V.uGlobal.uContacts(V.Local.sRet(v.Local.i))!ID)
+'        Function.Intrinsic.Math.Add(V.Local.sKeyNew,1,V.Local.sKeyNew)
+'    Function.Intrinsic.Control.Next(V.Local.i)
+'Function.Intrinsic.Control.EndIf
+
+
+
+Gui.f_Main.lvAvailContacts.ClearItems
+
+F.Intrinsic.control.For(V.Local.i,V.uGlobal.uContacts.LBound,V.uGlobal.uContacts.UBound,1)
+			F.Intrinsic.Control.If(V.Local.sKey,<>,V.uGlobal.uContacts(v.Local.i)!VENDOR.Trim)
+	
+				Function.Intrinsic.Math.Add(V.local.skeynew,1,V.local.skeynew)
+						F.Intrinsic.Control.Else
+			F.Intrinsic.Control.If(V.uGlobal.uContacts(v.Local.i)!NAME,<>,"")
+			F.Intrinsic.Control.If(V.uGlobal.uContacts(V.Local.i)!Selected,=,False)
+					        Function.Intrinsic.Math.Add(V.local.skeynew,1,V.local.skeynew)
+	        Gui.f_Main.lvAvailContacts.AddListItem(V.local.skeynew,V.uGlobal.uContacts(v.local.i)!NAME)
+	        Gui.f_Main.lvAvailContacts.setlistitemSubItemText(V.local.skeynew,1,V.uGlobal.uContacts(v.local.i)!EMAIL)
+	        Gui.f_Main.lvAvailContacts.SetListItemSubItemText(V.local.skeynew,2,V.uGlobal.uContacts(v.local.i)!ID)
+F.intrinsic.control.endif
+F.Intrinsic.Control.EndIf
+F.intrinsic.control.endif
+F.Intrinsic.Control.Next(V.Local.i)
+
+
+
+
+
+
+
+
+
+'
+''Make Sure to add to existing contacts in selected list
+'Gui.f_Main.lvlSelContacts.RetrieveAllListItems(V.Local.sRet)
+'F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+'V.Local.sKeyNew.Set(V.Local.sRet(v.local.sRet.UBound))
+'
+'V.Local.sRet.Redim(0,0)
+'
+''Adding selection to selected email contacts
+'Function.Intrinsic.Variable.UDTMultiSeek(V.uGlobal.uContacts!VENDOR,V.local.skey,V.uGlobal.uContacts!Selected,True,V.local.sret)
+
+Gui.f_Main.lvlSelContacts.ClearItems
+
+F.Intrinsic.control.For(V.Local.i,V.uGlobal.uContacts.LBound,V.uGlobal.uContacts.UBound,1)
+			F.Intrinsic.Control.If(V.uGlobal.uContacts(V.Local.i)!Selected,=,True)
+	
+				        Function.Intrinsic.Math.Add(V.local.skeynew,1,V.local.skeynew)
+	        Gui.f_Main.lvlSelContacts.AddListItem(V.local.skeynew,V.uGlobal.uContacts(v.local.i)!NAME)
+	        Gui.f_Main.lvlSelContacts.SetListItemSubItemText(V.local.skeynew,1,V.uGlobal.uContacts(v.local.i)!EMAIL)
+	        Gui.f_Main.lvlSelContacts.SetListItemSubItemText(V.local.skeynew,2,V.uGlobal.uContacts(v.local.i)!ID)
+F.intrinsic.control.endif
+
+F.Intrinsic.Control.Next(V.Local.i)
+
+'
+'
+'	Function.Intrinsic.Control.If(V.local.sret,<>,"")
+'	F.Intrinsic.Control.If(V.Args.clear,<>,"N")
+'		Gui.f_Main.lvlSelContacts.ClearItems
+'	F.Intrinsic.Control.EndIf
+'	    Function.Intrinsic.String.Split(V.local.sret,"*!*",V.local.sret)
+'		F.Intrinsic.Control.For(V.Local.i,V.uGlobal.uContacts.LBound,V.uGlobal.uContacts.UBound,1)
+'			F.Intrinsic.Control.If(V.uGlobal.uContacts(V.Local.i)!Selected,<>,True)
+'		    Function.Intrinsic.Control.For(V.local.i,0,V.local.sret.UBound,1)
+'
+'	        Function.Intrinsic.Math.Add(V.local.skeynew,1,V.local.skeynew)
+'	        Gui.f_Main.lvlSelContacts.AddListItem(V.local.skeynew,V.uGlobal.uContacts(v.local.sret(v.local.i))!NAME)
+'	        Gui.f_Main.lvlSelContacts.SetListItemSubItemText(V.local.skeynew,1,V.uGlobal.uContacts(v.local.sret(v.local.i))!EMAIL)
+'	        Gui.f_Main.lvlSelContacts.SetListItemSubItemText(V.local.skeynew,2,V.uGlobal.uContacts(v.local.sret(v.local.i))!ID)
+'
+'					F.Intrinsic.Control.Else
+'
+'	    Function.Intrinsic.Control.Next(V.local.i)
+'Function.Intrinsic.Control.EndIf
+'F.Intrinsic.Control.EndIf
+'F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("lvselvendors_itemclick_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+    Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+    F.Intrinsic.UI.Msgbox(V.Local.sError)
+    F.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+program.sub.lvselvendors_itemclick.End
+
+program.sub.lvavailcontacts_dblclick.start
+F.Intrinsic.Control.SetErrorHandler("lvavailcontacts_dblclick_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sKey.Declare(String)
+V.Local.sText.Declare(String)
+V.Local.iOrd.Declare(Long)
+V.Local.sRet.Declare(String)
+V.Local.sVendor.Declare(String)
+V.Local.skey2.Declare(String)
+
+'takes selected line and marks contact as true, then clears the available contacts lv and reloads it
+Gui.f_Main.lvAvailContacts.RetrieveSelectedListitems(V.Local.sKey)
+Function.Intrinsic.Control.If(V.Local.sKey,<>,"***NORETURN***")
+	Gui.f_Main.lvAvailContacts.ListitemKeyToOrdinal(V.Local.sKey,V.Local.iOrd)
+	V.Local.sText.Set(V.Screen.f_Main!lvAvailContacts.ListItemTextExtended(V.Local.iOrd))
+	Function.Intrinsic.String.Split(V.Local.sText,"*!*",V.Local.sText)
+	V.Local.sVendor.Set(V.Screen.f_Main!lvSelVendors.SelectedItemKey)
+	Function.Intrinsic.Variable.UDTMultiSeek(V.uglobal.uContacts!vendor,V.local.sVendor,V.uGlobal.uContacts!ID,V.Local.sText(2).Trim,V.Local.sRet)
+	V.uGlobal.uContacts(v.Local.sRet)!Selected.Set(True)
+
+Gui.f_Main.lvlSelContacts.RetrieveAllListItems(V.Local.skey2)
+	F.Intrinsic.Control.If(V.Local.skey2,=,"")
+	F.Intrinsic.Control.Else
+	Function.Intrinsic.Control.CallSub(Lvselvendors_itemclick,"clear","Y")
+F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndIf
+F.Intrinsic.Control.ExitSub
+
+
+F.Intrinsic.Control.Label("lvavailcontacts_dblclick_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.lvavailcontacts_dblclick.End
+
+program.sub.lvlselcontacts_dblclick.start
+F.Intrinsic.Control.SetErrorHandler("lvlselcontacts_dblclick_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sKey.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.iOrd.Declare(String)
+V.Local.sText.Declare(String)
+
+V.Local.i.Declare(Long)
+V.Local.skeynew.Declare(String)
+V.Local.skey2.Declare(String)
+V.Local.iret.Declare(Long)
+V.Local.icount.Declare(Long)
+
+Gui.f_Main.lvSelVendors.RetrieveSelectedListitems(V.Local.sKey2)
+Gui.f_Main.lvlSelContacts.RetrieveSelectedListitems(V.Local.sKey)
+
+'after retrieving information from the selected vendors and contact list loop through and mark the selected line as false
+Function.Intrinsic.Control.If(V.Local.sKey,<>,"***NORETURN***")
+	Gui.f_Main.lvlSelContacts.ListitemKeyToOrdinal(V.Local.sKey,V.Local.iOrd)
+	V.Local.sText.Set(V.Screen.f_Main!lvlSelContacts.ListItemTextExtended(v.Local.iOrd))
+	Function.Intrinsic.String.Split(V.Local.sText,"*!*",V.Local.sText)
+		F.Intrinsic.Control.For(V.Local.icount,V.uGlobal.uContacts!Name.LBound,V.uGlobal.uContacts!Name.UBound,1)
+			F.Intrinsic.Control.If(V.uGlobal.uContacts(v.Local.icount)!NAME,=,V.Local.sText(0))
+				V.uGlobal.uContacts(v.Local.icount)!Selected.Set(False)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Next(V.Local.icount)
+	'remove the selected line
+	Gui.f_Main.lvlselcontacts.RemoveItem(V.Local.sKey)
+	'clear items in the listview
+	Gui.f_Main.lvAvailContacts.ClearItems
+
+'loop through the uContacts UDT and if they are listed as false load them to the available contacts LV
+F.Intrinsic.control.For(V.Local.i,V.uGlobal.uContacts.LBound,V.uGlobal.uContacts.UBound,1)
+			F.Intrinsic.Control.If(V.Local.sKey2,<>,V.uGlobal.uContacts(v.Local.i)!VENDOR.Trim)
+	
+				Function.Intrinsic.Math.Add(V.local.skeynew,1,V.local.skeynew)
+						F.Intrinsic.Control.Else
+			F.Intrinsic.Control.If(V.uGlobal.uContacts(v.Local.i)!NAME,<>,"")
+			F.Intrinsic.Control.If(V.uGlobal.uContacts(V.Local.i)!Selected,=,False)
+					        Function.Intrinsic.Math.Add(V.local.skeynew,1,V.local.skeynew)
+	        Gui.f_Main.lvAvailContacts.AddListItem(V.local.skeynew,V.uGlobal.uContacts(v.local.i)!NAME)
+	        Gui.f_Main.lvAvailContacts.setlistitemSubItemText(V.local.skeynew,1,V.uGlobal.uContacts(v.local.i)!EMAIL)
+	        Gui.f_Main.lvAvailContacts.SetListItemSubItemText(V.local.skeynew,2,V.uGlobal.uContacts(v.local.i)!ID)
+F.intrinsic.control.endif
+F.Intrinsic.Control.EndIf
+F.intrinsic.control.endif
+F.Intrinsic.Control.Next(V.Local.i)
+
+'clear the selected contacts list
+Gui.f_Main.lvlSelContacts.ClearItems
+
+'loop through the uContacts UDT and if the contact is listed as selected reload them into the selected contacts LV
+F.Intrinsic.control.For(V.Local.i,V.uGlobal.uContacts.LBound,V.uGlobal.uContacts.UBound,1)
+			F.Intrinsic.Control.If(V.uGlobal.uContacts(V.Local.i)!Selected,=,True)
+	
+				        Function.Intrinsic.Math.Add(V.local.skeynew,1,V.local.skeynew)
+	        Gui.f_Main.lvlSelContacts.AddListItem(V.local.skeynew,V.uGlobal.uContacts(v.local.i)!NAME)
+	        Gui.f_Main.lvlSelContacts.SetListItemSubItemText(V.local.skeynew,1,V.uGlobal.uContacts(v.local.i)!EMAIL)
+	        Gui.f_Main.lvlSelContacts.SetListItemSubItemText(V.local.skeynew,2,V.uGlobal.uContacts(v.local.i)!ID)
+F.intrinsic.control.endif
+
+F.Intrinsic.Control.Next(V.Local.i)
+
+Function.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("lvlselcontacts_dblclick_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.lvlselcontacts_dblclick.End
+
+program.sub.cmdaddcontact_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdaddcontact_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+'declare variables
+V.Local.sError.Declare(String)
+V.Local.sKey.Declare(String)
+V.Local.sText.Declare(String)
+V.Local.iOrd.Declare(Long)
+V.Local.sRet.Declare(String)
+V.Local.sVendor.Declare(String)
+
+'go through the available contacts get the information and mark the contact as selected in the uContaacts UDT
+Gui.f_Main.lvAvailContacts.RetrieveSelectedListitems(V.Local.sKey)
+Function.Intrinsic.Control.If(V.Local.sKey,<>,"***NORETURN***")
+	Gui.f_Main.lvAvailContacts.ListitemKeyToOrdinal(V.Local.sKey,V.Local.iOrd)
+	V.Local.sText.Set(V.Screen.f_Main!lvAvailContacts.ListItemTextExtended(V.Local.iOrd))
+	Function.Intrinsic.String.Split(V.Local.sText,"*!*",V.Local.sText)
+	V.Local.sVendor.Set(V.Screen.f_Main!lvSelVendors.SelectedItemKey)
+	Function.Intrinsic.Variable.UDTMultiSeek(V.uglobal.uContacts!vendor,V.local.sVendor,V.uGlobal.uContacts!ID,V.Local.sText(2).Trim,V.Local.sRet)
+	V.uGlobal.uContacts(v.Local.sRet)!Selected.Set(True)
+	'call the clear selected vendors tab
+	Function.Intrinsic.Control.CallSub(Lvselvendors_itemclick,"clear","Y")
+Function.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdaddcontact_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdaddcontact_click.End
+
+program.sub.cmdremovecontact_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdremovecontact_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+'declare the variables
+V.Local.sError.Declare(String)
+V.Local.sKey.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.iOrd.Declare(String)
+V.Local.sText.Declare(String)
+V.Local.i.Declare(Long)
+V.Local.skeynew.Declare(String)
+V.Local.skey2.Declare(String)
+V.Local.icount.Declare(Long)
+
+'retrieve listitems from both selected vendors and selected contacts
+Gui.f_Main.lvSelVendors.RetrieveSelectedListitems(V.Local.sKey2)
+Gui.f_Main.lvlSelContacts.RetrieveSelectedListitems(V.Local.sKey)
+
+'go through the selected contacts listview and set the contact to false
+Function.Intrinsic.Control.If(V.Local.sKey,<>,"***NORETURN***")
+	Gui.f_Main.lvlSelContacts.ListitemKeyToOrdinal(V.Local.sKey,V.Local.iOrd)
+	V.Local.sText.Set(V.Screen.f_Main!lvlSelContacts.ListItemTextExtended(v.Local.iOrd))
+	Function.Intrinsic.String.Split(V.Local.sText,"*!*",V.Local.sText)
+		F.Intrinsic.Control.For(V.Local.icount,V.uGlobal.uContacts!Name.LBound,V.uGlobal.uContacts!Name.UBound,1)
+			F.Intrinsic.Control.If(V.uGlobal.uContacts(v.Local.icount)!NAME,=,V.Local.sText(0))
+				V.uGlobal.uContacts(v.Local.icount)!Selected.Set(False)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Next(V.Local.icount)
+
+'remove the contact from the listview
+Gui.f_Main.lvlselcontacts.RemoveItem(V.Local.sKey)
+
+'clear the items in the available contacts list view
+Gui.f_Main.lvAvailContacts.ClearItems
+
+'loop through the ucontacts, if they are marked as false don't load them in the available contacts listview
+F.Intrinsic.control.For(V.Local.i,V.uGlobal.uContacts.LBound,V.uGlobal.uContacts.UBound,1)
+			F.Intrinsic.Control.If(V.Local.sKey2,<>,V.uGlobal.uContacts(v.Local.i)!VENDOR.Trim)
+	
+				Function.Intrinsic.Math.Add(V.local.skeynew,1,V.local.skeynew)
+						F.Intrinsic.Control.Else
+			F.Intrinsic.Control.If(V.uGlobal.uContacts(v.Local.i)!NAME,<>,"")
+			F.Intrinsic.Control.If(V.uGlobal.uContacts(V.Local.i)!Selected,=,False)
+					        Function.Intrinsic.Math.Add(V.local.skeynew,1,V.local.skeynew)
+	        Gui.f_Main.lvAvailContacts.AddListItem(V.local.skeynew,V.uGlobal.uContacts(v.local.i)!NAME)
+	        Gui.f_Main.lvAvailContacts.setlistitemSubItemText(V.local.skeynew,1,V.uGlobal.uContacts(v.local.i)!EMAIL)
+	        Gui.f_Main.lvAvailContacts.SetListItemSubItemText(V.local.skeynew,2,V.uGlobal.uContacts(v.local.i)!ID)
+F.intrinsic.control.endif
+F.Intrinsic.Control.EndIf
+F.intrinsic.control.endif
+F.Intrinsic.Control.Next(V.Local.i)
+
+'clear items in the selected contacts listview
+Gui.f_Main.lvlSelContacts.ClearItems
+
+'loop throught the ucontacts UDT if the contact is marked as selected load them in the selected contacts LV
+F.Intrinsic.control.For(V.Local.i,V.uGlobal.uContacts.LBound,V.uGlobal.uContacts.UBound,1)
+			F.Intrinsic.Control.If(V.uGlobal.uContacts(V.Local.i)!Selected,=,True)
+	
+				        Function.Intrinsic.Math.Add(V.local.skeynew,1,V.local.skeynew)
+	        Gui.f_Main.lvlSelContacts.AddListItem(V.local.skeynew,V.uGlobal.uContacts(v.local.i)!NAME)
+	        Gui.f_Main.lvlSelContacts.SetListItemSubItemText(V.local.skeynew,1,V.uGlobal.uContacts(v.local.i)!EMAIL)
+	        Gui.f_Main.lvlSelContacts.SetListItemSubItemText(V.local.skeynew,2,V.uGlobal.uContacts(v.local.i)!ID)
+F.intrinsic.control.endif
+
+F.Intrinsic.Control.Next(V.Local.i)
+
+Function.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdremovecontact_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdremovecontact_click.End
+
+program.sub.cmdbrwjob_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdbrwjob_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.stitles.Declare(String)
+V.Local.iwidths.Declare(Long)
+
+'F.Intrinsic.string.Split("Job*!*Suffix*!*Printed*!*Description*!*PartNumber*!*Rev*!*DateDue","*!*",V.local.stitles)
+'F.Intrinsic.string.Split("Job*!*Suffix*!*Description*!*PartNumber","*!*",V.local.stitles)
+F.Intrinsic.string.Split("Job*!*Suffix*!*Description*!*PartNumber*!*Rev","*!*",V.local.stitles)
+'F.Intrinsic.String.Split("Work Order*!*Suffix*!*Part*!*Description","*!*",V.Local.stitles)
+'F.Intrinsic.String.Split("1000*!*1000*!*1000*!*1000*!*1000*!*1000*!*1000","*!*",V.Local.iwidths)
+'F.Intrinsic.String.Split("1800*!*1500*!*3000*!*1000","*!*",V.Local.iwidths)
+F.Intrinsic.String.Split("1800*!*1500*!*3000*!*1000*!*500","*!*",V.Local.iwidths)
+
+'F.ODBC.Connection!con.OpenConnection("Global_PLA","Master","master")
+'F.Intrinsic.UI.Browser("Select a job","con","Select Job, Suffix, Part, Description from V_JOB_HEADER where JOB_TYPE <> 'L'",V.Local.stitles,V.Local.iwidths,V.Local.sRet)
+'SELECT JOB AS "Job", SUFFIX AS "Suffix", FLAG_WO_PRTD AS "Printed", DESCRIPTION AS "Description" ,SUBSTRING (PART,1,17) AS"Part Number",SUBSTRING(PART,18,3)AS"Rev",DATE_DUEAS"Date Due",V_JOB_HEADER.JOB,V_JOB_HEADER.SUFFIXFROMV_JOB_HEADERWHEREJOB>''ORDERBY"Job","Suffix"
+F.intrinsic.ui.Browser(" Select a job","conx","SELECT JOB AS Job, SUFFIX AS Suffix, DESCRIPTION AS Description, SUBSTRING(PART,1,17) AS PartNumber, SUBSTRING(PART,18,3) as REV FROM V_JOB_HEADER WHERE JOB > '' ORDER BY Job, Suffix",V.Local.stitles,V.Local.iwidths,V.Local.sRet)
+'F.intrinsic.ui.Browser(" Select a job","con","SELECT JOB AS Job, SUFFIX AS Suffix, DESCRIPTION AS Description, SUBSTRING (PART,1,17) AS Part Number, FROM V_JOB_HEADER WHERE JOB > '' ORDER BY Job, Suffix",V.Local.stitles,V.Local.iwidths,V.Local.sRet)
+
+F.Intrinsic.Control.If(V.Local.sRet,=,"***CANCEL***")
+F.Intrinsic.UI.Msgbox("No job was selected")
+'	F.ODBC.Connection!con.Close
+	F.Intrinsic.Control.ExitSub
+
+'Function.Intrinsic.UI.CommonBrowser(1000,"",V.Local.sRet)
+Function.Intrinsic.Control.elseIf(V.Local.sRet,<>,"***CANCEL***")
+	'Clearing router
+	Gui.f_Main.txtRouter.Text("")
+	Gui.f_Main.txtRouterQty.Text("")
+	Gui.f_Main.chkRequisitions.Value(0)
+
+	'call the clear part sub
+	F.Intrinsic.Control.CallSub(Clearpart)
+	
+	'clear items in the lvRouterWOSeq list view and set the textboxes to the information selected, then call the loadjobsequences sub
+	Gui.f_Main.lvRouterWOSeq.ClearItems
+	Function.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	Gui.f_Main.txtJob.Text(V.Local.sRet(0).Trim)
+	Gui.f_Main.txtSuffix.Text(V.Local.sRet(1).Trim)
+	Gui.f_Main.txtEndJob.Text(V.Local.sRet(0).Trim)
+	Gui.f_Main.txtEndSuff.Text(V.Local.sRet(1).Trim)
+	F.Intrinsic.Control.CallSub(Loadjobsequences)
+'	F.ODBC.Connection!con.Close
+Function.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdbrwjob_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdbrwjob_click.End
+
+program.sub.cmdbrwrouter_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdbrwrouter_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sSql.Declare(String)
+
+'call the common browser and clear the items int he lvRouterWOSeq listview
+Function.Intrinsic.UI.CommonBrowser(2705,"",V.Local.sRet)
+Function.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	Gui.f_Main.lvRouterWOSeq.ClearItems
+
+	'clear the textboxes
+	Gui.f_Main.txtJob.Text("")
+	Gui.f_Main.txtSuffix.Text("")
+	Gui.f_Main.txtEndJob.Text("")
+	Gui.f_Main.txtEndSuff.Text("")
+	Gui.f_Main.chkRequisitions.Value(0)
+
+	F.Intrinsic.Control.CallSub(Clearpart)
+
+	Function.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	Gui.f_Main.txtRouter.Text(V.Local.sRet(0).Trim)
+	
+	'goes throught the database to select information for the router selection
+	Function.Intrinsic.String.Concat("SELECT QUANTITY_1 FROM RTR_PRICE_1_4 WHERE ROUTER = '",V.Local.sRet(0).Trim,"' AND ROUTER_TYPE = 'Q'",V.Local.sSQL)
+	Function.ODBC.Connection!conx.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+	Function.Intrinsic.Control.If(V.ODBC.conx!rst.EOF,=,False)
+		F.Intrinsic.Control.If(V.ODBC.conx!rst.FieldVal!QUANTITY_1,=,0)
+			Gui.f_Main.txtRouterQty.Text("1")
+		F.Intrinsic.Control.Else
+			Gui.f_Main.txtRouterQty.Text(V.ODBC.CONX!rst.FieldVal!QUANTITY_1)
+		F.Intrinsic.Control.EndIf
+	Function.Intrinsic.Control.Else
+		Gui.f_Main.txtRouterQty.Text("1")
+	Function.Intrinsic.Control.EndIf
+	Function.ODBC.Conx!rst.Close
+
+	'call the loadroutersequences sub
+	Function.Intrinsic.Control.CallSub(Loadroutersequences)
+Function.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdbrwrouter_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdbrwrouter_click.End
+
+Program.Sub.LoadJobSequences.Start
+F.Intrinsic.Control.SetErrorHandler("LoadJobSequences_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sSql.Declare(String)
+V.Local.fJobQty.Declare(Float)
+V.Local.fQty.Declare(Float)
+V.Local.swo.Declare(String)
+V.Local.sewo.Declare(String)
+V.Local.sjob.Declare(String)
+V.Local.ssuffix.Declare(String)
+
+'F.intrinsic.String.Build("SELECT SEQ, PART, DESCRIPTION,UNITS,DATE_DUE FROM V_JOB_OPERATIONS WHERE JOB = BETWEEN '{0}' AND '{1}' AND SUFFIX = BETWEEN '{2}' AND '{3}' AND LMO = '{4}' AND SEQ <990000 ORDER BY SEQ",V.Screen.f_Main!txtJob.Text,V.Screen.f_Main!txtEndJob.Text,V.Screen.f_Main!txtSuffix.Text,V.Screen.f_Main!txtEndSuff.Text,"M",V.Local.sSql)
+
+Function.Intrinsic.String.Concat("SELECT SEQ, PART, SUFFIX, JOB, DESCRIPTION, UNITS, DATE_DUE FROM V_JOB_OPERATIONS WHERE JOB = '",V.Screen.f_Main!txtJob.Text,"' AND SUFFIX = '",V.Screen.f_Main!txtSuffix.Text,"' AND LMO = 'M' AND SEQ < 990000 Order By SEQ",V.Local.sSQL)
+Function.ODBC.Connection!conx.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+Function.Intrinsic.Control.If(V.ODBC.conx!rst.EOF,=,False)
+	Gui.f_Main.lvRouterWOSeq.ClearItems
+	Function.Intrinsic.Control.DoUntil(V.ODBC.conx!rst.EOF,=,True)
+		V.Local.sjob.Set(V.ODBC.conx!rst.FieldVal!JOB)
+		V.Local.ssuffix.Set(V.ODBC.conx!rst.FieldVal!SUFFIX)
+
+		Gui.f_Main.lvRouterWOSeq.AddListItem(V.ODBC.conx!rst.FieldValTrim!SEQ,V.ODBC.conx!rst.FieldValTrim!SEQ)
+		Gui.f_Main.lvRouterWOSeq.SetListItemSubItemText(V.ODBC.conx!rst.FieldValTrim!SEQ,1,V.ODBC.conx!rst.FieldValTrim!PART)
+		Gui.f_Main.lvRouterWOSeq.SetListItemSubItemText(V.ODBC.conx!rst.FieldValTrim!SEQ,2,V.ODBC.conx!rst.FieldValTrim!DESCRIPTION)
+
+		Function.Intrinsic.String.Concat("SELECT QTY_ORDER, JOB FROM V_JOB_HEADER WHERE JOB = '",V.Screen.f_Main!txtJob.Text,"' AND SUFFIX = '",V.Screen.f_Main!txtSuffix.Text,"'",V.Local.sSQL)
+		Function.ODBC.Connection!conx.OpenLocalRecordsetRO("rstQTY",V.Local.sSQL)
+		V.Local.fJobQty.Set(V.ODBC.conx!rstQTY.FieldVal!QTY_ORDER)
+
+		Function.ODBC.conx!rstQTY.Close
+		Function.Intrinsic.Math.Mult(V.Local.fJobQty,V.ODBC.conx!rst.FieldVal!UNITS,V.Local.fQty)
+		Gui.f_Main.lvRouterWOSeq.SetListItemSubItemText(V.ODBC.conx!rst.FieldValTrim!SEQ,3,V.Local.fQty)
+		Gui.f_Main.lvRouterWOSeq.SetListItemSubItemText(V.ODBC.conx!rst.FieldValTrim!SEQ,4,V.ODBC.conx!rst.FieldVal!DATE_DUE)
+
+		F.Intrinsic.String.Concat(V.local.sjob,"-",V.local.ssuffix,V.Local.sjob)
+		Gui.f_Main.lvRouterWOSeq.SetListItemSubItemText(V.ODBC.conx!rst.FieldValTrim!SEQ,5,V.local.sjob)
+
+			Function.ODBC.conx!rst.MoveNext
+	Function.Intrinsic.Control.Loop
+	Function.ODBC.conx!rst.Close
+Function.Intrinsic.Control.Else
+	Function.ODBC.conx!rst.Close
+	Function.Intrinsic.UI.Msgbox("No material sequences found for this job","No Material Found")
+	Function.Intrinsic.Control.ExitSub
+Function.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("LoadJobSequences_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.LoadJobSequences.End
+
+program.sub.txtsuffix_lostfocus.start
+F.Intrinsic.Control.SetErrorHandler("txtsuffix_lostfocus_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sSQL.Declare(String)
+
+Function.Intrinsic.Control.If(V.Screen.f_Main!txtJob.Text,<>,"")
+	Gui.f_Main.lvRouterWOSeq.ClearItems
+
+	'Clearing router fields
+	Gui.f_Main.txtRouter.Text("")
+	Gui.f_Main.txtRouterQty.Text("")
+	Gui.f_Main.chkRequisitions.Value(0)
+
+	F.Intrinsic.Control.CallSub(Clearpart)
+
+	Function.Intrinsic.String.Concat("SELECT JOB, SUFFIX FROM V_JOB_HEADER WHERE JOB = '",V.Screen.f_Main!txtJob.Text,"' AND SUFFIX = '",V.screen.f_Main!txtSuffix.Text,"'",V.Local.sSQL)
+	Function.ODBC.Connection!conx.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+	Function.Intrinsic.Control.If(V.ODBC.conx!rst.EOF,=,False)
+		F.Intrinsic.Control.CallSub(Loadjobsequences)
+	Function.Intrinsic.Control.Else
+		Function.Intrinsic.UI.Msgbox("Invalid Job Selected","Invalid Job")
+		Gui.f_Main.txtJob.Text("")
+		Gui.f_Main.txtSuffix.Text("")
+		Gui.f_Main.lvRouterWOSeq.ClearItems
+		Gui.f_Main.txtJob.SetFocus
+	Function.Intrinsic.Control.EndIf
+	Function.ODBC.conx!rst.Close
+Function.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("txtsuffix_lostfocus_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.txtsuffix_lostfocus.End
+
+program.sub.txtrouter_lostfocus.start
+F.Intrinsic.Control.SetErrorHandler("txtrouter_lostfocus_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sSQL.Declare(String)
+
+Function.Intrinsic.Control.If(V.Screen.f_Main!txtRouter.Text,<>,"")
+	Gui.f_Main.lvRouterWOSeq.ClearItems
+
+	'Clearing job fields
+	Gui.f_Main.txtJob.Text("")
+	Gui.f_Main.txtSuffix.Text("")
+	Gui.f_Main.chkRequisitions.Value(0)
+
+	F.Intrinsic.Control.CallSub(Clearpart)
+
+	Function.Intrinsic.String.Concat("SELECT QUANTITY_1 FROM RTR_PRICE_1_4 WHERE ROUTER ='",V.Screen.f_Main!txtRouter.Text,"'AND ROUTER_TYPE='Q'",V.Local.sSQL)
+	Function.ODBC.Connection!conx.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+	Function.Intrinsic.Control.If(V.ODBC.conx!rst.EOF,=,False)
+		F.Intrinsic.Control.If(V.ODBC.conx!rst.FieldVal!QUANTITY_1,=,0)
+			Gui.f_Main.txtRouterQty.Text("1")
+		F.Intrinsic.Control.Else
+			Gui.f_Main.txtRouterQty.Text(V.ODBC.CONX!rst.FieldVal!QUANTITY_1)
+		F.Intrinsic.Control.EndIf
+
+		Function.Intrinsic.Control.CallSub(Loadroutersequences)
+	Function.Intrinsic.Control.Else
+		Function.Intrinsic.UI.Msgbox("Invalid Router Selected","Invalid Router")
+		Gui.f_Main.lvRouterWOSeq.ClearItems
+		Gui.f_Main.txtRouter.Text("")
+		Gui.f_Main.txtRouterQty.Text("")
+		Gui.f_Main.txtRouter.SetFocus
+	Function.Intrinsic.Control.EndIf
+	Function.ODBC.conx!rst.Close
+Function.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("txtrouter_lostfocus_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.txtrouter_lostfocus.End
+
+Program.Sub.LoadRouterSequences.Start
+F.Intrinsic.Control.SetErrorHandler("LoadRouterSequences_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sSql.Declare(String)
+V.Local.fQty.Declare(Float)
+
+Function.Intrinsic.String.Concat("SELECT LINE_ROUTER, PART_WC_OUTSIDE, DESC_RT_LINE, RUN_TIME FROM V_ROUTER_LINE WHERE ROUTER = '",V.Screen.f_Main!txtRouter.Text,"' AND LMO = 'M'",V.Local.sSQL)
+Function.ODBC.Connection!conx.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+Function.Intrinsic.Control.If(V.ODBC.conx!rst.EOF,=,False)
+	Gui.f_Main.lvRouterWOSeq.ClearItems
+	Function.Intrinsic.Control.DoUntil(V.ODBC.conx!rst.EOF,=,True)
+		Gui.f_Main.lvRouterWOSeq.AddListItem(V.ODBC.conx!rst.FieldValTrim!LINE_ROUTER,V.ODBC.conx!rst.FieldValTrim!LINE_ROUTER)
+		Gui.f_Main.lvRouterWOSeq.SetListItemSubItemText(V.ODBC.conx!rst.FieldValTrim!LINE_ROUTER,1,V.ODBC.conx!rst.FieldValTrim!PART_WC_OUTSIDE)
+		Gui.f_Main.lvRouterWOSeq.SetListItemSubItemText(V.ODBC.conx!rst.FieldValTrim!LINE_ROUTER,2,V.ODBC.conx!rst.FieldValTrim!DESC_RT_LINE)
+		Function.Intrinsic.Math.Mult(V.SCREEN.f_Main!txtRouterQty.Text,V.ODBC.conx!rst.FieldVal!RUN_TIME,V.Local.fQty)
+		Gui.f_Main.lvRouterWOSeq.SetListItemSubItemText(V.ODBC.conx!rst.FieldValTrim!LINE_ROUTER,3,V.Local.fQty)
+		Gui.f_Main.lvRouterWOSeq.SetListItemSubItemText(V.ODBC.conx!rst.FieldValTrim!LINE_ROUTER,4,"")
+		Function.ODBC.conx!rst.MoveNext
+	Function.Intrinsic.Control.Loop
+	Function.ODBC.conx!rst.Close
+Function.Intrinsic.Control.Else
+	Function.ODBC.conx!rst.Close
+	Function.Intrinsic.UI.Msgbox("No material sequences found for this router","No Material Found")
+	Function.Intrinsic.Control.ExitSub
+Function.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("LoadRouterSequences_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.LoadRouterSequences.End
+
+program.sub.txtrouterqty_lostfocus.start
+F.Intrinsic.Control.SetErrorHandler("txtrouterqty_lostfocus_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+Function.Intrinsic.Control.If(V.Screen.f_Main!txtRouter.Text,<>,"")
+Function.Intrinsic.Control.AndIf(V.Screen.f_Main!txtRouterQty.Text,>,0)
+	Function.Intrinsic.Control.CallSub(Loadroutersequences)
+Function.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("txtrouterqty_lostfocus_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.txtrouterqty_lostfocus.End
+
+program.sub.chkrequisitions_click.start
+F.Intrinsic.Control.SetErrorHandler("chkrequisitions_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'if the check requisitions checkbox is checked clear several textboxes and call the clear part and load req. subs
+F.Intrinsic.Control.If(V.Screen.f_Main!chkRequisitions.Value,=,1)
+
+	'Clearing Router and job fields
+	Gui.f_Main.txtJob.Text("")
+	Gui.f_Main.txtSuffix.Text("")
+	Gui.f_Main.txtRouter.Text("")
+	Gui.f_Main.txtRouterQty.Text("")
+	Gui.f_Main.txtEndJob.Text("")
+	Gui.f_Main.txtEndSuff.Text("")
+
+	F.Intrinsic.Control.CallSub(Clearpart)
+	F.Intrinsic.Control.CallSub(Loadrequisitions)
+
+F.Intrinsic.Control.Else
+	'clear items in the lvrouterWOseq listview
+	Gui.f_Main.lvRouterWOSeq.ClearItems
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("chkrequisitions_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.chkrequisitions_click.End
+
+Program.Sub.LoadRequisitions.Start
+F.Intrinsic.Control.SetErrorHandler("LoadRequisitions_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+Function.ODBC.Connection!conx.OpenLocalRecordsetRO("rst","select (PO_REQ_NUMBER + '-' + PO_REQ_LINE) AS SEQUENCE, PART, DESCRIPTION, QUANTITY, DATE_DUE from v_PURCHASE_REQS")
+Function.Intrinsic.Control.If(V.ODBC.conx!rst.EOF,=,False)
+	Gui.f_Main.lvRouterWOSeq.ClearItems
+	Function.Intrinsic.Control.DoUntil(V.ODBC.conx!rst.EOF,=,True)
+		Gui.f_Main.lvRouterWOSeq.AddListItem(V.ODBC.conx!rst.FieldValTrim!SEQUENCE,V.ODBC.conx!rst.FieldValTrim!SEQUENCE)
+		Gui.f_Main.lvRouterWOSeq.SetListItemSubItemText(V.ODBC.conx!rst.FieldValTrim!SEQUENCE,1,V.ODBC.conx!rst.FieldValTrim!PART)
+		Gui.f_Main.lvRouterWOSeq.SetListItemSubItemText(V.ODBC.conx!rst.FieldValTrim!SEQUENCE,2,V.ODBC.conx!rst.FieldValTrim!DESCRIPTION)
+		Gui.f_Main.lvRouterWOSeq.SetListItemSubItemText(V.ODBC.conx!rst.FieldValTrim!SEQUENCE,3,V.ODBC.conx!rst.FieldValTrim!QUANTITY)
+		Gui.f_Main.lvRouterWOSeq.SetListItemSubItemText(V.ODBC.conx!rst.FieldValTrim!SEQUENCE,4,V.ODBC.conx!rst.FieldVal!DATE_DUE)
+		Function.ODBC.conx!rst.MoveNext
+	Function.Intrinsic.Control.Loop
+Function.Intrinsic.Control.Else
+	Function.Intrinsic.UI.Msgbox("No open requisitions found","No Reqs Found")
+	Function.Intrinsic.Control.ExitSub
+Function.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("LoadRequisitions_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.LoadRequisitions.End
+
+Program.Sub.ClearPart.Start
+F.Intrinsic.Control.SetErrorHandler("ClearPart_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'clear the textboxes
+Gui.f_Main.txtPart.Text("")
+Gui.f_Main.txtDescription.Text("")
+Gui.f_Main.txtQuantity.Text("")
+Gui.f_Main.txtJob2.Text("")
+Gui.f_Main.txtSuffix2.Text("")
+
+Gui.f_Main.dtpDueDate.Value(V.Ambient.Date)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("ClearPart_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.ClearPart.End
+
+program.sub.cmdbrwpart_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdbrwpart_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sRet.Declare(String)
+
+'call the commonbrowser and set the selected information in the part and description text boxes
+Function.Intrinsic.UI.CommonBrowser(105,"",V.Local.sRet)
+Function.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	Function.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	Gui.f_Main.txtPart.Text(V.Local.sRet(0).Trim)
+	Gui.f_Main.txtDescription.Text(V.Local.sRet(2).Trim)
+Function.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdbrwpart_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdbrwpart_click.End
+
+program.sub.txtpart_lostfocus.start
+F.Intrinsic.Control.SetErrorHandler("txtpart_lostfocus_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sSQL.Declare(String)
+
+Function.Intrinsic.Control.If(V.Screen.f_Main!txtPart.Text,<>,"")
+	Function.Intrinsic.String.Concat("SELECT DESCRIPTION FROM V_INVENTORY_MSTR WHERE PART = '",V.Screen.f_Main!txtPart.Text,"'",V.Local.sSQL)
+	Function.ODBC.Connection!conx.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+	Function.Intrinsic.Control.If(V.ODBC.conx!rst.EOF,=,False)
+		Gui.f_Main.txtDescription.Text(V.ODBC.conx!rst.FieldValTrim!DESCRIPTION)
+	Function.Intrinsic.Control.EndIf
+	Function.ODBC.conx!rst.Close
+Function.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("txtpart_lostfocus_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.txtpart_lostfocus.End
+
+program.sub.lvrouterwoseq_itemclick.start
+F.Intrinsic.Control.SetErrorHandler("lvrouterwoseq_itemclick_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sKey.Declare(String)
+V.Local.iOrd.Declare(Long)
+V.Local.sText.Declare(String)
+V.Local.sjob.Declare(String)
+V.Local.ssuffix.Declare(String)
+V.Local.sreq.Declare(String)
+V.Local.sjobsuff.Declare(String)
+V.Local.bret.Declare(Boolean)
+
+F.Intrinsic.Control.If(V.Screen.f_Main!chkRequisitions.Value,<>,1)
+
+	V.Local.sJob.Set(V.Screen.f_Main!txtJob.Text)
+	V.Local.ssuffix.Set(V.Screen.f_Main!txtSuffix.Text)
+
+	'retrieve selected list item
+	Gui.f_Main.lvRouterWOSeq.RetrieveSelectedListitems(V.Local.sKey)
+	Gui.f_Main.lvRouterWOSeq.ListitemKeyToOrdinal(V.Local.sKey,V.Local.iOrd)
+
+	V.Local.sText.Set(V.screen.f_Main!lvRouterWOSeq.ListItemTextExtended(V.Local.iOrd))
+
+	Function.Intrinsic.String.Split(V.Local.sText,"*!*",V.Local.sText)
+
+	'set the information that was selected in the textboxes
+	Gui.f_Main.txtPart.Text(V.local.sText(1).Trim)
+	Gui.f_Main.txtDescription.Text(V.Local.sText(2).Trim)
+	Gui.f_Main.txtQuantity.Text(V.Local.sText(3).Trim)
+
+	F.Intrinsic.String.IsInString(V.Local.sText(5),"-",True,V.Local.bret)
+
+	F.Intrinsic.Control.If(V.Local.bret,=,True)
+		F.Intrinsic.String.Split(V.Local.sText(5),"-",V.Local.sjobsuff)
+		Gui.f_Main.txtJob2.Text(V.Local.sjobsuff(0))
+		Gui.f_Main.txtSuffix2.Text(V.Local.sjobsuff(1))
+		Function.Intrinsic.Control.If(V.Local.sText(4).Trim,=,"")
+			Gui.f_Main.dtpDueDate.Value(V.Ambient.Date)
+		Function.Intrinsic.Control.Else
+			Gui.f_Main.dtpDueDate.Value(V.Local.sText(4).Trim)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Else
+		Function.Intrinsic.Control.If(V.Local.sText(4).Trim,=,"")
+			Gui.f_Main.dtpDueDate.Value(V.Ambient.Date)
+		Function.Intrinsic.Control.Else
+			Gui.f_Main.dtpDueDate.Value(V.Local.sText(4).Trim)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Screen.f_Main!chkRequisitions.Value,=,1)
+
+	V.Local.sJob.Set(V.Screen.f_Main!txtJob.Text)
+	V.Local.ssuffix.Set(V.Screen.f_Main!txtSuffix.Text)
+	'retrieve selected list item
+	Gui.f_Main.lvRouterWOSeq.RetrieveSelectedListitems(V.Local.sKey)
+	Gui.f_Main.lvRouterWOSeq.ListitemKeyToOrdinal(V.Local.sKey,V.Local.iOrd)
+	V.Local.sText.Set(V.screen.f_Main!lvRouterWOSeq.ListItemTextExtended(V.Local.iOrd))
+	Function.Intrinsic.String.Split(V.Local.sText,"*!*",V.Local.sText)
+
+	'set the information that was selected in the textboxes
+	Gui.f_Main.txtPart.Text(V.local.sText(1).Trim)
+	Gui.f_Main.txtDescription.Text(V.Local.sText(2).Trim)
+	Gui.f_Main.txtQuantity.Text(V.Local.sText(3).Trim)
+
+	F.Intrinsic.String.IsInString(V.Local.sText(5),"-",True,V.Local.bret)
+
+	F.Intrinsic.Control.If(V.Local.bret,=,True)
+		F.Intrinsic.String.Split(V.Local.sText(5),"-",V.Local.sjobsuff)
+		Gui.f_Main.txtJob2.Text(V.Local.sjobsuff(0))
+		Gui.f_Main.txtSuffix2.Text(V.Local.sjobsuff(1))
+		'
+		Function.Intrinsic.Control.If(V.Local.sText(4).Trim,=,"")
+			Gui.f_Main.dtpDueDate.Value(V.Ambient.Date)
+		Function.Intrinsic.Control.Else
+			Gui.f_Main.dtpDueDate.Value(V.Local.sText(4).Trim)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Else
+		Function.Intrinsic.Control.If(V.Local.sText(4).Trim,=,"")
+			Gui.f_Main.dtpDueDate.Value(V.Ambient.Date)
+		Function.Intrinsic.Control.Else
+			Gui.f_Main.dtpDueDate.Value(V.Local.sText(4).Trim)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("lvrouterwoseq_itemclick_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.lvrouterwoseq_itemclick.End
+
+program.sub.cmdaddline_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdaddline_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sKey.Declare(String)
+V.Local.sSeq.Declare(String)
+V.Local.iOrd.Declare(Long)
+V.Local.sText.Declare(String)
+V.Local.iC.Declare(Long)
+V.Local.sRet.Declare(String)
+V.Local.sReq.Declare(String)
+
+'Making sure user has a part selected to add
+Function.Intrinsic.Control.If(V.Screen.f_Main!txtPart.Text,=,"")
+	Function.Intrinsic.UI.Msgbox("Part Number is Required","Required Fields")
+	Function.Intrinsic.Control.ExitSub
+Function.Intrinsic.Control.ElseIf(V.screen.f_Main!txtQuantity.Text,=<,0)
+	Function.Intrinsic.UI.Msgbox("Quantity must be greater than 0","Required Fields")
+	Function.Intrinsic.Control.ExitSub
+Function.Intrinsic.Control.Endif
+
+'Function.Intrinsic.Control.SelectCase(V.Screen.f_Main!ddlType.Text)
+
+Function.Intrinsic.Control.Case("Router")
+	Function.Intrinsic.Control.If(V.Screen.f_Main!txtRouter.Text,=,"")
+		Function.Intrinsic.UI.Msgbox("Router number when using type "Router" is required","Required Fields")
+		Function.Intrinsic.Control.ExitSub
+	Function.Intrinsic.Control.EndIf
+	Gui.f_Main.lvRouterWOSeq.RetrieveSelectedListitems(V.Local.sKey)
+	Gui.f_Main.lvRouterWOSeq.ListitemKeyToOrdinal(V.Local.sKey,V.Local.iOrd)
+	V.Local.sSeq.Set(V.Screen.f_Main!lvRouterWOSeq.ListItemText(v.Local.iOrd))
+Function.Intrinsic.Control.Case("Job")
+	Function.Intrinsic.Control.If(V.Screen.f_Main!txtJob.Text,=,"")
+		Function.Intrinsic.UI.Msgbox("Job number when using type "Job" is required","Required Fields")
+		Function.Intrinsic.Control.ExitSub
+	Function.Intrinsic.Control.EndIf
+	Gui.f_Main.lvRouterWOSeq.RetrieveSelectedListitems(V.Local.sKey)
+	Gui.f_Main.lvRouterWOSeq.ListitemKeyToOrdinal(V.Local.sKey,V.Local.iOrd)
+	V.Local.sSeq.Set(V.Screen.f_Main!lvRouterWOSeq.ListItemText(v.Local.iOrd))
+Function.Intrinsic.Control.Case("Requisition")
+	Function.Intrinsic.Control.If(V.Screen.f_Main!lvRouterWOSeq.SelectedItemKey,<>,"***NORETURN***")
+		Gui.f_Main.lvRouterWOSeq.ListitemKeyToOrdinal(V.Screen.f_Main!lvRouterWOSeq.SelectedItemKey,V.Local.iOrd)
+		V.Local.sReq.Set(V.Screen.f_Main!lvRouterWOSeq.ListItemText(v.Local.iOrd))
+	Function.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndSelect
+
+'added to see if it preserves UDT
+F.Intrinsic.Control.If(V.Global.iLastNumber,>,0)
+	F.Intrinsic.Math.Add(V.uglobal.uLines.UBound,1,V.Local.iC)
+	V.uGlobal.uLines.RedimPreserve(0,V.Local.iC)
+F.Intrinsic.Control.EndIf
+
+'set the information in the uLines UDT
+V.uglobal.uLines(v.Local.iC)!Part.Set(V.Screen.f_Main!txtPart.Text)
+V.uGlobal.uLines(v.Local.iC)!Description.Set(V.Screen.f_Main!txtDescription.Text)
+V.uGlobal.uLines(v.Local.iC)!Qty.Set(V.Screen.f_Main!txtQuantity.Text)
+V.uglobal.uLines(v.Local.iC)!Router.Set(V.Screen.f_Main!txtRouter.Text)
+V.uGlobal.uLines(v.Local.iC)!Job.Set(V.Screen.f_Main!txtJob2.Text)
+V.uGlobal.uLines(v.Local.iC)!Suffix.Set(V.Screen.f_Main!txtSuffix2.Text)
+V.uGlobal.uLines(v.Local.iC)!Sequence.Set(V.Local.sSeq.Trim)
+V.uglobal.uLines(v.Local.iC)!DueDate.Set(V.Screen.f_Main!dtpDueDate.Value)
+
+Function.Intrinsic.Control.CallSub(Loadlinesgrid)
+
+F.Intrinsic.Control.ExitSub
+
+	F.Intrinsic.Control.Label("cmdaddline_click_Err")
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdaddline_click.End
+
+program.sub.cmdbrwjob2_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdbrwjob2_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sret.Declare(String)
+V.Local.stitles.Declare(String)
+V.Local.iwidths.Declare(Long)
+
+F.Intrinsic.string.Split("Job*!*Suffix*!*Description*!*PartNumber*!*Rev","*!*",V.local.stitles)
+'F.Intrinsic.string.Split("Job*!*Suffix*!*Description*!*PartNumber","*!*",V.local.stitles)
+'F.Intrinsic.String.Split("1800*!*1500*!*3000*!*1000","*!*",V.Local.iwidths)
+F.Intrinsic.String.Split("1800*!*1500*!*3000*!*1000*!*500","*!*",V.Local.iwidths)
+
+'F.ODBC.Connection!conxx.OpenConnection("Global_PLA","Master","master")
+'F.intrinsic.ui.Browser("Select a job","conx","SELECT JOB AS Job, SUFFIX AS Suffix, DESCRIPTION AS Description, SUBSTRING (PART,1,17) AS PartNumber FROM V_JOB_HEADER WHERE JOB > '' ORDER BY Job, Suffix",V.Local.stitles,V.Local.iwidths,V.Local.sRet)
+F.intrinsic.ui.Browser(" Select a job","conx","SELECT JOB AS Job, SUFFIX AS Suffix, DESCRIPTION AS Description, SUBSTRING(PART,1,17) AS PartNumber, SUBSTRING(PART,18,3) as REV FROM V_JOB_HEADER WHERE JOB > '' ORDER BY Job, Suffix",V.Local.stitles,V.Local.iwidths,V.Local.sRet)
+
+'F.Intrinsic.String.Split("Work Order*!*Suffix*!*Part*!*Description","*!*",V.Local.stitles)
+'F.Intrinsic.String.Split("1600*!*1000*!*1800*!*2300","*!*",V.Local.iwidths)
+'F.ODBC.Connection!con.OpenConnection("Global_PLA","Master","master")
+'F.Intrinsic.UI.Browser("Select a job","con","Select Job, Suffix, Part, Description from V_JOB_HEADER where JOB_TYPE <> 'L'",V.Local.stitles,V.Local.iwidths,V.Local.sRet)
+F.Intrinsic.Control.If(V.Local.sRet,=,"***CANCEL***")
+	F.Intrinsic.UI.Msgbox("No job was selected")
+'	F.ODBC.Connection!conxx.Close
+	F.Intrinsic.Control.ExitSub
+
+'call the comman browser
+'Function.Intrinsic.UI.CommonBrowser(1000,"",V.Local.sRet)
+Function.Intrinsic.Control.elseIf(V.Local.sRet,<>,"***CANCEL***")
+
+	'when a selection is made fill in the ending job and suffix textboxes
+	Function.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	Gui.f_Main.txtJob2.Text(V.Local.sret(0).Trim)
+	Gui.f_Main.txtSuffix2.Text(V.Local.sRet(1).Trim)
+'	F.ODBC.Connection!conxx.Close
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdbrwjob2_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdbrwjob2_click.End
+
+program.sub.f_docs_unload.start
+F.Intrinsic.Control.SetErrorHandler("f_docs_unload_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'closes the form
+Gui.f_Docs..Visible(false)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("f_docs_unload_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.f_docs_unload.End
+
+program.sub.cmdadddoc_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdadddoc_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.iUB.Declare(Long)
+V.Local.sSql.Declare(String)
+
+'Making sure user has a file path selected
+Function.Intrinsic.Control.If(V.Screen.f_Docs!txtdocpath.Text,=,"")
+	Function.Intrinsic.UI.Msgbox("Document Path Required","Required Fields")
+	Function.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+'Check to see if 0 index in UDT is filled, if so then keep increasing
+F.Intrinsic.Control.If(V.uGlobal.uDocuments(0)!uDocuments.Trim,<>,"")
+	F.Intrinsic.Math.Add(V.uGlobal.uDocuments.UBound,1,V.Local.iUB)
+	V.uGlobal.uDocuments.RedimPreserve(0,V.Local.iUB)
+F.Intrinsic.Control.EndIf
+
+'add 1 to the global variable, keep line count with global variable, add textg from docpath to listview
+F.Intrinsic.Math.Add(V.global.iKey,1,V.global.iKey)
+Gui.f_Docs.lvDocs.AddListItem(V.Global.iKey,V.Global.iKey)
+Gui.f_Docs.lvDocs.SetListItemSubItemText(V.Global.iKey,1,V.Screen.f_Docs!txtdocpath.Text)
+'Add to UDT uDocuments
+V.uGlobal.uDocuments(v.Local.iUB)!uDocuments.Set(V.Screen.f_Docs!txtdocpath.Text)
+
+'clear the document path text
+Gui.f_Docs.txtdocpath.Text("")
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdadddoc_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+
+
+program.sub.cmdadddoc_click.End
+
+program.sub.cmdremovedoc_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdremovedoc_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'delete what is selected in the document listview
+V.Local.iKey.Declare(Long)
+V.Local.iOrd.Declare(Long)
+V.Local.sRet.Declare(String)
+
+V.Local.iKey.Set(V.Screen.f_Docs!lvDocs.SelectedItemKey)
+Gui.f_Docs.lvDocs.ListitemKeyToOrdinal(V.Local.iKey,V.Local.iOrd)
+V.Local.sRet.Set(V.Screen.f_Docs!lvDocs.ListItemTextExtended(v.Local.iOrd))
+F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+
+'remove from udt
+F.Intrinsic.Variable.UDTMultiFlag(V.uGlobal.uDocuments!uDocuments,V.Local.sRet(1).Trim)
+F.Intrinsic.Variable.UDTDeleteFlagged(V.uGlobal.uDocuments)
+
+'remove from list
+Gui.f_Docs.lvDocs.RemoveItem(V.Local.iKey)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdremovedoc_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_docs_unload)
+Function.Intrinsic.Control.EndIf
+
+
+
+program.sub.cmdremovedoc_click.End
+
+program.sub.cmdclear_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdclear_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'clears the document listview
+Gui.f_Docs.lvDocs.ClearItems
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdclear_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdclear_click.End
+
+program.sub.cmddocbrowse_click.start
+F.Intrinsic.Control.SetErrorHandler("cmddocbrowse_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'DECLARE VARIABLES
+
+V.Local.iRet.Declare(Long)
+
+'get file path for document and then attach automatically without going through doc control screen
+'invoke open file dialogue
+V.Local.sFile.Declare(String)
+
+'Browse for file to upload from
+F.Intrinsic.UI.ShowOpenFileDialog("","",,V.Local.sFile)
+F.Intrinsic.Control.If(V.Local.sFile,<>,"***CANCEL***")
+'set textbox to sFile
+Gui.f_Docs.txtdocpath.Text(V.Local.sfile.Trim)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmddocbrowse_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmddocbrowse_click.End
+
+program.sub.cmdreqbrowse_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdreqbrowse_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+'declaration of variables
+V.Local.sError.Declare(String)
+V.Local.sret.Declare(String)
+V.Local.stemp.Declare(String)
+V.Local.sTitles.Declare(String)
+V.Local.iwidths.Declare(Long)
+V.Local.sreturn.Declare(String)
+
+'set the titles and widths for the browser
+F.Intrinsic.String.Split("Sequence*!*Suffix*!*Part*!*Description","*!*",V.Local.sTitles)
+F.Intrinsic.String.Split("1500*!*1500*!*1500*!*5000","*!*",V.Local.iwidths)
+
+'create browser for requisitions
+Function.ODBC.Connection!con.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass,1200)
+F.Intrinsic.UI.Browser("Select a Sequence","con","Select SEQ, SUFFIX, PART, DESCRIPTION  from V_JOB_OPERATIONS where  SEQ < 990000 Order By SEQ",V.Local.sTitles,V.Local.iwidths,V.Local.sret)
+Function.ODBC.Connection!con.Close
+
+Function.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	Function.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+F.Intrinsic.String.Concat(V.Local.sret(0).Trim,"-",V.Local.sret(1).Trim,V.Local.sreturn)
+
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdreqbrowse_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdreqbrowse_click.End
+
+Program.Sub.ReadExportFile.Start
+F.Intrinsic.Control.SetErrorHandler("ReadExportFile_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'declare local variables
+V.Local.i.Declare(Long)
+V.Local.iret.Declare(Long)
+V.Local.sseq.Declare(String)
+V.Local.sid.declare(String)
+V.Local.irowcount.Declare(Long)
+V.local.sret.Declare(String)
+V.Local.ireturn.Declare(Long)
+V.Local.stemp.Declare(String)
+V.Local.sfinal.Declare(String)
+V.Local.iret2.Declare(Long)
+V.Local.bExists.Declare(Boolean)
+
+V.Local.iret.Set(1)
+V.Local.iret2.Set(7)
+
+F.Intrinsic.String.Build("{0}\{1}{2}000UPLVENQPEXPORT000000001.TMP",v.caller.localgsstempdir,V.Caller.User.trim,V.Caller.Terminal,V.Local.stemp)
+
+F.Intrinsic.File.Exists(V.Local.stemp,V.Local.bExists)
+'Only do the following if the file exists
+F.Intrinsic.Control.If(V.Local.bExists,=,True)
+	Function.Intrinsic.File.file2string(V.local.stemp,V.local.sfinal)
+
+	F.Intrinsic.string.Split(V.local.sfinal,V.Ambient.NewLine,V.Local.sfinal)
+
+	'loop through vendors
+	'F.Intrinsic.Control.For(V.Local.ivendcount,V.uGlobal.uContacts.LBound,V.uGlobal.uContacts.ubound,1)
+
+	F.Intrinsic.control.For(V.Local.i,V.Local.iret2,V.Local.sfinal.UBound,1)
+
+		V.Local.sret.Set(V.Local.sfinal(v.Local.iret2))
+		F.Intrinsic.Control.If(V.Local.sret,<>,"")
+			F.Intrinsic.String.Split(V.Local.sret,"|~|",V.Local.sret)
+
+			V.Global.sSeq.Set(V.Local.sret(1))
+			F.Intrinsic.Math.Add(V.Local.iret2,1,V.Local.iret2)
+			F.Intrinsic.Control.If(V.Global.sSeq2,=,"")
+
+				F.Intrinsic.String.Build("{0}",V.Global.sSeq,V.Global.sSeq2)
+		
+			F.Intrinsic.Control.Else
+
+				F.Intrinsic.String.Build("{0}*!*{1}",V.Global.sSeq2,V.global.sseq,V.Global.sSeq2)
+			F.Intrinsic.Control.EndIf
+
+			F.Intrinsic.Control.Next(V.Local.i)
+
+		F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.String.Split(V.Global.sSeq2,"*!*",V.Global.sSeq2)
+
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("ReadExportFile_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.ReadExportFile.End
+
+program.sub.cmdbrwending_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdbrwending_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+V.Local.sret.Declare(String)
+
+V.Local.sSql.Declare(String)
+V.Local.fJobQty.Declare(Float)
+V.Local.fQty.Declare(Float)
+V.Local.swo.Declare(String)
+V.Local.sewo.Declare(String)
+V.Local.icount.Declare(Long)
+V.local.sjob.Declare(String)
+V.Local.ssuffix.Declare(String)
+V.Local.stitles.Declare(String)
+V.Local.iwidths.Declare(Long)
+
+V.Local.icount.Set(0)
+
+F.Intrinsic.string.Split("Job*!*Suffix*!*Description*!*PartNumber*!*Rev","*!*",V.local.stitles)
+F.Intrinsic.String.Split("1800*!*1500*!*3000*!*1000*!*500","*!*",V.Local.iwidths)
+F.intrinsic.ui.Browser(" Select a job","conx","SELECT JOB AS Job, SUFFIX AS Suffix, DESCRIPTION AS Description, SUBSTRING(PART,1,17) AS PartNumber, SUBSTRING(PART,18,3) as REV FROM V_JOB_HEADER WHERE JOB > '' ORDER BY Job, Suffix",V.Local.stitles,V.Local.iwidths,V.Local.sRet)
+
+'common browser
+'F.Intrinsic.string.Split("Job*!*Suffix*!*Description*!*PartNumber","*!*",V.local.stitles)
+'F.Intrinsic.String.Split("1800*!*1500*!*3000*!*1000","*!*",V.Local.iwidths)
+'F.ODBC.Connection!con.OpenConnection("Global_PLA","Master","master")
+'F.intrinsic.ui.Browser("Select a job","con","SELECT JOB AS Job, SUFFIX AS Suffix, DESCRIPTION AS Description, SUBSTRING (PART,1,17) AS PartNumber FROM V_JOB_HEADER WHERE JOB > '' ORDER BY Job, Suffix",V.Local.stitles,V.Local.iwidths,V.Local.sRet)
+
+Function.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+
+	'Clearing router
+	Gui.f_Main.txtRouter.Text("")
+	Gui.f_Main.txtRouterQty.Text("")
+	Gui.f_Main.chkRequisitions.Value(0)
+
+	'call the clearpart sub
+	F.Intrinsic.Control.CallSub(Clearpart)
+	'split the job and suffix for ending job and suff
+	Function.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	Gui.f_Main.txtEndJob.Text(V.Local.sRet(0).Trim)
+	Gui.f_Main.txtEndSuff.Text(V.Local.sRet(1).Trim)
+
+	F.Intrinsic.String.Build("SELECT SEQ, PART, JOB, SUFFIX, DESCRIPTION, UNITS, DATE_DUE FROM V_JOB_OPERATIONS WHERE JOB  BETWEEN '{0}' AND '{1}' AND SUFFIX BETWEEN '{2}' AND '{3}' AND LMO = 'M' AND SEQ < 990000 Order By SEQ",V.Screen.f_Main!txtJob.Text,V.Screen.f_Main!txtEndJob.Text,V.Screen.f_Main!txtSuffix.Text,V.Screen.f_Main!txtEndSuff.Text,V.Local.sSql)
+	'open connection and clear items in the list view
+	Function.ODBC.Connection!conx.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+		Gui.f_Main.lvRouterWOSeq.ClearItems
+	Function.Intrinsic.Control.If(V.ODBC.conx!rst.EOF,=,False)
+
+		Function.Intrinsic.Control.DoUntil(V.ODBC.conx!rst.EOF,=,True)
+
+		V.Local.sjob.Set(V.ODBC.conx(v.Local.icount)!rst.FieldValtrim!JOB)
+		V.Local.ssuffix.Set(V.ODBC.conx(v.Local.icount)!rst.FieldValtrim!SUFFIX)
+		F.Intrinsic.String.Concat(V.local.sjob,"-",V.local.ssuffix,V.Local.sjob)
+
+		Gui.f_Main.lvRouterWOSeq.AddListItem(V.local.icount,V.ODBC.conx!rst.FieldValTrim!SEQ)
+		Gui.f_Main.lvRouterWOSeq.SetListItemSubItemText(V.local.icount,1,V.ODBC.conx!rst.FieldValTrim!PART)
+		Gui.f_Main.lvRouterWOSeq.SetListItemSubItemText(V.local.icount,2,V.ODBC.conx!rst.FieldValTrim!DESCRIPTION)
+	'
+		Function.Intrinsic.String.Concat("SELECT JOB, SUFFIX, QTY_ORDER FROM V_JOB_HEADER WHERE JOB = '",V.Screen.f_Main!txtJob.Text,"' AND SUFFIX = '",V.Screen.f_Main!txtSuffix.Text,"'",V.Local.sSQL)
+		Function.ODBC.Connection!conx.OpenLocalRecordsetRO("rstQTY",V.Local.sSQL)
+
+		V.Local.fJobQty.Set(V.ODBC.conx!rstQTY.FieldVal!QTY_ORDER)
+
+		Function.Intrinsic.Math.Mult(V.Local.fJobQty,V.ODBC.conx!rst.FieldVal!UNITS,V.Local.fQty)
+		Gui.f_Main.lvRouterWOSeq.SetListItemSubItemText(V.Local.icount,3,V.Local.fQty)
+		Gui.f_Main.lvRouterWOSeq.SetListItemSubItemText(V.local.icount,4,V.ODBC.conx!rst.FieldVal!DATE_DUE)
+
+	'	F.Intrinsic.String.Concat(V.local.sjob,"-",V.local.ssuffix,V.Local.sjob)
+		Gui.f_Main.lvRouterWOSeq.SetListItemSubItemText(V.local.icount,5,V.local.sjob)
+		Function.ODBC.conx!rstQTY.Close
+
+		F.Intrinsic.Math.Add(V.Local.icount,1,V.Local.icount)
+
+			Function.ODBC.conx!rst.MoveNext
+		Function.Intrinsic.Control.Loop
+		Function.ODBC.conx!rst.Close
+	Function.Intrinsic.Control.Else
+		Function.ODBC.conx!rst.Close
+		Function.Intrinsic.UI.Msgbox("No material sequences found for this job","No Material Found")
+		Function.Intrinsic.Control.ExitSub
+'		F.ODBC.Connection!con.Close
+
+F.Intrinsic.control.ElseIf(V.local.sret,=,"***CANCEL***")
+F.Intrinsic.UI.Msgbox("No job was selected")
+'	F.ODBC.Connection!con.Close
+		F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.EndIf
+
+'		F.ODBC.Connection!con.Close
+'		F.ODBC.connection!conx.Close
+Function.Intrinsic.Control.EndIf
+F.Intrinsic.Control.ExitSub
+
+
+F.Intrinsic.Control.Label("cmdbrwending_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_docs_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdbrwending_click.End
+
+program.sub.txtjob_lostfocus.start
+F.Intrinsic.Control.SetErrorHandler("txtjob_lostfocus_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("txtjob_lostfocus_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.txtjob_lostfocus.End
+
+Program.Sub.LoadNoClear.Start
+F.Intrinsic.Control.SetErrorHandler("LoadNoClear_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+V.Local.sKey.Declare(String)
+V.Local.iOrd.Declare(String)
+V.Local.sText.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.i.Declare(Long)
+V.Local.sKeyNew.Declare(String,"0")
+
+V.Local.icount.Declare(Long)
+V.Local.sloop.Declare(String)
+V.Local.iordinal.Declare(Long)
+V.Local.srange.Declare(String)
+V.Local.sname.Declare(String)
+V.Local.semail.Declare(String)
+V.Local.icount2.Declare(Long)
+V.Local.srange2.Declare(Long)
+V.Local.iloopcount.Declare(Long)
+V.Local.inamecount.Declare(Long)
+V.Local.iemailcount.Declare(Long)
+V.Local.svendor.Declare(String)
+V.Local.sname2.Declare(String)
+V.Local.iselect.Declare(Long)
+
+'clears items in the available contacts list
+Gui.f_Main.lvAvailContacts.ClearItems
+
+Gui.f_Main.lvSelVendors.RetrieveSelectedListitems(V.Local.sKey)
+
+'loop through the contacts if the contact is false load them in the available contact listview
+Function.Intrinsic.Variable.UDTMultiSeek(V.uGlobal.uContacts!VENDOR,V.Local.sKey,V.uGlobal.uContacts!Selected,False,V.Local.sRet)
+Function.Intrinsic.Control.If(V.Local.sRet,<>,"")
+	    Function.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+    Function.Intrinsic.Control.For(V.Local.i,0,V.Local.sRet.UBound,1)
+        Gui.f_Main.lvAvailContacts.AddListItem(V.Local.sKeyNew,V.uGlobal.uContacts(v.Local.sRet(v.Local.i))!NAME)
+        Gui.f_Main.lvAvailContacts.SetListItemSubItemText(V.Local.sKeyNew,1,V.uGlobal.uContacts(V.Local.sRet(v.Local.i))!EMAIL)
+        Gui.f_Main.lvAvailContacts.SetListItemSubItemText(V.Local.sKeyNew,2,V.uGlobal.uContacts(V.Local.sRet(v.Local.i))!ID)
+        Function.Intrinsic.Math.Add(V.Local.sKeyNew,1,V.Local.sKeyNew)
+    Function.Intrinsic.Control.Next(V.Local.i)
+Function.Intrinsic.Control.EndIf
+
+'Make Sure to add to existing contacts in selected list
+Gui.f_Main.lvlSelContacts.RetrieveAllListItems(V.Local.sRet)
+F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+V.Local.sKeyNew.Set(V.Local.sRet(v.local.sRet.UBound))
+
+V.Local.sRet.Redim(0,0)
+
+'Adding selection to selected email contacts if they are listed as True in the uContacts UDT
+Function.Intrinsic.Variable.UDTMultiSeek(V.uGlobal.uContacts!VENDOR,V.local.skey,V.uGlobal.uContacts!Selected,True,V.local.sret)
+
+'clear the selectedcontacts LV to add new selected contacts
+Gui.f_Main.lvlSelContacts.ClearItems
+
+F.Intrinsic.control.For(V.Local.icount,V.uGlobal.uContacts.LBound,V.uGlobal.uContacts.UBound,1)
+			F.Intrinsic.Control.If(V.uGlobal.uContacts(V.Local.i)!Selected,=,True)
+	        Gui.f_Main.lvlSelContacts.AddListItem(V.local.skeynew,V.uGlobal.uContacts(v.local.sret(v.local.i))!NAME)
+	        Gui.f_Main.lvlSelContacts.SetListItemSubItemText(V.local.skeynew,1,V.uGlobal.uContacts(v.local.sret(v.local.i))!EMAIL)
+	        Gui.f_Main.lvlSelContacts.SetListItemSubItemText(V.local.skeynew,2,V.uGlobal.uContacts(v.local.sret(v.local.i))!ID)
+F.intrinsic.control.endif
+
+F.Intrinsic.Control.Next(V.Local.i)
+
+F.Intrinsic.Control.ExitSub
+
+
+F.Intrinsic.Control.Label("LoadNoClear_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.LoadNoClear.End
+
+Program.Sub.BuildRFQReport.Start
+F.Intrinsic.Control.SetErrorHandler("BuildRFQReport_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sfilename.Declare(String)
+V.Local.sfilename.Set("RFQ Report")
+V.Local.sfilepath.Declare(String)
+V.Local.bfileexists.Declare(Boolean)
+V.Local.sterminal.Declare(String)
+V.Local.sreportid.Declare(String)
+V.Local.i.Declare(Long)
+V.Local.sreportssql.Declare(String)
+V.Local.i2.Declare(Long)
+V.Local.ssql.Declare(String)
+V.Local.spn.Declare(String)
+V.Local.spv.Declare(String)
+V.Local.scheck.Declare(String)
+V.Local.i3.Declare(Long)
+V.Local.icontactscounter.Declare(Long)
+V.Local.icontactscheck.Declare(Long)
+V.Local.iret.Declare(Long)
+V.Local.ikeytest.Declare(Long)
+V.Local.ilong.Declare(Long)
+V.Local.ireport.Declare(Long)
+
+V.Local.sdate.Declare(String)
+V.Local.stime.Declare(String)
+V.Local.sRFQDate.Declare(String)
+V.Local.sreplydate.Declare(String)
+V.Local.sreqdate.Declare(String)
+V.Local.sreportname.Declare(String)
+
+'V.Local.sreqdate.Set(V.Screen.f_Main!dtpDueDate.Value)
+'F.Intrinsic.string.format(V.Local.sReqdate,"MMDDYY",V.Local.sReqdate)
+
+V.Local.sreplydate.Set(V.Screen.f_Main!dtpReplyBy.Value)
+F.Intrinsic.string.format(V.Local.sReplydate,"MMDDYY",V.Local.sReplydate)
+
+V.Local.sRFQDate.Set(V.Ambient.Date)
+F.Intrinsic.string.format(V.Local.sRFQdate,"MMDDYY",V.Local.sRFQdate)
+
+V.Local.sdate.Set(V.Ambient.Date)
+
+'format date
+F.Intrinsic.String.Format(V.Ambient.Date,"MMDDYYYY",V.Local.sDate)
+F.Intrinsic.String.Build("{0}-{1}",V.Local.sDate,V.Ambient.Time,V.Local.sDate)
+F.Intrinsic.String.Replace(V.Local.sDate,":","",V.Local.sDate)
+V.Global.sTimeDate.Set(V.Local.sdate)
+
+'set the sterminal local variable to the terminal
+V.Local.sterminal.Set(V.Caller.Terminal)
+V.Local.sreportid.Set("002807")
+
+'loop through the uContacts UDT
+F.Intrinsic.Control.For(V.Local.i,V.uGlobal.uContacts.LBound,V.uGlobal.uContacts.UBound,1)
+
+'	V.local.sreqdate.set(V.uGlobal.uLines(v.Local.i)!DueDate)
+'	F.Intrinsic.string.format(V.Local.sReqdate,"MMDDYY",V.Local.sReqdate)
+	F.Intrinsic.String.Build("{0}\{1}",V.Caller.BusintDir,"PU_RequestForQuote_Rev01.rpt",V.Local.sreportname)
+
+
+	'build the report filepath and check if it exists, if so delete it
+	F.Intrinsic.String.Build("{0}\{1}\{2}\{3}{4}{5}",V.Caller.FilesDir,"RFQ","Export",V.uGlobal.uContacts(v.Local.i)!VENDOR,V.local.sdate,".pdf",V.Local.sfilename)
+	F.Intrinsic.file.exists(V.local.sfilename,V.local.bfileexists)
+	F.Intrinsic.Control.If(V.Local.bfileexists,=,True)
+		F.Intrinsic.File.Deletefile(V.Local.sfilename)
+	F.Intrinsic.Control.EndIf
+
+	'redim the RFQ UDT
+	V.uGlobal.uRFQ.Redim(0,V.uGlobal.uLines.UBound)
+	
+	F.Intrinsic.Control.For(V.Local.i2,V.uGlobal.uLines.LBound,V.uGlobal.uLines.UBound,1)
+		V.local.sreqdate.set(V.uGlobal.uLines(v.Local.i2)!DueDate)
+		F.Intrinsic.string.format(V.Local.sReqdate,"MMDDYY",V.Local.sReqdate)
+		V.uGlobal.uRFQ(v.local.i2)!VENDOR.Set(V.uGlobal.uContacts(v.Local.i)!VENDOR)
+		V.uGlobal.uRFQ(v.Local.i2)!TRMNL_NO.Set(V.Local.sterminal)
+		V.uGlobal.uRFQ(v.Local.i2)!RPTID.Set(V.Local.sreportid)
+		V.uGlobal.uRFQ(v.Local.i2)!DESCR.Set(V.uGlobal.uLines(v.Local.i2)!Description)
+		V.uglobal.uRFQ(v.local.i2)!LINE.set(V.uglobal.ulines(v.local.i2)!line)
+		V.uglobal.uRFQ(v.local.i2)!PART.set(V.uglobal.ulines(v.local.i2)!Part)
+		V.uGlobal.uRFQ(v.Local.i2)!QTY.Set(V.uGlobal.uLines(v.Local.i2)!Qty)
+		V.uGlobal.uRFQ(v.Local.i2)!REPLY_NAME.Set(V.uGlobal.uContacts(v.Local.i)!NAME)
+		V.uGlobal.uRFQ(v.Local.i2)!REPLY_EMAIL.Set(V.uGlobal.uContacts(v.Local.i)!EMAIL)
+		V.uGlobal.uRFQ(v.Local.i2)!REPLY_DATE.Set(V.Local.sReplyDate)
+
+		'setting a fake RFQ number for the time being
+		V.uGlobal.uRFQ(v.Local.i2)!RFQ_NUM.Set("")
+		V.uGlobal.uRFQ(v.Local.i2)!RFQ_DATE.Set(V.Local.sRFQDate)
+		V.uGlobal.uRFQ(v.Local.i2)!REQD_DATE.Set(V.local.sreqdate)
+		
+		'get the Unit or the uRFQ UDT
+		F.Intrinsic.String.Build(" SELECT UM_INVENTORY from INVENTORY_MSTR where PART = '{0}'",V.uGlobal.uLines(v.Local.i2)!Part,V.Local.ssql)
+		F.ODBC.Connection!conx.OpenRecordsetRO("rst",V.Local.ssql)
+		F.Intrinsic.Control.If(V.ODBC.conx!rst.EOF,=,False)
+			V.uGlobal.uRFQ(v.Local.i2)!UNIT.Set(V.ODBC.conx!rst.FieldValTrim!UM_INVENTORY)
+		F.Intrinsic.Control.EndIf
+		F.ODBC.conx!rst.Close
+		
+		'query for and set other variables in the u RFQ UDT
+		F.Intrinsic.string.Build("Select NAME_VENDOR, ADDRESS1, ADDRESS2, CITY, STATE, CODE_ZIP, COUNTRY, ATTENTION from VENDOR_MASTER where VENDOR = '{0}'",V.uGlobal.uRFQ(v.Local.i2)!VENDOR,V.Local.ssql)
+		F.ODBC.Connection!conx.OpenRecordsetRO("rst",V.Local.ssql)
+		F.Intrinsic.Control.If(V.ODBC.conx!rst.EOF,=,False)
+			V.uGlobal.uRFQ(v.Local.i2)!VEN_NAME_OUT.Set(V.ODBC.conx!rst.FieldValTrim!NAME_VENDOR)
+			V.uGlobal.uRFQ(v.Local.i2)!VEN_ADDS_1.Set(V.ODBC.conx!rst.FieldValTrim!ADDRESS1)
+			V.uGlobal.uRFQ(v.Local.i2)!VEN_ADDS_2.Set(V.ODBC.conx!rst.FieldValTrim!ADDRESS2)
+
+			'ADDRESS 3, 4, AND 5, FAX TITLE AND REPLY DATE/REPLY FAX???
+			V.uGlobal.uRFQ(v.Local.i2)!VEN_ADDS_3.Set("")
+			V.uGlobal.uRFQ(v.Local.i2)!ven_ADDS_4.Set("")
+			V.uGlobal.uRFQ(v.Local.i2)!VEN_ADDS_5.Set("")
+			V.uGlobal.uRFQ(v.Local.i2)!FAX_TITLE.Set("Fax:")
+'			V.uGlobal.uRFQ(v.Local.i2)!REPLY_DATE.Set("")
+			V.uGlobal.uRFQ(V.Local.i2)!REPLY_FAX.Set("")
+			'run some tests with key sequence
+			V.uGlobal.uRFQ(v.Local.i2)!KEY_SEQ.Set(V.Local.ikeytest)
+			F.Intrinsic.Math.Add(V.Local.ikeytest,1,V.Local.ikeytest)
+'				V.uGlobal.uRFQ(v.Local.i2)!RFQ_NUM.Set("1234")
+
+			V.uGlobal.uRFQ(v.Local.i2)!VEN_CITY.Set(V.ODBC.conx!rst.FieldValTrim!CITY)
+			V.uGlobal.uRFQ(v.Local.i2)!VEN_STATE.Set(V.ODBC.conx!rst.FieldValTrim!STATE)
+			V.uGlobal.uRFQ(v.Local.i2)!VEN_COUNTRY.Set(V.ODBC.conx!rst.FieldValTrim!COUNTRY)
+			V.uGlobal.uRFQ(v.Local.i2)!ATTN.Set(V.ODBC.conx!rst.FieldValTrim!ATTENTION)
+	
+		F.Intrinsic.Control.EndIf
+		F.ODBC.conx!rst.close
+
+		'get the fax number for the uRFQ UDT
+		F.Intrinsic.String.build("select BUY_FAX from VEND_MSTR_ADDL where VEND_NO = '{0}'",V.uglobal.uRFQ(v.Local.i2)!VENDOR,V.Local.ssql)
+		F.ODBC.Connection!conx.OpenRecordsetRO("rst",V.Local.ssql)
+		F.Intrinsic.Control.If(V.ODBC.conx!rst.EOF,=,False)
+			V.uGlobal.uRFQ(v.Local.i2)!VEN_FAX_OUT.Set(V.ODBC.conx!rst.FieldValTrim!BUY_FAX)
+			F.Intrinsic.Control.EndIf
+		F.ODBC.conx!rst.close
+
+	F.Intrinsic.Control.Next(V.Local.i2)
+
+	F.Intrinsic.String.Build("DELETE from LASER_RFQ where TRMNL_NO = '{0}' and RPTID = '{1}'",V.Local.sterminal,V.Local.sreportid,V.Local.ssql)
+	F.ODBC.Connection!conx.Execute(V.Local.ssql)
+	'run/save the report
+	F.ODBC.Connection!conx.OpenRecordsetRW("rst","SELECT * FROM LASER_RFQ")
+'	F.ODBC.conx!rst.Close
+	V.Local.spn.Set("Terminal*!*REPORTID*!*Signature*!*Logo")
+	F.Intrinsic.String.Build("{0}*!*{1}*!*{2}*!*{3}",V.Caller.Terminal,V.Local.sreportid,"","",V.Local.spv)
+	F.Intrinsic.String.Split(V.Local.spn,"*!*",V.Local.spn)
+	F.Intrinsic.String.Split(V.Local.spv,"*!*",V.Local.spv)
+	f.Intrinsic.Variable.saveUDTtoRecordset("conx","rst","v.uGlobal.uRFQ")
+	F.Global.BI.InitializeReport("Custom RFQ Report",V.Local.sreportname,V.Local.ireport)
+	F.Global.BI.SaveReport(V.Local.ireport,1,V.Local.spn,V.Local.spv,V.Local.sfilename)
+'	F.Global.BI.SaveReport(002807,1,V.Local.spn,V.Local.spv,V.Local.sfilename)
+
+	F.ODBC.conx!rst.Close
+F.intrinsic.Control.next(V.Local.i)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("BuildRFQReport_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.BuildRFQReport.End
+
+program.sub.lvrouterwoseq_columnclick.start
+F.Intrinsic.Control.SetErrorHandler("lvrouterwoseq_columnclick_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+V.Local.sSql.Declare(String)
+V.Local.fJobQty.Declare(Float)
+V.Local.fQty.Declare(Float)
+V.Local.swo.Declare(String)
+V.Local.sewo.Declare(String)
+V.Local.sjob.Declare(String)
+V.Local.ssuffix.Declare(String)
+V.global.icounter.Declare(Long)
+V.Global.icounter2.Declare(Long)
+V.Local.sret.Declare(String)
+
+'Check to see if the requisitions checkbox is checked and if the global icounter 2 is equal to 1 if so populate the flexgrid in ascending order of sequences
+F.Intrinsic.Control.If(V.Screen.f_Main!chkRequisitions.Value,=,1)
+F.Intrinsic.Control.AndIf(V.Global.icounter2,=,1)
+	Function.ODBC.Connection!conx.OpenLocalRecordsetRO("rst","select (PO_REQ_NUMBER + '-' + PO_REQ_LINE) AS SEQUENCE, PART, DESCRIPTION, QUANTITY, DATE_DUE from v_PURCHASE_REQS order by SEQUENCE")
+	Function.Intrinsic.Control.If(V.ODBC.conx!rst.EOF,=,False)
+		Gui.f_Main.lvRouterWOSeq.ClearItems
+		Function.Intrinsic.Control.DoUntil(V.ODBC.conx!rst.EOF,=,True)
+			Gui.f_Main.lvRouterWOSeq.AddListItem(V.ODBC.conx!rst.FieldValTrim!SEQUENCE,V.ODBC.conx!rst.FieldValTrim!SEQUENCE)
+			Gui.f_Main.lvRouterWOSeq.SetListItemSubItemText(V.ODBC.conx!rst.FieldValTrim!SEQUENCE,1,V.ODBC.conx!rst.FieldValTrim!PART)
+			Gui.f_Main.lvRouterWOSeq.SetListItemSubItemText(V.ODBC.conx!rst.FieldValTrim!SEQUENCE,2,V.ODBC.conx!rst.FieldValTrim!DESCRIPTION)
+			Gui.f_Main.lvRouterWOSeq.SetListItemSubItemText(V.ODBC.conx!rst.FieldValTrim!SEQUENCE,3,V.ODBC.conx!rst.FieldValTrim!QUANTITY)
+			Gui.f_Main.lvRouterWOSeq.SetListItemSubItemText(V.ODBC.conx!rst.FieldValTrim!SEQUENCE,4,V.ODBC.conx!rst.FieldVal!DATE_DUE)
+			Function.ODBC.conx!rst.MoveNext
+		Function.Intrinsic.Control.Loop
+	Function.Intrinsic.Control.Else
+		Function.Intrinsic.UI.Msgbox("No open requisitions found","No Reqs Found")
+		Function.Intrinsic.Control.ExitSub
+	Function.Intrinsic.Control.EndIf
+	V.Global.icounter2.Set(0)
+	F.ODBC.conx!rst.Close
+'F.Intrinsic.Control.EndIf
+
+'Check to see if the requisitions checkbox is checked and if the global icounter 2 is equal to 1 if not populate the flexgrid in descending order of sequences
+F.Intrinsic.Control.elseIf(V.Screen.f_Main!chkRequisitions.Value,=,1)
+F.Intrinsic.Control.AndIf(V.Global.icounter2,=,0)
+	Function.ODBC.Connection!conx.OpenLocalRecordsetRO("rst","select (PO_REQ_NUMBER + '-' + PO_REQ_LINE) AS SEQUENCE, PART, DESCRIPTION, QUANTITY, DATE_DUE from v_PURCHASE_REQS order by SEQUENCE DESC")
+	Function.Intrinsic.Control.If(V.ODBC.conx!rst.EOF,=,False)
+		Gui.f_Main.lvRouterWOSeq.ClearItems
+		Function.Intrinsic.Control.DoUntil(V.ODBC.conx!rst.EOF,=,True)
+			Gui.f_Main.lvRouterWOSeq.AddListItem(V.ODBC.conx!rst.FieldValTrim!SEQUENCE,V.ODBC.conx!rst.FieldValTrim!SEQUENCE)
+			Gui.f_Main.lvRouterWOSeq.SetListItemSubItemText(V.ODBC.conx!rst.FieldValTrim!SEQUENCE,1,V.ODBC.conx!rst.FieldValTrim!PART)
+			Gui.f_Main.lvRouterWOSeq.SetListItemSubItemText(V.ODBC.conx!rst.FieldValTrim!SEQUENCE,2,V.ODBC.conx!rst.FieldValTrim!DESCRIPTION)
+			Gui.f_Main.lvRouterWOSeq.SetListItemSubItemText(V.ODBC.conx!rst.FieldValTrim!SEQUENCE,3,V.ODBC.conx!rst.FieldValTrim!QUANTITY)
+			Gui.f_Main.lvRouterWOSeq.SetListItemSubItemText(V.ODBC.conx!rst.FieldValTrim!SEQUENCE,4,V.ODBC.conx!rst.FieldVal!DATE_DUE)
+			Function.ODBC.conx!rst.MoveNext
+		Function.Intrinsic.Control.Loop
+	Function.Intrinsic.Control.Else
+		Function.Intrinsic.UI.Msgbox("No open requisitions found","No Reqs Found")
+		Function.Intrinsic.Control.ExitSub
+	Function.Intrinsic.Control.EndIf
+	V.Global.icounter2.Set(1)
+	F.ODBC.conx!rst.Close
+F.Intrinsic.Control.EndIf
+
+'check to see if the requisitions checkbox has not been checked and if the global i counter is equal to 1 if so populate the flexgrid ordered by sequence
+F.Intrinsic.Control.If(V.Screen.f_Main!chkRequisitions.Value,=,0)
+F.Intrinsic.Control.andIf(V.global.icounter,=,1)
+	Function.Intrinsic.String.Concat("SELECT SEQ, PART, SUFFIX, JOB, DESCRIPTION, UNITS, DATE_DUE FROM V_JOB_OPERATIONS WHERE JOB = '",V.Screen.f_Main!txtJob.Text,"' AND SUFFIX = '",V.Screen.f_Main!txtSuffix.Text,"' AND LMO = 'M' AND SEQ < 990000 Order By SEQ",V.Local.sSQL)
+	Function.ODBC.Connection!conx.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+	Function.Intrinsic.Control.If(V.ODBC.conx!rst.EOF,=,False)
+		Gui.f_Main.lvRouterWOSeq.ClearItems
+		Function.Intrinsic.Control.DoUntil(V.ODBC.conx!rst.EOF,=,True)
+			V.Local.sjob.Set(V.ODBC.conx!rst.FieldVal!JOB)
+			V.Local.ssuffix.Set(V.ODBC.conx!rst.FieldVal!SUFFIX)
+
+			Gui.f_Main.lvRouterWOSeq.AddListItem(V.ODBC.conx!rst.FieldValTrim!SEQ,V.ODBC.conx!rst.FieldValTrim!SEQ)
+			Gui.f_Main.lvRouterWOSeq.SetListItemSubItemText(V.ODBC.conx!rst.FieldValTrim!SEQ,1,V.ODBC.conx!rst.FieldValTrim!PART)
+			Gui.f_Main.lvRouterWOSeq.SetListItemSubItemText(V.ODBC.conx!rst.FieldValTrim!SEQ,2,V.ODBC.conx!rst.FieldValTrim!DESCRIPTION)
+
+			Function.Intrinsic.String.Concat("SELECT QTY_ORDER, JOB FROM V_JOB_HEADER WHERE JOB = '",V.Screen.f_Main!txtJob.Text,"' AND SUFFIX = '",V.Screen.f_Main!txtSuffix.Text,"'",V.Local.sSQL)
+			Function.ODBC.Connection!conx.OpenLocalRecordsetRO("rstQTY",V.Local.sSQL)
+			V.Local.fJobQty.Set(V.ODBC.conx!rstQTY.FieldVal!QTY_ORDER)
+
+			Function.ODBC.conx!rstQTY.Close
+			Function.Intrinsic.Math.Mult(V.Local.fJobQty,V.ODBC.conx!rst.FieldVal!UNITS,V.Local.fQty)
+			Gui.f_Main.lvRouterWOSeq.SetListItemSubItemText(V.ODBC.conx!rst.FieldValTrim!SEQ,3,V.Local.fQty)
+			Gui.f_Main.lvRouterWOSeq.SetListItemSubItemText(V.ODBC.conx!rst.FieldValTrim!SEQ,4,V.ODBC.conx!rst.FieldVal!DATE_DUE)
+
+			F.Intrinsic.String.Concat(V.local.sjob,"-",V.local.ssuffix,V.Local.sjob)
+			Gui.f_Main.lvRouterWOSeq.SetListItemSubItemText(V.ODBC.conx!rst.FieldValTrim!SEQ,5,V.local.sjob)
+
+				Function.ODBC.conx!rst.MoveNext
+		Function.Intrinsic.Control.Loop
+		Function.ODBC.conx!rst.Close
+	Function.Intrinsic.Control.Else
+		Function.ODBC.conx!rst.Close
+		Function.Intrinsic.UI.Msgbox("No material sequences found for this job","No Material Found")
+		Function.Intrinsic.Control.ExitSub
+	Function.Intrinsic.Control.EndIf
+		V.global.icounter.Set(0)
+
+'check to see if the requisitions checkbox has not been checked and if the global i counter is equal to 0 if so populate the flexgrid ordered by sequence descending
+F.Intrinsic.Control.Elseif(V.Screen.f_Main!chkRequisitions.Value,=,0)
+F.Intrinsic.Control.AndIf(V.Global.icounter,=,0)
+'	V.Local.icounter.Set(0)
+F.intrinsic.String.Build("SELECT SEQ, PART, DESCRIPTION,UNITS,DATE_DUE FROM V_JOB_OPERATIONS WHERE JOB = BETWEEN '{0}' AND '{1}' AND SUFFIX = BETWEEN '{2}' AND '{3}' AND LMO = '{4}' AND SEQ <990000 ORDER BY SEQ",V.Screen.f_Main!txtJob.Text,V.Screen.f_Main!txtEndJob.Text,V.Screen.f_Main!txtSuffix.Text,V.Screen.f_Main!txtEndSuff.Text,"M",V.Local.sSql)
+'F.Intrinsic.Control.If(V.Local.icounter,=,0)
+	Function.Intrinsic.String.Concat("SELECT SEQ, PART, SUFFIX, JOB, DESCRIPTION, UNITS, DATE_DUE FROM V_JOB_OPERATIONS WHERE JOB = '",V.Screen.f_Main!txtJob.Text,"' AND SUFFIX = '",V.Screen.f_Main!txtSuffix.Text,"' AND LMO = 'M' AND SEQ < 990000 Order By SEQ DESC",V.Local.sSQL)
+	Function.ODBC.Connection!conx.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+	Function.Intrinsic.Control.If(V.ODBC.conx!rst.EOF,=,False)
+		Gui.f_Main.lvRouterWOSeq.ClearItems
+		Function.Intrinsic.Control.DoUntil(V.ODBC.conx!rst.EOF,=,True)
+			V.Local.sjob.Set(V.ODBC.conx!rst.FieldVal!JOB)
+			V.Local.ssuffix.Set(V.ODBC.conx!rst.FieldVal!SUFFIX)
+
+			Gui.f_Main.lvRouterWOSeq.AddListItem(V.ODBC.conx!rst.FieldValTrim!SEQ,V.ODBC.conx!rst.FieldValTrim!SEQ)
+			Gui.f_Main.lvRouterWOSeq.SetListItemSubItemText(V.ODBC.conx!rst.FieldValTrim!SEQ,1,V.ODBC.conx!rst.FieldValTrim!PART)
+			Gui.f_Main.lvRouterWOSeq.SetListItemSubItemText(V.ODBC.conx!rst.FieldValTrim!SEQ,2,V.ODBC.conx!rst.FieldValTrim!DESCRIPTION)
+
+			Function.Intrinsic.String.Concat("SELECT QTY_ORDER, JOB FROM V_JOB_HEADER WHERE JOB = '",V.Screen.f_Main!txtJob.Text,"' AND SUFFIX = '",V.Screen.f_Main!txtSuffix.Text,"'",V.Local.sSQL)
+			Function.ODBC.Connection!conx.OpenLocalRecordsetRO("rstQTY",V.Local.sSQL)
+			V.Local.fJobQty.Set(V.ODBC.conx!rstQTY.FieldVal!QTY_ORDER)
+
+			Function.ODBC.conx!rstQTY.Close
+			Function.Intrinsic.Math.Mult(V.Local.fJobQty,V.ODBC.conx!rst.FieldVal!UNITS,V.Local.fQty)
+			Gui.f_Main.lvRouterWOSeq.SetListItemSubItemText(V.ODBC.conx!rst.FieldValTrim!SEQ,3,V.Local.fQty)
+			Gui.f_Main.lvRouterWOSeq.SetListItemSubItemText(V.ODBC.conx!rst.FieldValTrim!SEQ,4,V.ODBC.conx!rst.FieldVal!DATE_DUE)
+
+			F.Intrinsic.String.Concat(V.local.sjob,"-",V.local.ssuffix,V.Local.sjob)
+			Gui.f_Main.lvRouterWOSeq.SetListItemSubItemText(V.ODBC.conx!rst.FieldValTrim!SEQ,5,V.local.sjob)
+
+				Function.ODBC.conx!rst.MoveNext
+		Function.Intrinsic.Control.Loop
+		Function.ODBC.conx!rst.Close
+	Function.Intrinsic.Control.Else
+		Function.ODBC.conx!rst.Close
+		Function.Intrinsic.UI.Msgbox("No material sequences found for this job","No Material Found")
+		Function.Intrinsic.Control.ExitSub
+	Function.Intrinsic.Control.EndIf
+	V.global.icounter.Set(1)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("lvrouterwoseq_columnclick_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_EXT.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(F_main_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.lvrouterwoseq_columnclick.End
+
+Program.Sub.Comments.Start
+${$0$}$GCG_VENDOR_RFQ_EXT$}$MITCH$}$01/23/2015$}$False
+${$3$}$0$}$$}$-1$}$-1$}$$}$01/01/1900$}$1/23/2015 - Mitch
+Took this project over from Brian Lefler.  There were a number of issues.  One is that the program had code ripped out of Document Control and placed inside of it to duplicate DCC inside the program, circumventing licensing.  Next, the program was getting the next RFQ number from GS, but not reserving it up front.  Therefore, if multiple people are using the program, then they will conflict when save for having the same RFQ ID.  Finally, the next RFQ number is not be reconciled correction for OP_HEADER and RAOPT.  The correct way is that the CORE program should have been updated to use COMPROC to read/write the options from OP_HEADER only.  This involves PURA65, PURA65N, and OPTPUR.
+Program.Sub.Comments.End
+
