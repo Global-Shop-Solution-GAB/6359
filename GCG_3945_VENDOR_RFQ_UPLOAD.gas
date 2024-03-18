@@ -1,0 +1,415 @@
+Program.Sub.ScreenSU.Start
+gui.Form1..create
+gui.Form1..caption("Vendor RFQ")
+gui.Form1..size(7245,4875)
+gui.Form1..minx(0)
+gui.Form1..miny(0)
+gui.Form1..position(0,0)
+gui.Form1..event(unload,form1_unload)
+gui.Form1..alwaysontop(False)
+gui.Form1..fontname("Arial")
+gui.Form1..fontsize(8)
+gui.Form1..forecolor(0)
+gui.Form1..fontstyle(,,,,)
+gui.Form1..BackColor(-2147483633)
+gui.Form1..controlbox(True)
+gui.Form1..maxbutton(True)
+gui.Form1..minbutton(True)
+gui.Form1..mousepointer(0)
+gui.Form1..moveable(True)
+gui.Form1..sizeable(True)
+gui.Form1..ShowInTaskBar(True)
+gui.Form1..titlebar(True)
+gui.Form1.lbl1.create(label,"RFQ File Path",True,1935,255,1,100,240,True,0,Arial,8,-2147483633,0)
+gui.Form1.lbl1.defaultvalue("")
+gui.Form1.lbl1.controlgroup(0)
+gui.Form1.txtdocpath.create(textbox,"",True,6180,300,0,100,500,True,0,Arial,8,-2147483643,1)
+gui.Form1.txtdocpath.defaultvalue("")
+gui.Form1.txtdocpath.controlgroup(0)
+gui.Form1.cmdAdd.create(button)
+gui.Form1.cmdAdd.caption("Add")
+gui.Form1.cmdAdd.visible(True)
+gui.Form1.cmdAdd.size(1110,375)
+gui.Form1.cmdAdd.zorder(0)
+gui.Form1.cmdAdd.position(200,920)
+gui.Form1.cmdAdd.enabled(True)
+gui.Form1.cmdAdd.fontname("Arial")
+gui.Form1.cmdAdd.fontsize(8)
+gui.Form1.cmdAdd.event(click,cmdadd_click)
+gui.Form1.cmdAdd.defaultvalue("")
+gui.Form1.cmdAdd.controlgroup(0)
+gui.Form1.cmdRemove.create(button)
+gui.Form1.cmdRemove.caption("Remove")
+gui.Form1.cmdRemove.visible(True)
+gui.Form1.cmdRemove.size(1110,375)
+gui.Form1.cmdRemove.zorder(0)
+gui.Form1.cmdRemove.position(1460,920)
+gui.Form1.cmdRemove.enabled(True)
+gui.Form1.cmdRemove.fontname("Arial")
+gui.Form1.cmdRemove.fontsize(8)
+gui.Form1.cmdRemove.event(click,cmdremove_click)
+gui.Form1.cmdRemove.defaultvalue("")
+gui.Form1.cmdRemove.controlgroup(0)
+gui.Form1.cmdClear.create(button)
+gui.Form1.cmdClear.caption("Clear")
+gui.Form1.cmdClear.visible(True)
+gui.Form1.cmdClear.size(1110,375)
+gui.Form1.cmdClear.zorder(0)
+gui.Form1.cmdClear.position(2700,920)
+gui.Form1.cmdClear.enabled(True)
+gui.Form1.cmdClear.fontname("Arial")
+gui.Form1.cmdClear.fontsize(8)
+gui.Form1.cmdClear.event(click,cmdclear_click)
+gui.Form1.cmdClear.defaultvalue("")
+gui.Form1.cmdClear.controlgroup(0)
+gui.Form1.cmdUpload.create(button)
+gui.Form1.cmdUpload.caption("Upload")
+gui.Form1.cmdUpload.visible(True)
+gui.Form1.cmdUpload.size(1110,375)
+gui.Form1.cmdUpload.zorder(0)
+gui.Form1.cmdUpload.position(200,3660)
+gui.Form1.cmdUpload.enabled(True)
+gui.Form1.cmdUpload.fontname("Arial")
+gui.Form1.cmdUpload.fontsize(8)
+gui.Form1.cmdUpload.event(click,cmdupload_click)
+gui.Form1.cmdUpload.defaultvalue("")
+gui.Form1.cmdUpload.controlgroup(0)
+gui.Form1.cmd5.create(button)
+gui.Form1.cmd5.caption("")
+gui.Form1.cmd5.visible(True)
+gui.Form1.cmd5.size(855,375)
+gui.Form1.cmd5.zorder(0)
+gui.Form1.cmd5.position(100,245745)
+gui.Form1.cmd5.enabled(True)
+gui.Form1.cmd5.fontname("Arial")
+gui.Form1.cmd5.fontsize(8)
+gui.Form1.cmd5.defaultvalue("")
+gui.Form1.cmd5.controlgroup(0)
+gui.Form1.cmdBrowse.create(button)
+gui.Form1.cmdBrowse.caption("^")
+gui.Form1.cmdBrowse.visible(True)
+gui.Form1.cmdBrowse.size(405,330)
+gui.Form1.cmdBrowse.zorder(0)
+gui.Form1.cmdBrowse.position(6345,430)
+gui.Form1.cmdBrowse.enabled(True)
+gui.Form1.cmdBrowse.fontname("Arial")
+gui.Form1.cmdBrowse.fontsize(8)
+gui.Form1.cmdBrowse.event(click,cmdbrowse_click)
+gui.Form1.cmdBrowse.defaultvalue("")
+gui.Form1.cmdBrowse.controlgroup(0)
+gui.Form1.lvdocs.create(listview)
+gui.Form1.lvdocs.view(3)
+gui.Form1.lvdocs.addlistviewcolumn("Line",1410,0)
+gui.Form1.lvdocs.addlistviewcolumn("Document",5595,2)
+gui.Form1.lvdocs.visible(True)
+gui.Form1.lvdocs.size(6705,1890)
+gui.Form1.lvdocs.zorder(0)
+gui.Form1.lvdocs.position(100,1500)
+gui.Form1.lvdocs.enabled(True)
+gui.Form1.lvdocs.fontname("Arial")
+gui.Form1.lvdocs.fontsize(8)
+
+
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Variable.Global.iKey.Declare(Long,0)
+Variable.UDT.uDocuments.Define("uDocuments",String,uDocuments)
+Variable.uGlobal.uDocuments.Declare("uDocuments")
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+
+F.Intrinsic.Control.SetErrorHandler("f_main_load_docs_Err")
+F.Intrinsic.Control.ClearErrors
+'ERROR HANDLING ABOVE
+
+'DECLARE VARIABLES
+V.Local.sError.Declare(String)
+V.Local.iRet.Declare(Long)
+
+Function.ODBC.Connection!Con.OpenConnection(Variable.ambient.PDSN,Variable.Ambient.PUSER,Variable.Ambient.PPass)
+
+Gui.Form1..Visible(true)
+
+V.Local.sFile.Declare(String)
+
+'TERMINATE SUBROUTINE
+F.Intrinsic.Control.ExitSub
+
+'ERROR HANDLING BELOW
+F.Intrinsic.Control.Label("f_main_load_docs_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_UPLOAD.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.Main.End
+
+program.sub.form1_unload.start
+F.Intrinsic.Control.SetErrorHandler("form1_unload_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'close connection to the database
+Function.ODBC.Connection!con.Close
+
+'End the program
+F.Intrinsic.Control.End
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("form1_unload_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_UPLOAD.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.form1_unload.End
+
+program.sub.cmdbrowse_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdbrowse_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'DECLARE VARIABLES
+
+V.Local.iRet.Declare(Long)
+
+'get file path for document and then attach automatically without going through doc control screen
+'invoke open file dialogue
+V.Local.sFile.Declare(String)
+
+'Browse for file to upload from
+'F.Intrinsic.UI.ShowOpenFileDialog("","xls|*.xls",,V.Local.sFile)
+F.Intrinsic.UI.ShowOpenFileDialog("","",,V.Local.sFile)
+F.Intrinsic.Control.If(V.Local.sFile,<>,"***CANCEL***")
+'set textbox to sFile
+Gui.Form1.txtdocpath.Text(V.Local.sfile.Trim)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+
+F.Intrinsic.Control.Label("cmdbrowse_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_UPLOAD.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdbrowse_click.End
+
+program.sub.cmdadd_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdadd_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.iUB.Declare(Long)
+
+'Making sure user has a file path selected
+Function.Intrinsic.Control.If(V.Screen.Form1!txtdocpath.Text,=,"")
+	Function.Intrinsic.UI.Msgbox("Document Path Required","Required Fields")
+	Function.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+'Check to see if 0 index in UDT is filled, if so then keep increasing
+F.Intrinsic.Control.If(V.uGlobal.uDocuments(0)!uDocuments.Trim,<>,"")
+	F.Intrinsic.Math.Add(V.uGlobal.uDocuments.UBound,1,V.Local.iUB)
+	V.uGlobal.uDocuments.RedimPreserve(0,V.Local.iUB)
+F.Intrinsic.Control.EndIf
+
+V.Local.sSql.Declare(String)
+'add 1 to the global variable, keep line count with global variable, add textg from docpath to listview
+F.Intrinsic.Math.Add(V.global.iKey,1,V.global.iKey)
+Gui.Form1.lvDocs.AddListItem(V.Global.iKey,V.Global.iKey)
+Gui.Form1.lvDocs.SetListItemSubItemText(V.Global.iKey,1,V.Screen.Form1!txtdocpath.Text)
+'Add to UDT uDocuments
+V.uGlobal.uDocuments(v.Local.iUB)!uDocuments.Set(V.Screen.Form1!txtdocpath.Text)
+
+'clear the document path text
+Gui.Form1.txtdocpath.Text("")
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdadd_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_UPLOAD.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdadd_click.End
+
+program.sub.cmdremove_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdremove_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'delete what is selected in the document listview
+V.Local.iKey.Declare(Long)
+V.Local.iOrd.Declare(Long)
+V.Local.sRet.Declare(String)
+
+V.Local.iKey.Set(V.Screen.Form1!lvDocs.SelectedItemKey)
+Gui.Form1.lvDocs.ListitemKeyToOrdinal(V.Local.iKey,V.Local.iOrd)
+V.Local.sRet.Set(V.Screen.Form1!lvDocs.ListItemTextExtended(v.Local.iOrd))
+F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+'remove from udt
+F.Intrinsic.Variable.UDTMultiFlag(V.uGlobal.uDocuments!uDocuments,V.Local.sRet(1).Trim)
+F.Intrinsic.Variable.UDTDeleteFlagged(V.uGlobal.uDocuments)
+'remove from list
+Gui.Form1.lvDocs.RemoveItem(V.Local.iKey)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdremove_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_UPLOAD.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdremove_click.End
+
+program.sub.cmdclear_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdclear_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'clears the document listview
+Gui.Form1.lvDocs.ClearItems
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdclear_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_UPLOAD.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdclear_click.End
+
+program.sub.cmdupload_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdupload_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+'declaration of local variables
+V.Local.sError.Declare(String)
+V.Local.ifile.declare(Long)
+V.Local.sfilepath.Declare(String)
+V.Local.sret.Declare(String)
+V.Local.irow.Declare(Long)
+V.Local.iret.Declare(Long)
+V.Local.iworksheetcounter.Declare(Long)
+V.Local.srow.Declare(String)
+V.local.spart.Declare(String)
+V.Local.sdesc.Declare(String)
+V.Local.squant.Declare(String)
+V.Local.svendor.Declare(String)
+V.Local.sseq.Declare(String)
+V.Local.sprice.Declare(String)
+V.Local.ssql.Declare(String)
+V.Local.iloopcount.Declare(Long)
+V.Local.ifileloop.Declare(Long)
+'
+'v.Local.irowcount.Set(0)
+V.Local.ifileloop.Set(0)
+V.Local.irow.Set(2)
+V.Local.iworksheetcounter.Set(1)
+
+'close the form
+Gui.Form1..Visible(false)
+
+'display wait dialog
+F.Intrinsic.UI.InvokeWaitDialog("Processing........","Please Wait")
+
+'loop through the UDT for the documents
+F.Intrinsic.Control.For(V.Local.ifile,V.uGlobal.uDocuments.LBound,V.uGlobal.uDocuments.UBound,1)
+
+	V.Local.iloopcount.Set(1)
+	F.Intrinsic.Control.If(V.Local.iloopcount,>,0)
+		F.Automation.MSExcel.CreateAppObject("MSExcel")
+		F.Automation.MSExcel.OpenWorkbook("MSEXcel","Guide Tree",V.uGlobal.uDocuments(v.Local.ifile)!uDocuments)
+		F.Automation.MSExcel.OpenWorksheet("Guide Tree","Guide Sheet",V.Local.iworksheetcounter)
+
+		'get the rows of the current spreadsheet
+		F.Automation.MSExcel.RowCount("Guide Sheet",V.Local.iret)
+
+	F.Intrinsic.Control.EndIf
+'		'loop through the rows of the spreadsheet
+	F.Intrinsic.Control.For(V.Local.irow,2,V.Local.iret,1)
+
+		F.intrinsic.Control.If(V.Local.iloopcount,=,0)
+
+			F.Automation.MSExcel.CreateAppObject("MSExcel")
+			F.Automation.MSExcel.OpenWorkbook("MSEXcel","Guide Tree",V.uGlobal.uDocuments(v.Local.ifile)!uDocuments)
+			F.Automation.MSExcel.OpenWorksheet("Guide Tree","Guide Sheet",V.Local.iworksheetcounter)
+
+		F.Intrinsic.Control.EndIf
+	
+		'reads the sequence cell within the excel spreadsheet
+		F.Automation.MSExcel.ReadRow("Guide Sheet",V.Local.irow,1,7,V.local.srow)
+
+		F.Intrinsic.String.Split(V.Local.srow,"*!*",V.Local.srow)
+
+		V.Local.spart.Set(V.Local.srow(0))
+		V.Local.sdesc.Set(V.Local.srow(1))
+		V.Local.squant.Set(V.Local.srow(2))
+		V.Local.svendor.Set(V.Local.srow(3))
+		F.Intrinsic.String.LPad(V.Local.svendor,"0",6,V.Local.svendor)
+		V.Local.sseq.Set(V.Local.srow(5))
+		F.Intrinsic.String.Replace(V.Local.sseq,".","",V.Local.sseq)
+		F.Intrinsic.String.LPad(V.Local.sseq,"0",6,V.Local.sseq)
+		V.Local.sprice.Set(V.Local.srow(6))
+		'updates the price information in the VEND_QTE_LINES table
+
+		F.Intrinsic.String.Build("UPDATE VEND_QTE_LINES set UNIT_PRICE = '{0}' where PART = '{1}' and SEQ = '{2}' and QUANTITY = '{3}'",V.Local.sprice,V.Local.spart,V.Local.sseq,V.Local.squant,V.Local.ssql)
+		F.ODBC.Connection!Con.OpenRecordsetRW("rst",V.Local.ssql)
+		F.ODBC.Con!rst.Close
+		F.Automation.MSExcel.DestroyAllObjects("MSExcel","Guide Tree","Guide Sheet")
+		V.Local.iloopcount.Set(0)
+	'move to the next row
+	F.Intrinsic.control.Next(V.local.irow)
+
+F.Intrinsic.Control.Next(V.Local.ifile)
+
+	F.Intrinsic.UI.CloseWaitDialog
+
+F.Intrinsic.UI.Msgbox("Upload Complete")
+
+F.Intrinsic.Control.CallSub(Form1_unload)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdupload_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3945_VENDOR_RFQ_UPLOAD.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdupload_click.End
+
+Program.Sub.Comments.Start
+${$0$}$GCG_VENDOR_RFQ_UPLOAD$}$WAW$}$04/19/2015$}$False
+Program.Sub.Comments.End
+
