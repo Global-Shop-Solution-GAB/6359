@@ -1,0 +1,17 @@
+Program.Sub.ScreenSU.Start
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.If(V.Caller.Hook,=,12010)
+	V.Passed.000185.set("Add/Deduct")
+F.Intrinsic.Control.EndIf
+Program.Sub.Main.End
+
+Program.Sub.Comments.Start
+${$0$}$GCG_4186_Change_Info1Field$}$TRT$}$08/23/2016$}$False
+Program.Sub.Comments.End
+
