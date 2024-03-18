@@ -1,0 +1,1004 @@
+Program.Sub.ScreenSU.Start
+Gui.Form..Create
+Gui.Form..Caption("Job Review Report")
+Gui.Form..Size(5895,1785)
+Gui.Form..MinX(0)
+Gui.Form..MinY(0)
+Gui.Form..Position(0,0)
+Gui.Form..BackColor(-2147483633)
+Gui.Form..MaxButton(False)
+Gui.Form..MousePointer(0)
+Gui.Form..Sizeable(False)
+Gui.Form..Event(UnLoad,Unload)
+Gui.Form.dtpStart.Create(DatePicker)
+Gui.Form.dtpStart.Size(2370,285)
+Gui.Form.dtpStart.Position(105,420)
+Gui.Form.dtpEnd.Create(DatePicker)
+Gui.Form.dtpEnd.Size(2370,285)
+Gui.Form.dtpEnd.Position(2670,420)
+Gui.Form.lbl1.Create(Label,"Beginning Date",True,1935,255,0,105,180,True,0,"Consolas",8,-986896,0)
+Gui.Form.lbl2.Create(Label,"Ending Date",True,1935,255,0,2670,180,True,0,"Consolas",8,-986896,0)
+Gui.Form.cmdRun.Create(Button)
+Gui.Form.cmdRun.Size(1125,375)
+Gui.Form.cmdRun.Position(105,870)
+Gui.Form.cmdRun.Caption("Run")
+Gui.Form.cmdRun.FontName("Consolas")
+Gui.Form.cmdRun.Event(Click,cmdRun_Click)
+Gui.frmWOs..Create
+Gui.frmWOs..Size(15360,10515)
+Gui.frmWOs..MinX(0)
+Gui.frmWOs..MinY(0)
+Gui.frmWOs..Position(0,0)
+Gui.frmWOs..BackColor(-2147483633)
+Gui.frmWOs..MousePointer(0)
+Gui.frmWOs..Caption("Job Review")
+Gui.frmWOs..Event(UnLoad,Unload)
+Gui.frmWOs.GsGCWOs.Create(GsGridControl)
+Gui.frmWOs.GsGCWOs.Size(15090,9090)
+Gui.frmWOs.GsGCWOs.Position(75,1050)
+Gui.frmWOs.framePermissions.Create(Frame)
+Gui.frmWOs.framePermissions.Size(1965,390)
+Gui.frmWOs.framePermissions.Position(13080,555)
+Gui.frmWOs.optView.Create(Option)
+Gui.frmWOs.optView.Size(690,195)
+Gui.frmWOs.optView.Position(225,150)
+Gui.frmWOs.optView.Caption("View")
+Gui.frmWOs.optView.BackColor(15790320)
+Gui.frmWOs.optView.ForeColor(0)
+Gui.frmWOs.optView.Parent("framePermissions")
+Gui.frmWOs.optEdit.Create(Option)
+Gui.frmWOs.optEdit.Enabled(False)
+Gui.frmWOs.optEdit.Size(690,195)
+Gui.frmWOs.optEdit.Position(1050,150)
+Gui.frmWOs.optEdit.Caption("Edit")
+Gui.frmWOs.optEdit.Parent("framePermissions")
+Gui.frmWOs.frameButtons.Create(Frame)
+Gui.frmWOs.frameButtons.Size(1965,600)
+Gui.frmWOs.frameButtons.Position(13080,75)
+Gui.frmWOs.cmdRefresh.Create(Button)
+Gui.frmWOs.cmdRefresh.Size(840,375)
+Gui.frmWOs.cmdRefresh.Position(90,165)
+Gui.frmWOs.cmdRefresh.Caption("REFRESH")
+Gui.frmWOs.cmdRefresh.Event(Click,cmdRefresh_Click)
+Gui.frmWOs.cmdRefresh.Parent("frameButtons")
+Gui.frmWOs.cmdExport.Create(Button)
+Gui.frmWOs.cmdExport.Size(840,375)
+Gui.frmWOs.cmdExport.Position(1035,150)
+Gui.frmWOs.cmdExport.Caption("Export")
+Gui.frmWOs.cmdExport.Event(Click,cmdExport_Click)
+Gui.frmWOs.cmdExport.Parent("frameButtons")
+Gui.frmWOs.picGSSLogo.Create(PictureBox)
+Gui.frmWOs.picGSSLogo.Size(4125,960)
+Gui.frmWOs.picGSSLogo.Position(5520,45)
+Gui.frmWOs.picGSSLogo.Event(DblClick,picGSSLogo_DblClick)
+Gui.frmWOs.picGSSLogo.ToolTip("Double-Click for additional functions")
+Gui.frmWOs.lblStatus.Create(Label,"****Change3****",False,3765,255,0,90,135,True,0,"Arial",8,-2147483633,0)
+Gui.frmWOs.pbStatus.Create(ProgressBar)
+Gui.frmWOs.pbStatus.Size(3735,255)
+Gui.frmWOs.pbStatus.Position(90,375)
+Gui.frmWOs.pbStatus.Visible(False)
+Gui.frmWOs.lblEst.Create(Label,"Estimate            ",True,1320,255,0,11655,225,True,0,"Arial",8,8421616,0)
+Gui.frmWOs.lblReEst.Create(Label,"RE-Estimate/PO",True,1320,255,0,11655,495,True,0,"Arial",8,16436871,0)
+Gui.frmWOs.lblProd.Create(Label,"Production         ",True,1320,255,0,11655,765,True,0,"Arial",8,8036607,0)
+Gui.frmWOs.dtpBegDt.Create(DatePicker)
+Gui.frmWOs.dtpBegDt.Size(1440,285)
+Gui.frmWOs.dtpBegDt.Position(10125,180)
+Gui.frmWOs.dtpEndDt.Create(DatePicker)
+Gui.frmWOs.dtpEndDt.Size(1440,285)
+Gui.frmWOs.dtpEndDt.Position(10125,690)
+Gui.frmWOs.lblBegDt.Create(Label,"Beg. Date",True,1425,255,0,10110,-15,True,0,"Arial",8,-2147483633,0)
+Gui.frmWOs.lblEndDt.Create(Label,"End Date",True,1425,195,0,10110,510,True,0,"Arial",8,-2147483633,0)
+Gui.frmWeb..Create
+Gui.frmWeb..Caption("Global Shop Solutions - Web Sites")
+Gui.frmWeb..Size(4035,1695)
+Gui.frmWeb..MinX(0)
+Gui.frmWeb..MinY(0)
+Gui.frmWeb..Position(0,0)
+Gui.frmWeb..BackColor(-2147483633)
+Gui.frmWeb..MousePointer(0)
+Gui.frmWeb..MaxButton(False)
+Gui.frmWeb..Sizeable(False)
+Gui.frmWeb..Event(UnLoad,frmWeb_UnLoad)
+Gui.frmWeb..MinButton(False)
+Gui.frmWeb.cmdGSS.Create(Button)
+Gui.frmWeb.cmdGSS.Size(3615,375)
+Gui.frmWeb.cmdGSS.Position(120,45)
+Gui.frmWeb.cmdGSS.Caption("Global Shop Solutions")
+Gui.frmWeb.cmdGSS.Event(Click,cmdGSS_Click)
+Gui.frmWeb.cmdServ.Create(Button)
+Gui.frmWeb.cmdServ.Size(3615,375)
+Gui.frmWeb.cmdServ.Position(120,450)
+Gui.frmWeb.cmdServ.Caption("ServiceWeb")
+Gui.frmWeb.cmdServ.Event(Click,cmdServ_Click)
+Gui.frmWeb.cmdUpd.Create(Button)
+Gui.frmWeb.cmdUpd.Size(3615,375)
+Gui.frmWeb.cmdUpd.Position(120,855)
+Gui.frmWeb.cmdUpd.Caption("GSS Updates")
+Gui.frmWeb.cmdUpd.Event(Click,cmdUpd_Click)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+Variable.Global.dStart.Declare(Date,01/01/1900)
+Variable.Global.iC.Declare(Long,0)
+Variable.Global.dEnd.Declare(Date,01/01/1900)
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.iYear.Declare(Long)
+V.Local.sIcon.Declare
+V.Local.sGssLogo.Declare
+
+F.Intrinsic.String.Build("{0}\GAB\GAS\gss2.ico",V.Caller.PluginsDir,v.Local.sIcon)
+F.Intrinsic.String.Build("{0}\GAB\GAS\GAB_GSS_Logo_Green_Dash.png",V.Caller.PluginsDir,V.Local.sGssLogo)
+Gui.frmWOs..Icon(V.Local.sIcon)
+Gui.frmWOs.picGSSLogo.Picture(V.Local.sGssLogo)
+Gui.frmWeb..Icon(V.Local.sIcon)
+
+F.ODBC.Connection!conX.OpenConnection(v.Ambient.PDSN,v.Ambient.PUser,v.Ambient.PPass,300) 
+
+'How we running?
+F.Intrinsic.Control.If(v.Ambient.IsInTaskScheduler,=,True)
+	'supress output. 
+	Function.Intrinsic.UI.SuppressOutput(True)
+	'we set our dates to jan 1 to today.
+	v.Global.dEnd.Set(v.Ambient.Date) 
+	F.Intrinsic.Date.Year(v.Ambient.Date,v.Local.iYear) 
+	F.Intrinsic.Date.DateSerial(v.Local.iYear,1,1,v.Global.dStart)
+	Function.Intrinsic.Control.CallSub(load_wo)
+	'When we are done write out spreadsheet. 
+	Function.Intrinsic.Control.CallSub(write_spreadsheet)
+
+Function.Intrinsic.Control.Else 
+'	Gui.Form.dtpStart.Value(v.Ambient.Date)
+'	Gui.Form.dtpEnd.Value(v.Ambient.Date) 
+	'ask the user for a date.
+'	Gui.Form..Show
+	F.Intrinsic.Control.CallSub(checktable)
+	F.Intrinsic.Control.CallSub(setanchors)
+	Gui.frmWOs..Show
+'	F.Intrinsic.Control.CallSub(cmdrun_click)
+	'Create a GridView and Populate with the datatable
+'	F.Intrinsic.Control.CallSub(loadgsgcwos)
+Function.Intrinsic.Control.EndIf
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4186_Job_Review_XLS.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(Unload) 
+Function.Intrinsic.Control.EndIf
+Program.Sub.Main.End
+
+Program.Sub.Unload.Start
+F.Intrinsic.Control.SetErrorHandler("Unload_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+F.ODBC.Connection!conX.Close 
+F.Intrinsic.Control.End
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Unload_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4186_Job_Review_XLS.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.End
+
+Function.Intrinsic.Control.EndIf
+Program.Sub.Unload.End
+
+Program.Sub.SetAnchors.Start
+	Gui.frmWOs.lblEst.BackColor(8421616)
+	Gui.frmWOs.lblReEst.BackColor(16436871)
+	Gui.frmWOs.lblProd.BackColor(8036607)
+
+	Gui.frmWOs.picGSSLogo.Anchor(1)
+	Gui.frmWOs.GsGCWOs.Anchor(15)
+	Gui.frmWOs.frameButtons.Anchor(9)
+	Gui.frmWOs.framePermissions.Anchor(9)
+	Gui.frmWOs.lblEst.Anchor(9)
+	Gui.frmWOs.lblReEst.Anchor(9)
+	Gui.frmWOs.lblProd.Anchor(9)
+	Gui.frmWOs.lblBegDt.Anchor(9)
+	Gui.frmWOs.dtpBegDt.Anchor(9)
+	Gui.frmWOs.lblEndDt.Anchor(9)
+	Gui.frmWOs.dtpEndDt.Anchor(9)
+
+	Gui.frmWOs.framePermissions.Visible(False)
+Program.Sub.SetAnchors.End
+
+Program.Sub.CheckTable.Start
+	V.Local.bTable.Declare
+
+	F.ODBC.Connection!conX.TableExists("GCG_4186_PART_CODES",V.Local.bTable)
+	F.Intrinsic.Control.If(V.Local.bTable,=,False)
+		F.ODBC.Connection!conX.Execute("CREATE TABLE GCG_4186_PART_CODES(ID IDENTITY,PART_CODE CHAR(10));")
+		F.ODBC.Connection!conX.Execute("CREATE INDEX GCG_4186_PART01 ON GCG_4186_PART_CODES(PART_CODE);")
+	F.Intrinsic.Control.EndIf
+Program.Sub.CheckTable.End
+
+Program.Sub.cmdRun_Click.Start
+F.Intrinsic.Control.SetErrorHandler("Load_WO_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'they came into this by clicking the run button on the screen. 
+'set the date, make sure they valid, then call the Load_WO
+'v.Global.dStart.Set(v.Screen.Form!dtpStart.Value) 
+'v.Global.dEnd.Set(v.Screen.Form!dtpEnd.Value) 
+'F.Intrinsic.Control.If(v.Global.dEnd,<,v.Global.dStart) 
+'	f.Intrinsic.UI.Msgbox("Start Date can not be AFTER Ending Date.","Invalid Selection...") 
+'	f.Intrinsic.Control.ExitSub 
+'Function.Intrinsic.Control.EndIf
+
+Gui.frmWOs.lblStatus.Caption("Gathering information...")
+Gui.frmWOs.lblStatus.Visible(True)
+Gui.frmWOs.pbStatus.Visible(True)
+F.Intrinsic.Control.CallSub(load_wo)
+Gui.frmWOs.lblStatus.Visible(False)
+Gui.frmWOs.pbStatus.Visible(False)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Load_WO_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4186_Job_Review_XLS.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.cmdRun_Click.End
+
+Program.Sub.Load_WO.Start
+F.Intrinsic.Control.SetErrorHandler("Load_WO_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.sSQL.Declare(String) 
+v.Local.sRet.Declare(String) 
+v.Local.sSuffix.Declare(String)
+v.Local.sJob.Declare(String)
+v.Local.sRep.Declare(String) 
+v.Local.bRet.Declare(Boolean) 
+
+F.Intrinsic.String.Build("Select Job,'' AS Spiral_Rect,Suffix,Description,'' AS Job_Location,Name_Customer as Customer,'' AS Rep_Contact,CAST(0 AS FLOAT) AS Estimate_Sales,'' AS Estimate_AddDeduct,CAST(0 AS FLOAT) AS Estimate_LBS,CAST(0 AS FLOAT) AS Estimate_MATERIAL,CAST(0 AS FLOAT) AS Estimate_Labor,CAST(0 AS FLOAT) AS Estimate_Hours,CAST(0 AS FLOAT) AS Estimate_Freight,'' As SalesCodeE,'' AS ReEstimate_Sales,'' AS ReEstimate_LBS,'' AS ReEstimate_Material,' ' AS ReEstimate_Labor,'' AS ReEstimate_Hours,'' AS ReEstimate_Freight,'' As SalesCodeRE,'' AS Material_Type_Connections,'' AS Fittings_Heavy_Light,'' AS SW_DW,'' AS SF_HF,Amt_Sales,CAST(0 AS FLOAT) AS Production_LBS,Amt_Material,Amt_Labor,Num_Hours,CAST(0 AS FLOAT) AS Production_Freight,''  AS Order_No,''  AS Order_Line,''  AS Quote,''  AS SHIP_ID From V_JOB_HEADER Left Join V_Customer_Master on V_Job_Header.Customer = V_Customer_Master.Customer WHERE Date_Due Between '{0}' And '{1}' Order By Job,Suffix;",v.Global.dStart.PervasiveDate,v.Global.dEnd.PervasiveDate,v.Local.sSQL)
+F.Data.DataTable.CreateFromSQL("JobHeader","conX",V.Local.sSQL,True)
+
+F.Data.DataTable.AddExpressionColumn("JobHeader","Profit","Float","[AMT_SALES] - [AMT_MATERIAL] - [AMT_LABOR] - [Production_Freight]") 
+F.Data.DataTable.AddExpressionColumn("JobHeader","Margin","Float","IIF([AMT_Sales] > 0,[Profit] / [AMT_SALES],0)") 
+
+'Loop through datatable. 
+F.Intrinsic.Control.For(v.global.iC,0,v.dataTable.JobHeader.RowCount--,1)
+	'clear out sret for our sprirla/rect column
+	v.Local.sRet.Set("") 
+
+	Gui.frmWOs.pbStatus.Min(0)
+	F.Intrinsic.Control.If(V.DataTable.JobHeader.RowCount,=,0)
+		Gui.frmWOs.pbStatus.Max(100)
+		Gui.frmWOs.pbStatus.Value(100)
+	F.Intrinsic.Control.Else
+		Gui.frmWOs.pbStatus.Max(V.DataTable.JobHeader.RowCount)
+	F.Intrinsic.Control.EndIf
+
+	Gui.frmWOs.pbStatus.Value(v.Global.iC)
+	'Get Sales Order Number. 
+	F.Intrinsic.String.Build("Select Order_NO,Order_Line, ShipTo_ID From V_Order_TO_WO Where Job = '{0}' And Suffix = '{1}'",v.DataTable.JobHeader(v.Global.ic).Job!FieldValtrim,v.DataTable.Jobheader(v.Global.iC).Suffix!FieldValTrim,v.Local.sSQL) 
+	F.ODBC.Connection!conX.OpenLocalRecordsetRO("rstOrder",v.Local.sSQL) 
+	F.Intrinsic.Control.If(v.ODBC.conX!rstOrder.EOF,=,False) 
+		F.Data.DataTable.SetValue("JobHeader",v.Global.iC,"Order_NO",v.ODBC.conX!rstOrder.FieldValTrim!ORder_NO) 
+		F.Data.DataTable.SetValue("JobHeader",v.Global.iC,"Order_Line",v.ODBC.conX!rstOrder.FieldValTrim!ORder_Line) 
+		F.Data.DataTable.SetValue("JobHeader",v.Global.iC,"Ship_ID",v.ODBC.conX!rstOrder.FieldValTrim!ShipTo_ID) 		
+	Function.Intrinsic.Control.EndIf
+	F.ODBC.conX!rstOrder.Close 
+
+	'Get Location 
+	F.Intrinsic.String.Build("Select City_Ship,State_Ship From V_Order_Ship_To Where Order_NO = '{0}'",v.DataTable.JobHeader(v.Global.IC).Order_NO!FieldValTrim,v.Local.sSQL) 
+	f.ODBC.Connection!conX.OpenLocalRecordsetRO("rst",v.Local.sSQL) 
+	F.Intrinsic.Control.If(v.ODBC.conX!rst.EOF,=,False) 
+		F.Intrinsic.String.Build("{0}, {1}",v.ODBC.conX!rst.FieldValTrim!City_Ship,v.ODBC.conX!rst.FieldValTrim!State_Ship,v.Local.sSQL) 
+		F.Data.DataTable.SetValue("JobHeader",v.Global.iC,"Job_Location",v.Local.sSQL) 
+	Function.Intrinsic.Control.EndIf
+	f.ODBC.conX!rst.Close
+
+	'Order Contact
+	F.Intrinsic.String.Build("Select Contact From V_Order_Bill_To Where Order_NO = '{0}'",v.DataTable.JobHeader(v.Global.IC).Order_NO!FieldValTrim,v.Local.sSQL) 
+	f.ODBC.Connection!conX.OpenLocalRecordsetRO("rst",v.Local.sSQL) 
+	F.Intrinsic.Control.If(v.ODBC.conX!rst.EOF,=,False) 
+		F.data.datatable.setvalue("JobHeader",v.Global.iC,"Rep_Contact",v.ODBC.conX!rst.FieldValTrim!contact) 
+	Function.Intrinsic.Control.EndIf
+	f.ODBC.conX!rst.Close 
+
+	'figure out what our letter value is in our suffic. 
+	F.Intrinsic.String.IsInString(v.datatable.Jobheader(v.Global.iC).Suffix!FieldValtrim,"S",False,v.Local.bRet)
+	F.Intrinsic.Control.If(v.Local.bRet,=,True) 
+		'set to Sprial 
+		v.Local.sRet.Set("Spiral") 
+	Function.Intrinsic.Control.EndIf
+
+	F.Intrinsic.String.IsInString(v.datatable.JobHeader(v.Global.iC).Suffix.fieldvaltrim,"R",False,v.Local.bRet) 
+	Function.Intrinsic.Control.If(v.Local.bRet,=,True) 
+		v.Local.sRet.Set("Rect") 
+	Function.Intrinsic.Control.EndIf 
+
+	F.Intrinsic.String.IsInString(v.datatable.JobHeader(v.Global.iC).Suffix.fieldvaltrim,"RW",False,v.Local.bRet) 
+	Function.Intrinsic.Control.If(v.Local.bRet,=,True) 
+		v.Local.sRet.Set("ReWork")	
+	Function.Intrinsic.Control.EndIf
+
+	f.data.datatable.SetValue("JobHeader",v.Global.ic,"Spiral_Rect",v.Local.sRet.Trim) 
+
+	'go through each and call my subs. 
+	Function.Intrinsic.Control.CallSub(get_estimate) 
+	Function.Intrinsic.Control.CallSub(get_production) 
+	Function.Intrinsic.Control.CallSub(get_reestimate) 
+
+	F.Data.DataTable.SetValue("JobHeader",v.Global.iC,"Job",v.datatable.jobheader(v.Global.iC).Job.fieldvaltrim,"Suffix",v.datatable.jobheader(v.Global.iC).Suffix.fieldvaltrim,"Customer",v.datatable.jobheader(v.Global.iC).Customer.fieldvaltrim)
+F.Intrinsic.Control.Next(v.global.iC) 
+
+'create DataView from DataTable. 
+F.data.DataView.Create("JobHeader","JobHeader")
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Load_WO_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4186_Job_Review_XLS.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.Load_WO.End
+
+Program.Sub.Get_Estimate.Start
+F.Intrinsic.Control.SetErrorHandler("Load_WO_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+V.Local.sSQL.Declare(String)
+V.Local.fHrsAct.Declare
+V.Local.fDollarsEst.Declare
+V.Local.fHrsEst.Declare
+V.Local.fDollarsAct.Declare
+
+'Get Quote Number from Order Header. 
+F.Intrinsic.String.Build("Select * From Order_Header Where Order_NO = '{0}'",v.dataTable.JobHeader(v.Global.iC).Order_NO!FieldvalTrim,v.Local.sSQL) 
+F.ODBC.Connection!conX.OpenLocalRecordsetRO("rstQ",v.Local.sSQL) 	
+Function.Intrinsic.Control.If(v.ODBC.conX!rstQ.EOF,=,False) 
+	'set ship_ID
+
+	'Get the extension amount. 
+	F.Intrinsic.String.Build("Select * From V_Quote_Lines Where Quote_NO = '{0}' And Record_No = '{1}'",v.ODBC.conX!rstQ.FieldValTrim!Quote,v.datatable.JobHeader(v.Global.ic).Order_Line!FieldValTrim,v.Local.sSQL) 
+	F.ODBC.Connection!conX.OpenLocalRecordsetRO("rst",v.Local.sSQL) 
+	F.Intrinsic.Control.If(v.ODBC.conx!rst.EOF,<>,True) 
+		F.Data.DataTable.SetValue("JobHeader",v.Global.iC,"Estimate_Sales",v.ODBC.conX!rst.fieldvalTrim!Extension,"Estimate_LBS",v.ODBC.conX!rst.FieldValTrim!Weight,"SalesCodeE",v.ODBC.conX!rst.FieldValTrim!Info_2)
+	Function.Intrinsic.Control.EndIf
+	f.ODBC.conX!rst.Close 
+Function.Intrinsic.Control.EndIf
+F.ODBC.conX!rstQ.Close 
+
+
+'Get Add/Deduc t. INfor 1 field on the Order Line 
+F.Intrinsic.String.Build("Select * from V_ORDER_LINES WHERE ORDER_NO = '{0}' And Record_No = '{1}'",v.dataTable.JobHeader(v.Global.iC).Order_NO!FieldvalTrim,v.dataTable.JobHeader(v.Global.iC).Order_Line!FieldvalTrim,v.Local.sSQL) 
+F.ODBC.Connection!conX.OpenLocalRecordsetRO("rst",v.Local.sSQL) 
+F.Intrinsic.Control.If(v.ODBC.conX!rst.EOF,=,False) 
+	F.Data.DataTable.SetValue("JobHeader",v.Global.iC,"Estimate_AddDeduct",v.ODBC.conX!rst.FieldValTrim!Info_1) 
+	'get other information thats within order lines. 
+	'Fittings 'SW/DW and SFHF
+	F.data.DataTable.SetValue("JobHeader",v.Global.iC,"Fittings_Heavy_Light",v.ODBC.conX!rst.FieldValTrim!User_1,"SW_DW",v.ODBC.conX!rst.FieldValTrim!User_2,"SF_HF",v.ODBC.conX!rst.FieldValTrim!User_3,"SalesCodeRE",v.ODBC.conX!rst.FieldValTrim!Info_2)
+Function.Intrinsic.Control.EndIf
+f.ODBC.conX!rst.Close 
+
+
+'Get Summed Values from Estimated within job_Operation. 
+'Material
+F.Intrinsic.String.Build("Select Job,Suffix,LMO,Sum(Dollars_Estimated) As Dollars_Est, Sum(Dollars_Actual) As Dollars_Act,Sum(Hours_Estimated) As HRS_Estimated, Sum(Hours_Actual) As HRS_Actual From V_JOB_Operations WHERE Job = '{0}' And Suffix = '{1}' And LMO <> 'C' And LMO <> 'Z' Group by Job,Suffix,LMO order By Job,Suffix, LMO",v.dataTable.JobHeader(v.Global.iC).Job!FieldvalTrim,v.dataTable.JobHeader(v.Global.iC).Suffix!FieldvalTrim,v.Local.sSQL)
+F.ODBC.Connection!conX.OpenLocalRecordsetRO("rst",v.Local.sSQL)
+F.Intrinsic.Control.DoUntil(v.ODBC.conX!rst.EOF,=,True) 
+	Function.Intrinsic.Control.SelectCase(v.ODBC.conX!rst.FieldValTrim!LMO) 
+		Function.Intrinsic.Control.Case("M")
+			F.Intrinsic.Control.If(V.ODBC.conX!rst.FieldValIsNull!Dollars_Est)
+				V.Local.fDollarsEst.Set(0)
+			F.Intrinsic.Control.Else
+				V.Local.fDollarsEst.Set(V.ODBC.conX!rst.FieldValFloat!Dollars_Est)
+			F.Intrinsic.Control.EndIf
+
+			F.Intrinsic.String.Build("Select Sum(Hours_Worked) As HRS_Actual From V_JOB_Detail WHERE Job = '{0}' And Suffix = '{1}' And LMO <> 'C' And LMO <> 'Z' And LMO = 'M' and Left(Part,3) in (Select Part_Code from GCG_4186_PART_CODES) Group by Job,Suffix,LMO order By Job,Suffix, LMO;",v.dataTable.JobHeader(v.Global.iC).Job!FieldvalTrim,v.dataTable.JobHeader(v.Global.iC).Suffix!FieldvalTrim,v.Local.sSQL)
+			F.ODBC.Connection!conX.OpenLocalRecordsetRO("rst1",v.Local.sSQL)
+			F.Intrinsic.Control.If(V.ODBC.conX!rst1.EOF,=,True)
+				V.Local.fHrsAct.Set(0)
+			F.Intrinsic.Control.Else
+				F.Intrinsic.Control.If(V.ODBC.conX!rst1.FieldValIsNull!HRS_Actual)
+					V.Local.fHrsAct.Set(0)
+				F.Intrinsic.Control.Else
+					V.Local.fHrsAct.Set(V.ODBC.conX!rst1.FieldValFloat!HRS_Actual)
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.EndIf
+			F.ODBC.conX!rst1.Close
+'			'This is the estimated Hours value 
+'			'This is the actual units issued to the work order.
+			F.Data.DataTable.SetValue("JobHeader",v.Global.iC,"Estimate_MATERIAL",V.Local.fDollarsEst,"Production_LBS",V.Local.fHrsAct)
+
+		Function.Intrinsic.Control.Case("L") 
+			'Estimated labor value for the operations.
+			F.Intrinsic.Control.If(V.ODBC.conX!rst.FieldValIsNull!Dollars_Est)
+				V.Local.fDollarsEst.Set(0)
+			F.Intrinsic.Control.Else
+				V.Local.fDollarsEst.Set(V.ODBC.conX!rst.FieldValFloat!Dollars_Est)
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.If(V.ODBC.conX!rst.FieldValIsNull!HRS_Estimated)
+				V.Local.fHrsEst.Set(0)
+			F.Intrinsic.Control.Else
+				V.Local.fHrsEst.Set(V.ODBC.conX!rst.FieldValFloat!HRS_Estimated)
+			F.Intrinsic.Control.EndIf
+			F.Data.DataTable.SetValue("JobHeader",V.Global.iC,"Estimate_Labor",V.Local.fDollarsEst,"Estimate_Hours",V.Local.fHrsEst)
+		Function.Intrinsic.Control.Case("O") 
+			'Estimated Outside (Freight)
+			F.Intrinsic.Control.If(V.ODBC.conX!rst.FieldValIsNull!Dollars_Est)
+				V.Local.fDollarsEst.Set(0)
+			F.Intrinsic.Control.Else
+				V.Local.fDollarsEst.Set(V.ODBC.conX!rst.FieldValFloat!Dollars_Est)
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.If(V.ODBC.conX!rst.FieldValIsNull!Dollars_Act)
+				V.Local.fDollarsAct.Set(0)
+			F.Intrinsic.Control.Else
+				V.Local.fDollarsAct.Set(V.ODBC.conX!rst.FieldValFloat!Dollars_Act)
+			F.Intrinsic.Control.EndIf
+			F.Data.DataTable.SetValue("JobHeader",v.Global.iC,"Estimate_Freight",V.Local.fDollarsEst,"Production_Freight",V.Local.fDollarsAct)
+	Function.Intrinsic.Control.EndSelect		
+	F.ODBC.conX!rst.MoveNext 	
+Function.Intrinsic.Control.Loop 
+F.ODBC.conX!rst.Close 
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Load_WO_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4186_Job_Review_XLS.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(unload) 
+Function.Intrinsic.Control.EndIf
+Program.Sub.Get_Estimate.End
+
+Program.Sub.Get_ReEstimate.Start
+F.Intrinsic.Control.SetErrorHandler("Get_ReEstimate_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.sSQL.Declare(String) 
+
+'Here we are Getting The ReEstimate Portion of the Spreadsheet. 
+'And a few other things
+'Goes into WO_USER_FLDS 
+F.Intrinsic.String.Build("Select User_1,User_2,User_3,User_4,user_5,User_6,User_7,User_8 From WO_USER_FLDS Where Job = '{0}' And Suffix = '{1}'",v.DataTable.JobHeader(v.Global.iC).Job!FieldValTrim,v.DataTable.JobHeader(v.Global.iC).Suffix!FieldValTrim,v.Local.sSQL) 
+F.ODBC.Connection!conX.OpenLocalRecordsetRO("rst",v.Local.sSQL) 
+F.Intrinsic.Control.If(v.ODBC.conX!rst.EOF,<>,True) 
+	F.Data.DataTable.SetValue("JobHeader",v.Global.iC,"ReEstimate_Sales",v.ODBC.conX!rst.FieldValTrim!User_1,"ReEstimate_LBS",v.ODBC.conX!rst.FieldValTrim!User_2,"ReEstimate_Material",v.ODBC.conX!rst.FieldValTrim!User_3,"ReEstimate_Labor",v.ODBC.conX!rst.FieldValTrim!User_4,"ReEstimate_Hours",v.ODBC.conX!rst.FieldValTrim!User_5,"ReEstimate_Freight",v.ODBC.conX!rst.FieldValTrim!User_6,"Material_Type_Connections",v.ODBC.conX!rst.FieldValTrim!User_7)
+F.Intrinsic.Control.EndIf
+F.ODBC.conX!rst.Close 
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Get_ReEstimate_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4186_Job_Review_XLS.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.Get_ReEstimate.End
+
+Program.Sub.Get_Production.Start
+'F.Intrinsic.Control.SetErrorHandler("Get_Production_Err")
+'F.Intrinsic.Control.ClearErrors
+'
+'V.Local.sError.Declare(String)
+'v.Local.sSQL.Declare(String) 
+'
+''Get Production values from Job Header 
+'F.Intrinsic.String.Build("Select Amt_Sales,Amt_Material,Amt_Labor, Num_Hours From V_JOB_Header Where Job = '{0}' And Suffix = '{1}'",v.DataTable.JobHeader(v.Global.iC).Job!FieldValTrim,v.DataTable.JobHeader(v.Global.iC).Suffix!FieldvalTrim,v.Local.sSQL) 
+'F.ODBC.Connection!conX.OpenLocalRecordsetRO("rst",v.Local.sSQL) 
+'Function.Intrinsic.Control.If(v.ODBC.conX!rst.EOF,<>,True) 
+'	F.Data.DataTable.SetValue("JobHeader",v.Global.iC,"Production_Sales",v.ODBC.conX!rst.FieldValTrim!Amt_Sales) 
+'	F.Data.DataTable.SetValue("Jobheader",v.Global.iC,"Production_Material",v.ODBC.conX!rst.FieldValTrim!Amt_Material) 
+'	F.Data.DataTable.SetValue("JObheader",v.Global.ic,"Production_labor",v.ODBC.conX!rst.FieldValTrim!Amt_Labor) 
+'	F.Data.DataTable.SetValue("JobHeader",v.Global.iC,"Production_Hours",v.ODBC.conX!rst.FieldValTrim!Num_Hours) 
+'Function.Intrinsic.Control.EndIf
+'f.ODBC.conX!rst.Close 
+'
+'F.Intrinsic.Control.ExitSub
+'
+'F.Intrinsic.Control.Label("Get_Production_Err")
+'F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+'	Function.Intrinsic.String.Concat("Project: GCG_4186_Job_Review_XLS.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+'	F.Intrinsic.UI.Msgbox(V.Local.sError)
+'	Function.Intrinsic.Control.CallSub(unload)
+'Function.Intrinsic.Control.EndIf
+Program.Sub.Get_Production.End
+
+Program.Sub.Write_Spreadsheet.Start
+F.Intrinsic.Control.SetErrorHandler("Write_Spreadsheet_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.bEx.Declare(Boolean) 
+v.Local.sPath.Declare(String) 
+v.Local.sFQN.Declare(String) 
+v.Local.sFileName.Declare(String) 
+v.Local.iC.Declare(Long,1) 
+v.Local.sTemplate.Declare(String) 
+v.Local.sSpreadsheet.Declare(String) 
+v.Local.sCols.Declare(String) 
+v.Local.sV.Declare(String) 
+
+
+v.Local.sCols.Set("JOB*!*Spiral_rect*!*Suffix*!*Description*!*Job_location*!*Customer*!*Rep_Contact*!*Estimate_Sales*!*Estimate_AddDeduct*!*Estimate_LBS*!*Estimate_Material*!*Estimate_Labor*!*Estimate_Hours*!*Estimate_Freight*!*ReEstimate_Sales*!*REEstimate_LBS*!*Reestimate_Material*!*REEstimate_Labor*!*REestimate_Hours*!*REEstimate_Freight") 
+F.Intrinsic.String.Build("{0}*!*Material_Type_Connections*!*Fittings_Heavy_Light*!*SW_DW*!*SF_HF*!*AMT_Sales*!*production_LBS*!*AMT_MATERIAL*!*AMT_LABOR*!*NUM_HOURS*!*Production_FREIGHT*!*Profit*!*Margin",v.Local.scols,v.Local.sCols)
+
+'Make sure directory exists. 
+F.Intrinsic.String.Build("{0}\Export",v.Caller.BusintDir,v.Local.sPath) 
+F.Intrinsic.File.DirExists(v.Local.sPath,v.Local.bEx) 
+F.Intrinsic.Control.If(v.Local.bEx,=,False) 
+	f.Intrinsic.File.CreateDir(v.Local.sPath) 
+Function.Intrinsic.Control.EndIf
+
+F.Intrinsic.String.Build("{0}\JobReview",v.Local.sPath,v.Local.sPath) 
+F.Intrinsic.File.DirExists(v.Local.sPath,v.Local.bEx) 
+F.Intrinsic.Control.If(v.Local.bEx,=,False) 
+	f.Intrinsic.File.CreateDir(v.Local.sPath) 
+Function.Intrinsic.Control.EndIf
+
+F.Intrinsic.String.Build("Job_Review_Report_{0}.xlsx",v.Ambient.Date,v.Local.sfileName) 
+F.Intrinsic.File.MakeFileNameFriendlY(v.Local.sFileName,v.Local.sFileName) 
+
+F.Intrinsic.String.Build("{0}\{1}",v.Local.sPath,v.Local.sFileName,v.Local.sFQN)
+
+'Make sure that filenameof the same name doesn't exist. If so create new rev on filename. 
+F.Intrinsic.File.Exists(v.Local.sFQN,v.Local.bEx) 
+F.Intrinsic.Control.DoUntil(v.Local.bEx,=,False) 
+	F.Intrinsic.String.Build("V{1}_{0}",v.Local.sFileName,v.Local.iC,v.Local.sV) 
+	F.Intrinsic.String.Build("{0}\{1}",v.Local.sPath,v.Local.sV,v.Local.sFQN)
+	F.Intrinsic.File.Exists(v.Local.sFQN,v.Local.bEx) 	
+	f.Intrinsic.Math.Add(v.Local.iC,1,v.Local.iC)
+F.Intrinsic.Control.Loop 
+
+'Does our Template Spreadsheet exist. 
+'stored in Global\Plugins\GAB\GAS\GCG_4186_JOB_REVIEW_TEMPLATE.XLSX"
+F.Intrinsic.String.Build("{0}\GAB\GAS\GCG_4186_JOB_REVIEW_TEMPLATE.XLSX",v.Caller.PluginsDir,v.Local.sTemplate)
+F.Intrinsic.File.Exists(v.Local.sTemplate,v.Local.bEx) 
+F.Data.DataView.ToString("Jobheader","Jobheader",v.Local.sCols,"*!*","$!$",v.Local.sSpreadsheet) 
+
+F.Intrinsic.Control.if(v.Local.bEx,=,True) 
+	'create spreadsheet from Template. 
+	'this doesn't work in .net..... 
+	'index outside the array of the bounds. so bsacially d
+	F.Intrinsic.String.Build("$!$$!${0}",v.Local.sSpreadsheet,v.Local.sSpreadsheet) 
+	F.Automation.MSExcel.WriteSpreadsheet(v.Local.sFQN,v.Local.sTemplate,v.Local.sSpreadsheet) 	
+Function.Intrinsic.Control.Else 
+	'create from non template. 
+	'add column names. 
+	v.Local.sCols.Set("*!**!**!**!**!**!**!*ESTIMATE*!**!**!**!**!**!**!*RE-ESTIMATE/PO*!**!**!**!**!**!**!*FITTINGS*!**!**!*PRODUCTION*!**!**!**!**!**!**!**!**!*")
+	F.Intrinsic.String.Build("{0}$!$JOB #*!*SPIRAL/RECT*!*RELEASE*!*JOB NAME*!*JOB LOCATION*!*REP*!*REP CONTACT*!*SALES*!*ADD/DEDUCT*!*LBS*!*MATERIAL*!*LABOR*!*HOURS*!*FREIGHT*!*SALES*!*LBS*!*MATERIAL*!*LABOR*!*HOURS*!*FREIGHT*!*MATERIAL TYPE, CONNECTIONS, ETC*!*HEAVY/LITE*!*SW/DW*!*SF/HF*!*SALES*!*LBS*!*MATERIAL*!*LABOR*!*HOURS*!*FREIGHT COST*!*PROFIT*!*MARGIN*!**!*$!${1}",v.Local.sCols,v.Local.sSpreadsheet,v.Local.sSpreadsheet) 
+	f.Automation.MSExcel.WriteSpreadsheet(v.Local.sFQN,"",v.Local.sSpreadsheet)	
+Function.Intrinsic.Control.EndIf
+
+'if we are not running from task ask user if they want to open spreadsheet. 
+F.Intrinsic.Control.If(v.Ambient.isintaskscheduler,=,False) 
+	f.Intrinsic.Task.ShellExec(v.Caller.Handle,"OPEN",v.Local.sFQN,"","",1) 
+Function.Intrinsic.Control.EndIf
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Write_Spreadsheet_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4186_Job_Review_XLS.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	Function.Intrinsic.Control.CallSub(unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.Write_Spreadsheet.End
+
+Program.Sub.LoadGsGCWOs.Start
+	Gui.frmWOs.GsGCWOs.AddGridviewFromDatatable("gvWOs","JobHeader")
+
+	Gui.frmWOs.GsGCWOs.SetGridviewProperty("gvWOs","MultiSelect",True)
+	Gui.frmWOs.GsGCWOs.SetGridviewProperty("gvWOs","AllowSort",True)
+	Gui.frmWOs.GsGCWOs.SetGridviewProperty("gvWOs","AllowFilter",True)
+	Gui.frmWOs.GsGCWOs.SetGridviewProperty("gvWOs","ShowDetailTabs",False)
+	Gui.frmWOs.GsGCWOs.SetGridviewProperty("gvWOs","ShowGroupPanel",True)
+	Gui.frmWOs.GsGCWOs.SetGridviewProperty("gvWOs","EnableAppearanceOddRow",True)
+
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Job","Caption","Job")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Spiral_Rect","Caption","Spiral/Rect")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Suffix","Caption","Release")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Description","Caption","Job Name")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Job_Location","Caption","Job Location")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Customer","Caption","Rep")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Rep_Contact","Caption","Rep Contact")
+	'Estimates
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_Sales","Caption","Sales")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_AddDeduct","Caption","Add/Deduct")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_LBS","Caption","Lbs")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_MATERIAL","Caption","Material")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_Labor","Caption","Labor")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_Hours","Caption","Hours")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_Freight","Caption","Freight")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","SalesCodeE","Caption","Sales Code E")
+	'ReEstimate
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Sales","Caption","Sales")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_LBS","Caption","Lbs")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Material","Caption","Material")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Labor","Caption","Labor")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Hours","Caption","Hours")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Freight","Caption","Freight")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","SalesCodeRE","Caption","Sales Code RE")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Material_Type_Connections","Caption","Material Type, Connections, Etc")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Fittings_Heavy_Light","Caption","Fittings Heavy/Lite")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","SW_DW","Caption","SW/DW")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","SF_HF","Caption","SF/HF")
+	'Production
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Amt_Sales","Caption","Sales")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Production_LBS","Caption","Lbs")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Amt_Material","Caption","Material")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Amt_Labor","Caption","Labor")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Num_Hours","Caption","Hours")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Production_Freight","Caption","Freight")
+	'Hidden
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Order_No","Visible",False)
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Order_Line","Visible",False)
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Quote","Visible",False)
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","SHIP_ID","Visible",False)
+	'Profit and Margins
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Profit","Caption","Profit")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Margin","Caption","Margin")
+
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Job","MinWidth","50")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Spiral_Rect","MinWidth","100")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Suffix","MinWidth","50")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Description","MinWidth","175")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Job_Location","MinWidth","150")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Customer","MinWidth","200")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Rep_Contact","MinWidth","120")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_Sales","MinWidth","75")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_AddDeduct","MinWidth","80")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_LBS","MinWidth","75")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_MATERIAL","MinWidth","75")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_Labor","MinWidth","75")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_Hours","MinWidth","75")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_Freight","MinWidth","75")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","SalesCodeE","MinWidth","75")
+
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Sales","MinWidth","75")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_LBS","MinWidth","75")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Material","MinWidth","75")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Labor","MinWidth","75")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Hours","MinWidth","75")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Freight","MinWidth","75")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","SalesCodeRE","MinWidth","85")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Material_Type_Connections","MinWidth","175")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Fittings_Heavy_Light","MinWidth","110")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","SW_DW","MinWidth","50")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","SF_HF","MinWidth","50")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Amt_Sales","MinWidth","75")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Production_LBS","MinWidth","75")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Amt_Material","MinWidth","75")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Amt_Labor","MinWidth","75")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Num_Hours","MinWidth","75")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Production_Freight","MinWidth","75")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Profit","MinWidth","75")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Margin","MinWidth","75")
+
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Job","HeaderHAlignment","Center")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Spiral_Rect","HeaderHAlignment","Center")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Suffix","HeaderHAlignment","Center")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Job_Location","HeaderHAlignment","Center")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Customer","HeaderHAlignment","Center")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Rep_Contact","HeaderHAlignment","Center")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_Sales","HeaderHAlignment","Far")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_AddDeduct","HeaderHAlignment","Center")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_LBS","HeaderHAlignment","Far")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_MATERIAL","HeaderHAlignment","Far")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_Labor","HeaderHAlignment","Far")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_Hours","HeaderHAlignment","Far")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_Freight","HeaderHAlignment","Far")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","SalesCodeE","HeaderHAlignment","Far")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Sales","HeaderHAlignment","Far")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_LBS","HeaderHAlignment","Far")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Material","HeaderHAlignment","Far")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Labor","HeaderHAlignment","Far")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Hours","HeaderHAlignment","Far")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Freight","HeaderHAlignment","Far")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","SalesCodeRE","HeaderHAlignment","Far")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Fittings_Heavy_Light","HeaderHAlignment","Center")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","SW_DW","HeaderHAlignment","Center")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","SF_HF","HeaderHAlignment","Center")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Amt_Sales","HeaderHAlignment","Far")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Production_LBS","HeaderHAlignment","Far")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Amt_Material","HeaderHAlignment","Far")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Amt_Labor","HeaderHAlignment","Far")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Num_Hours","HeaderHAlignment","Far")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Production_Freight","HeaderHAlignment","Far")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Profit","HeaderHAlignment","Far")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Margin","HeaderHAlignment","Far")
+
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Job","AllowEdit",False)
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Spiral_Rect","AllowEdit",False)
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Suffix","AllowEdit",False)
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Job_Location","AllowEdit",False)
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Customer","AllowEdit",False)
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Rep_Contact","AllowEdit",False)
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_Sales","AllowEdit",False)
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_AddDeduct","AllowEdit",False)
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_LBS","AllowEdit",False)
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_MATERIAL","AllowEdit",False)
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_Labor","AllowEdit",False)
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_Hours","AllowEdit",False)
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_Freight","AllowEdit",False)
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","SalesCodeE","AllowEdit",False)
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Sales","AllowEdit",False)
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_LBS","AllowEdit",False)
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Material","AllowEdit",False)
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Labor","AllowEdit",False)
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Hours","AllowEdit",False)
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Freight","AllowEdit",False)
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","SalesCodeRE","AllowEdit",False)
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Fittings_Heavy_Light","AllowEdit",False)
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","SW_DW","AllowEdit",False)
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","SF_HF","AllowEdit",False)
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Amt_Sales","AllowEdit",False)
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Production_LBS","AllowEdit",False)
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Amt_Material","AllowEdit",False)
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Amt_Labor","AllowEdit",False)
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Num_Hours","AllowEdit",False)
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Production_Freight","AllowEdit",False)
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Profit","AllowEdit",False)
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Margin","AllowEdit",False)
+
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Job","CellHAlignment","Center")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Spiral_Rect","CellHAlignment","Center")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Suffix","CellHAlignment","Center")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Job_Location","CellHAlignment","Center")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Customer","CellHAlignment","Center")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Rep_Contact","CellHAlignment","Center")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","SalesCodeE","CellHAlignment","Far")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Sales","CellHAlignment","Far")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_LBS","CellHAlignment","Far")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Material","CellHAlignment","Far")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Labor","CellHAlignment","Far")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Hours","CellHAlignment","Far")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Freight","CellHAlignment","Far")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","SalesCodeRE","CellHAlignment","Far")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_AddDeduct","CellHAlignment","Center")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Fittings_Heavy_Light","CellHAlignment","Center")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","SW_DW","CellHAlignment","Center")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","SF_HF","CellHAlignment","Center")
+
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_Sales","DisplayCustomNumeric","#,###,##0.00")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_LBS","DisplayCustomNumeric","#,###,##0.00")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_MATERIAL","DisplayCustomNumeric","#,###,##0.00")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_Labor","DisplayCustomNumeric","#,###,##0.00")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_Hours","DisplayCustomNumeric","#,###,##0.00")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_Freight","DisplayCustomNumeric","#,###,##0.00")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Sales","DisplayCustomNumeric","#,###,##0.00")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_LBS","DisplayCustomNumeric","#,###,##0.00")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Material","DisplayCustomNumeric","#,###,##0.00")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Labor","DisplayCustomNumeric","#,###,##0.00")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Hours","DisplayCustomNumeric","#,###,##0.00")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Freight","DisplayCustomNumeric","#,###,##0.00")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Amt_Sales","DisplayCustomNumeric","#,###,##0.00")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Production_LBS","DisplayCustomNumeric","#,###,##0.00")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Amt_Material","DisplayCustomNumeric","#,###,##0.00")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Amt_Labor","DisplayCustomNumeric","#,###,##0.00")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Num_Hours","DisplayCustomNumeric","#,###,##0.00")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Production_Freight","DisplayCustomNumeric","#,###,##0.00")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Profit","DisplayCustomNumeric","#,###,##0.00")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Margin","DisplayCustomNumeric","#,###,##0.00")
+
+'	'Estimates - LightCoral
+'	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_Sales","HeaderBackColor","LightCoral")
+'	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_AddDeduct","HeaderBackColor","LightCoral")
+'	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_LBS","HeaderBackColor","LightCoral")
+'	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_MATERIAL","HeaderBackColor","LightCoral")
+'	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_Labor","HeaderBackColor","LightCoral")
+'	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_Hours","HeaderBackColor","LightCoral")
+'	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_Freight","HeaderBackColor","LightCoral")
+'	'ReEstimate - LightSkyBlue
+'	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Sales","HeaderBackColor","LightSkyBlue")
+'	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_LBS","HeaderBackColor","LightSkyBlue")
+'	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Material","HeaderBackColor","LightSkyBlue")
+'	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Labor","HeaderBackColor","LightSkyBlue")
+'	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Hours","HeaderBackColor","LightSkyBlue")
+'	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Freight","HeaderBackColor","LightSkyBlue")
+'	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Material_Type_Connections","HeaderBackColor","LightSkyBlue")
+'	'Production - LightSalmon
+'	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Amt_Sales","HeaderBackColor","LightSalmon")
+'	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Production_LBS","HeaderBackColor","LightSalmon")
+'	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Amt_Material","HeaderBackColor","LightSalmon")
+'	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Amt_Labor","HeaderBackColor","LightSalmon")
+'	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Num_Hours","HeaderBackColor","LightSalmon")
+'	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Production_Freight","HeaderBackColor","LightSalmon")
+
+	'Estimates - LightCoral
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_Sales","CellBackColor","LightCoral")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_AddDeduct","CellBackColor","LightCoral")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_LBS","CellBackColor","LightCoral")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_MATERIAL","CellBackColor","LightCoral")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_Labor","CellBackColor","LightCoral")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_Hours","CellBackColor","LightCoral")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Estimate_Freight","CellBackColor","LightCoral")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","SalesCodeE","CellBackColor","LightCoral")
+	'ReEstimate - LightSkyBlue
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Sales","CellBackColor","LightSkyBlue")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_LBS","CellBackColor","LightSkyBlue")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Material","CellBackColor","LightSkyBlue")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Labor","CellBackColor","LightSkyBlue")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Hours","CellBackColor","LightSkyBlue")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","ReEstimate_Freight","CellBackColor","LightSkyBlue")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","SalesCodeRE","CellBackColor","LightSkyBlue")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Material_Type_Connections","CellBackColor","LightSkyBlue")
+	'Production - LightSalmon
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Amt_Sales","CellBackColor","LightSalmon")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Production_LBS","CellBackColor","LightSalmon")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Amt_Material","CellBackColor","LightSalmon")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Amt_Labor","CellBackColor","LightSalmon")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Num_Hours","CellBackColor","LightSalmon")
+	Gui.frmWOs.GsGCWOs.SetColumnProperty("gvWOs","Production_Freight","CellBackColor","LightSalmon")
+
+	Gui.frmWOs.GsGCWOs.MainView("gvWOs")
+Program.Sub.LoadGsGCWOs.End
+
+Program.Sub.cmdRefresh_Click.Start
+	V.Global.dStart.Set(v.Screen.frmWOs!dtpBegDt.Value) 
+	V.Global.dEnd.Set(v.Screen.frmWOs!dtpEndDt.Value) 
+
+	F.Intrinsic.Control.If(v.Global.dEnd,<,v.Global.dStart) 
+		F.Intrinsic.UI.Msgbox("Start Date can not be AFTER Ending Date.","Invalid Selection...") 
+		F.Intrinsic.Control.ExitSub 
+	F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.CallSub(cmdrun_click)
+	F.Intrinsic.Control.CallSub(loadgsgcwos)
+Program.Sub.cmdRefresh_Click.End
+
+Program.Sub.cmdExport_Click.Start
+	V.Local.sFileExport.Declare
+	V.Local.bExcel.Declare
+	V.Local.bFileLocked.Declare
+	V.Local.sMsg.Declare
+	v.Local.bEx.Declare(Boolean) 
+	v.Local.sPath.Declare(String) 
+	v.Local.sFQN.Declare(String) 
+	v.Local.sFileName.Declare(String)
+	v.Local.iC.Declare(Long,1) 
+	v.Local.sTemplate.Declare(String) 
+	v.Local.sSpreadsheet.Declare(String) 
+	v.Local.sCols.Declare(String) 
+	v.Local.sV.Declare(String) 
+
+	'Make sure directory exists. 
+	F.Intrinsic.String.Build("{0}\Export",v.Caller.BusintDir,v.Local.sPath) 
+	F.Intrinsic.File.DirExists(v.Local.sPath,v.Local.bEx) 
+	F.Intrinsic.Control.If(v.Local.bEx,=,False) 
+		f.Intrinsic.File.CreateDir(v.Local.sPath) 
+	Function.Intrinsic.Control.EndIf
+
+	F.Intrinsic.String.Build("{0}\JobReview",v.Local.sPath,v.Local.sPath) 
+	F.Intrinsic.File.DirExists(v.Local.sPath,v.Local.bEx) 
+	F.Intrinsic.Control.If(v.Local.bEx,=,False) 
+		f.Intrinsic.File.CreateDir(v.Local.sPath) 
+	Function.Intrinsic.Control.EndIf
+
+	F.Intrinsic.String.Build("Job_Review_Report_{0}.xlsx",v.Ambient.Date,v.Local.sfileName) 
+	F.Intrinsic.File.MakeFileNameFriendlY(v.Local.sFileName,v.Local.sFileName) 
+
+	F.Intrinsic.String.Build("{0}\{1}",v.Local.sPath,v.Local.sFileName,v.Local.sFQN)
+
+	'Make sure that filenameof the same name doesn't exist. If so create new rev on filename. 
+	F.Intrinsic.File.Exists(v.Local.sFQN,v.Local.bEx) 
+	F.Intrinsic.Control.DoUntil(v.Local.bEx,=,False) 
+		F.Intrinsic.String.Build("V{1}_{0}",v.Local.sFileName,v.Local.iC,v.Local.sV) 
+		F.Intrinsic.String.Build("{0}\{1}",v.Local.sPath,v.Local.sV,v.Local.sFQN)
+		F.Intrinsic.File.Exists(v.Local.sFQN,v.Local.bEx) 	
+		f.Intrinsic.Math.Add(v.Local.iC,1,v.Local.iC)
+	F.Intrinsic.Control.Loop 
+
+	F.Automation.MSExcel.CheckPresence(V.Local.bExcel)
+	F.Intrinsic.Control.If(V.Local.bExcel)
+		Gui.frmWOs.GsGCWOs.Export(V.Local.sFQN,"xlsx")
+		F.Intrinsic.Task.ShellExec(0,"",V.Local.sFQN,"","",1)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.UI.Msgbox("Excel is request for Export.","Excel Check")
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+Program.Sub.cmdExport_Click.End
+
+Program.Sub.picGSSLogo_DblClick.Start
+	Gui.frmWeb..Show
+Program.Sub.picGSSLogo_DblClick.End
+
+Program.Sub.frmWeb_UnLoad.Start
+	Gui.frmWeb..Visible(False)
+Program.Sub.frmWeb_UnLoad.End
+
+Program.Sub.cmdGSS_Click.Start
+	F.Intrinsic.Task.ShellExec(0,"Open","http://www.globalshopsolutions.com/","","",0)
+Program.Sub.cmdGSS_Click.End
+
+Program.Sub.cmdServ_Click.Start
+	F.Intrinsic.Task.ShellExec(0,"Open","http://gss-service.com/","","",0)
+Program.Sub.cmdServ_Click.End
+
+Program.Sub.cmdUpd_Click.Start
+	F.Intrinsic.Task.ShellExec(0,"Open","http://gss-updates.com/","","",0)
+Program.Sub.cmdUpd_Click.End
+
+Program.Sub.Comments.Start
+${$0$}$$}$TRT$}$08/22/2016 7:53:07 AM$}$False
+${$3$}$0$}$$}$0$}$-1$}$$}$12:00:00 AM$}$A GAB Script will be created that will compile a spreadsheet that contains Job Estimate, Re-Estimate, and Production information. 
+
+The GAB script will be setup to run nightly on the task scheduler. 
+Default Setup: 
+Frequency: Daily. 
+Start Time: 6:01 PM. 
+
+<I>GS Menu Mode</I> 
+
+A New Mode will also be added to the GAB script that allows the user to run this from a custom menu item within Global Shop Menu. 
+
+This mode will ask the user for a start date and end date. It will be used to pull jobs that have a due date within the specified range. 
+
+**Note: Processing time is dependent upon the length of the date range.
+
+
+The GAB script will compile all information for jobs that are due within the current year. 
+
+The spreadsheet will be saved in the Global\Busint\Export\JobReview directory. 
+
+The spreadsheet file name will be Job_Review_Report_MM_DD_YY.xlsx
+
+The spreadsheet will contain only 1 sheet.
+
+The Spreadsheet will contain the following Columns: 
+Job #
+Spiral/Rect
+Release 
+Job Name
+Job Location 
+Rep
+Rep Contact
+Estimate: 
+-Sales
+-Add/Deduct
+-LBS
+-Material
+-Labor
+-Hours
+-Freight
+RE-Estimate/PO
+-Sales
+-LBS
+-Material
+-Labor
+-Hours
+-Freight
+Material Type, Connections, Etc. 
+Fittings Heavy /Lite
+SW/DW
+Production:
+-Sales
+-LBS
+-Material
+-Labor
+-Hours
+-Freight Cost
+-Profit
+-Margin
+Program.Sub.Comments.End
+
